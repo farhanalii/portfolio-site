@@ -1,0 +1,38 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environments
+venv/
+env/
+
+# Environment variables
+.env
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Test output
+coverage/
+htmlcov/
+*.cover
+.pytest_cache/
+
+# Docker
+*.log
+*.pid
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# Static assets (optional if large)
+app/static/assets/
+

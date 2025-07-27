@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Request, Form
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.templating import Jinja2Templates
 import os, smtplib, ssl
 from email.message import EmailMessage
@@ -12,7 +12,7 @@ templates = Jinja2Templates(directory="app/templates")
 async def read_hoome(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
-
+# Send email on contact form post 
 @router.post("/contact", response_class=HTMLResponse)
 async def contact_submit(
     request: Request,
@@ -41,3 +41,9 @@ async def contact_submit(
         return templates.TemplateResponse("index.html", {"request": request, "success": True})
     except Exception as e:
         return templates.TemplateResponse("index.html", {"request": request, "error": str(e)})
+
+
+# download cv on click
+@router.get("/download-cv")
+async def download_cv():
+    return FileResponse("app/static/cv/Muhammad_Farhan_CV.pdf", filename="Muhammad_Farhan_CV.pdf")

@@ -1,12 +1,16 @@
-<html><head>
-<meta charset="utf-8"/>
-<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
-<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700&amp;family=Space+Mono%3Awght%40400" onload="this.rel='stylesheet'" rel="stylesheet"/>
-<title>Stitch Design</title>
-<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<style type="text/tailwindcss">
-      :root {
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+  <link as="style"
+    href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700&amp;family=Space+Mono%3Awght%40400"
+    onload="this.rel='stylesheet'" rel="stylesheet" />
+  <title>Stitch Design</title>
+  <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <style type="text/tailwindcss">
+    :root {
         --primary: #0c70f2;
         --dark-blue: #0a192f;
         --slate-gray: #8892b0;
@@ -20,200 +24,292 @@
         font-family: 'Space Mono', monospace;
       }
     </style>
-<style>
+  <style>
     body {
       min-height: max(884px, 100dvh);
     }
   </style>
-  </head>
+</head>
+
 <body class="bg-white text-slate-800">
-<div class="relative flex size-full min-h-screen flex-col justify-between group/design-root overflow-x-hidden">
-<div class="bg-white">
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm shadow-md">
-<div class="container mx-auto px-4">
-<div class="flex items-center justify-between h-20">
-<div class="flex items-center space-x-4">
-<a class="text-2xl font-bold text-[var(--dark-blue)]" href="#">MF</a>
-<div class="hidden md:flex flex-col">
-<span class="text-lg font-bold text-[var(--dark-blue)]">Muhammad Farhan</span>
-<span class="text-sm text-[var(--slate-gray)]">Senior Python/Odoo Developer</span>
-</div>
-</div>
-<button class="md:hidden flex items-center justify-center rounded-lg h-12 w-12 bg-transparent text-[var(--dark-blue)]">
-<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
-<path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path>
-</svg>
-</button>
-<nav class="hidden md:flex space-x-8 text-sm font-medium text-[var(--slate-gray)]">
-<a class="hover:text-[var(--primary)] transition-colors" href="#about">About</a>
-<a class="hover:text-[var(--primary)] transition-colors" href="#tech">Tech Stack</a>
-<a class="hover:text-[var(--primary)] transition-colors" href="#projects">Projects</a>
-<a class="hover:text-[var(--primary)] transition-colors" href="#contact">Contact</a>
-</nav>
-</div>
-</div>
-</header>
-<main class="pt-20">
+  <div class="relative flex size-full min-h-screen flex-col justify-between group/design-root overflow-x-hidden">
+    <div class="bg-white">
+      <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm shadow-md">
+        <div class="container mx-auto px-4">
+          <div class="flex items-center justify-between h-20">
+            <div class="flex items-center space-x-4">
+              <a class="text-2xl font-bold text-[var(--dark-blue)]" href="#">MF</a>
+              <div class="hidden md:flex flex-col">
+                <span class="text-lg font-bold text-[var(--dark-blue)]">Muhammad Farhan</span>
+                <span class="text-sm text-[var(--slate-gray)]">Senior Python/Odoo Developer</span>
+              </div>
+            </div>
+            <button
+              class="md:hidden flex items-center justify-center rounded-lg h-12 w-12 bg-transparent text-[var(--dark-blue)]">
+              <svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z">
+                </path>
+              </svg>
+            </button>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-[var(--slate-gray)]">
+              <a class="hover:text-[var(--primary)] transition-colors" href="#about">About</a>
+              <a class="hover:text-[var(--primary)] transition-colors" href="#tech">Tech Stack</a>
+              <a class="hover:text-[var(--primary)] transition-colors" href="#projects">Projects</a>
+              <a class="hover:text-[var(--primary)] transition-colors" href="#contact">Contact</a>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <main class="pt-20">
 
-<!-- Hero Section -->
-<section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-    <div class="flex flex-col gap-6 text-center md:text-left">
-      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-[var(--dark-blue)]">
-        Experienced Python Developer building robust backend systems
-      </h1>
-      <p class="text-lg text-[var(--slate-gray)] max-w-2xl mx-auto md:mx-0">
-        Specializing in Odoo, Flask, and FastAPI microservices development.
-      </p>
-      <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-        <a class="inline-block bg-[var(--primary)] text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-opacity-90 transition-all" href="#projects">
-          View My Work
-        </a>
-        <a class="inline-block border-2 border-[var(--primary)] text-[var(--primary)] font-bold py-3 px-6 rounded-lg hover:bg-[var(--primary)] hover:text-white transition-all" href="#contact">
-          Contact Me
-        </a>
-      </div>
+        <!-- Hero Section -->
+        <section class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="flex flex-col gap-6 text-center md:text-left">
+              <h1 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-[var(--dark-blue)]">
+                Experienced Python Developer building robust backend systems
+              </h1>
+              <p class="text-lg text-[var(--slate-gray)] max-w-2xl mx-auto md:mx-0">
+                Specializing in Odoo, Flask, and FastAPI microservices development.
+              </p>
+              <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                <a class="inline-block bg-[var(--primary)] text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-opacity-90 transition-all"
+                  href="#projects">
+                  View My Work
+                </a>
+                <a class="inline-block border-2 border-[var(--primary)] text-[var(--primary)] font-bold py-3 px-6 rounded-lg hover:bg-[var(--primary)] hover:text-white transition-all"
+                  href="#contact">
+                  Contact Me
+                </a>
+              </div>
+            </div>
+            <div class="flex justify-center md:justify-end">
+              <div
+                class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-xl border-4 border-white bg-gray-100">
+                <img alt="Muhammad Farhan - Python Developer" class="w-full h-full object-cover"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPnr4yb4B5j7RoC3xP_aYriJNYI46oD-S47omAxMpBPxvm-ZYEyucadKm9W6Qr43Zu2x2UVuDtk9dO57saY7VrZpowuiopM-NuByxxQzjR5bfNnN3taAsC5pSizDjZ4-Y-kgwgUCAsH0NroooP78QIlvADNdnQnRYbAyYlzSVtuioyIGlNHL7cnEQ86_jBy4kqsPya_SW7BG1KrkZ2zNuNF5sDGCYl_PpG9A0WwreXvFxvASeF_GrKyGXNLykZmME-Gcqw79CP4xKr" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="py-20 px-4 bg-slate-50" id="about">
+          <div class="container mx-auto grid md:grid-cols-5 gap-12 items-center">
+            <div class="md:col-span-2">
+              <div class="w-full aspect-square rounded-lg bg-cover bg-center shadow-lg"
+                style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB-jlvyAa4uhcCKemGjFGrAVM_JFKGoTPMi-wg1t6t8xkQJmDtbjuBG5W5Xs9Z8plauDG7p1wqUoFAxgmAlL7ZGEei_ki7BOMYTUYwQB0Bt7Ysc2bcibA_f39QQYsu3b-PkL8kH4J5qBljhU8pm-o65f3I3z0R9ah76QmpWbmlBSwxTNBVmd-0EzvCudHUEkb4VliRGizoNu3ied8GdLxyo7avxI2pZBi5eHIsMNspxXlwRn-p0f97-81kL5DvNAC28E0kZAdjY8wUF");'>
+              </div>
+            </div>
+            <div class="md:col-span-3">
+              <h2 class="text-3xl font-bold text-[var(--dark-blue)] mb-4">About Me</h2>
+              <p class="text-[var(--slate-gray)] mb-6">
+                I'm a senior software engineer specializing in Python development, with a strong focus on backend
+                systems and microservices. My expertise includes working with Odoo, Flask, and FastAPI to create
+                scalable and efficient applications. I'm passionate about clean code, continuous integration, and
+                delivering high-quality solutions.
+              </p>
+              <p class="font-mono text-[var(--dark-blue)] mb-6">Key Skills: Python, Odoo, Flask, CI/CD, Docker</p>
+              <a class="inline-block border-2 border-[var(--primary)] text-[var(--primary)] font-semibold py-3 px-8 rounded-md hover:bg-[var(--primary)] hover:text-white transition-colors"
+                href="#">Download CV</a>
+            </div>
+          </div>
+        </section>
+        <section class="py-20 px-4" id="tech">
+          <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-[var(--dark-blue)] text-center mb-12">My Tech Stack</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+              <div
+                class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+                <img alt="Python" class="h-16 w-16 mb-4"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrpxTq1H43wwbnzMKkai-B-3hCLEMq0WXjku5fVcocb3FLChd0eLSG0u9SZKVHK3xwObniOUDRyVXwQfD1TKZsFdOSMXIb5oJjaajxYoLkTzd4hPS0yGhw-dGfp6FuV4Uki6OsH5ED11zBr9fcITrAHExA7--FHTdNwxRHfbJ8SMSaXfbCz3-5-BmqPYeiRFULcfIr5Kz4mcmfLEQnfVFfPWOikaPJAIAJFl9zBB4P0l7oA7UhKwoZADXsNyvKt-y58Q7mnB0PJFyo" />
+                <span class="font-semibold text-[var(--dark-blue)]">Python</span>
+              </div>
+              <div
+                class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+                <img alt="Flask" class="h-16 w-16 mb-4"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJz2mDFnhFYoAlJSjAGZ5_2C68HmaKmjNGkufRw7fb9bhbkeBX--jNPn8v-NTsGlAO8WkTE3c_O1KzUFQerALDbEZ1jY_ZV2xKVJdi9pEcvRJNZ3d2MjEbhCcPyxupeyBJ_V16uDl7dFAxqoql7fFqnPzbdSMYlEnh0ecJVgLuhFU-blSYz1fRlU-rPgGoQVNZX0NxA7AfYPm7Gp37dTlz0G-iuL1brxuk3yn-E_ysAYsR7hLD-he-O8jBIjoCQt32iEn3RcsE3M1Q" />
+                <span class="font-semibold text-[var(--dark-blue)]">Flask</span>
+              </div>
+              <div
+                class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+                <img alt="Odoo" class="h-16 w-16 mb-4"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYj7MkwM7cJugaAxFlMTUI1ebCMQwFqp8t8bUqCsVhFMonajeoGUrEBTgEQL5FdA_1nY10c3-lnjvjYaIPppWKJHCE10uhhD1rsGE9L8T7HmODNZckWOgCcVpE96LtzEodyw17Fnax4royAXX955sh2jAgBu0UHwVsz6d5Kt7bg1Hcl0fvvlatkkdSXG3Msfmz2b2eEX_gnz9ijri1qANpdBWcvc3sNW7SEmewYyB4rhbI7MSS2Q5CHrk8Q9-JPQk5iwv_uymVXA2C" />
+                <span class="font-semibold text-[var(--dark-blue)]">Odoo</span>
+              </div>
+              <div
+                class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+                <img alt="FastAPI" class="h-16 w-16 mb-4"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuB351qUY8Xr1xPqE1vUeKJ2_-Ijj4eCL_y-S3mSM-Tn_Btlu6s8SBCDh5qklEsizj5bEKbVj-APOy0kQRiNwpx_9_U0UR98kbLCIzWr5nga4_I2XzMyvFYzbEE8vDzHotpozMfILsXkJDQ6U70XQtFiLT5QloGbu0cg972qpLKqc6hp1olOd_oOPiJoPTQTyulB25ip8SJVQNEL-tIr3pG49Ab9I_zhcZoVLf6cPkHrQAQG25twuMlxMxcvniQqPCsgK0lFdSDIvMb9" />
+                <span class="font-semibold text-[var(--dark-blue)]">FastAPI</span>
+              </div>
+              <div
+                class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+                <img alt="PostgreSQL" class="h-16 w-16 mb-4"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcp2goBkJj3ihH0hA5-KRCJO4q_JpteBPAMBoATxnnzwbxxzYdjAc0QNIA2FCJLYFiN-9FORtApDfUwbXUrN_SI20nuBUPFLgC_EZAq_ohiQN4x_gkgTwp8qKegVOnLqjNXWbz1GgOdJB-nDXG4r2VAMeW5xqfK8r0ZEIEq94NLImRJfzPt0fzDDZhXlKko2ytgruszzEetM2RgdaCuHVqphF1c3r4r31wk_MzcrRxNiQwj0x3KYvY7T6UFq2eKiL8A0grwClTCy6Q" />
+                <span class="font-semibold text-[var(--dark-blue)]">PostgreSQL</span>
+              </div>
+              <div
+                class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+                <img alt="Docker" class="h-16 w-16 mb-4"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuC3cBKJzt3-KIqfOzYi4k20DOvaRnPwIi_Y67WHG1jfHqP3gk4SjnW7wIiQ9PEYBlz4nsAGpXbe2aYPINh646plBV88oX5a8vg0GHExwjHGzOc3zpCBB5ZGxzMBeaqlXYiZ9jTWGdwAdofeOdUJY7Hgb9wPjGblhgKz2iY4UeW3f7Dhc-ug_kY860pg2rBlQY4VAPfSO922zn2nVFAJCJK1FSjkigCjC80QBOuLt_xygmcdQjDoWW1Yb1SngrqhFjHmyNkDf1bVcl" />
+                <span class="font-semibold text-[var(--dark-blue)]">Docker</span>
+              </div>
+              <div
+                class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+                <img alt="AWS" class="h-16 w-16 mb-4"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3R7Gp_VUztzjBj-8n-aNHVrNYA7amGOX7lZbzS_5k_MzCa144LPxIxos5uhK6VUcNqe9Zsx17EW9_JrwkL-qWhalhi931_Bn_vrlKNxSuR4_AMg3mSKZvgU9-oVFNbM0azVX35zZ9S5-Job3A_5rJLeJWSCazFshLbfpR3xNTpWDQKiXw1hR0xesAtTQP9byZisDTRYWEh1oBYOyKBjq3dTxlklsD_rF9v6HzHuF_t4awdabYUxNCv4Z-cNK-p6iJyqMp1zsbdw33" />
+                <span class="font-semibold text-[var(--dark-blue)]">AWS</span>
+              </div>
+              <div
+                class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+                <img alt="Git" class="h-16 w-16 mb-4"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg-Fg4oTVQ0ShnZJfOCulIil9QANw0hCmqQb8Q2RF15QgegZWyT4qT8CbxTDwhk4BAWIXPDmuu4Q8KZVcRdXqQHmcokJEiaedpKEK8-8KI8D-C3u0jJNh_4WfiroBp1eoRJX8RGaCtCcAAQrMuwO-W4kPzaegfNQlFbhz8NE2CS2AV-htsCqQB-fwKoZ1ptqZhcsgC10rl7CwYOiOBM2CbxDSY41re_72PFczYW1I3xOwscTUMPRDfOUYyJbVcnvynBOI5QldvHjv2" />
+                <span class="font-semibold text-[var(--dark-blue)]">Git</span>
+              </div>
+              <div
+                class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
+                <img alt="GitHub Actions" class="h-16 w-16 mb-4"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgaP96h3UScZc_6jveIAoeQZDFsEBH22OlkyKb7gzaqkfYgnc-PqD-IcPBLHhXDVqIyivYiYeoZ-sK-5CH_8o3So7MNPBC4ONXh84dVm8dbkoDXVUYr_Swlaz1M-ZifKEK2iQmswi57dtDcfGKCIPBt1OkgkbNFoiDn595c7mXdG7rrlegrsTKambA_I0U8mOtIeR-ix2lMWsJnKNPEjeh6u9pLj5N0yGq1rn5K-wafH54sTtW1bW5_7fUdDc3iWi0vYGtIoxxwpew" />
+                <span class="font-semibold text-center text-[var(--dark-blue)]">GitHub Actions</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="py-20 px-4 bg-slate-50" id="projects">
+          <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-[var(--dark-blue)] text-center mb-12">My Projects</h2>
+            <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+              <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                <div class="relative h-56 bg-cover bg-center"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCJ8UAGSK8oi0nOFp2FptBhbXO1aqGSjxIdOAOPQQwwhQibZsGE5b6WX4d6AwA6qXAo6SG_Oe2hc7nUdS2aowd46Rbnld4HSxZHgBtttKJDFK0inEogi-uoYHuRT1Poiuim3nyfgpBFTc2Go0N10F-U4WVXlzv0weZUZDswZKJNzrLBc-LzBTVFXyyx5BPQc2p-mhWOxUrHby4bisRZkvUaKmd9dEnneXPLl7Lvj4et0vYNsK_Vl-q1faqHtBVXQO2NnksoSNEbu_1B");'>
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold text-[var(--dark-blue)] mb-2">E-commerce Platform</h3>
+                  <p class="text-[var(--slate-gray)] mb-4">Developed a scalable e-commerce platform with Odoo,
+                    integrating payment gateways and inventory management.</p>
+                  <div class="flex items-center space-x-2 font-mono text-sm text-[var(--slate-gray)] mb-4">
+                    <span>Odoo</span><span>-</span><span>Python</span><span>-</span><span>PostgreSQL</span>
+                  </div>
+                  <a class="inline-flex items-center text-[var(--primary)] font-semibold group-hover:underline"
+                    href="#">View Project <svg
+                      class="h-5 w-5 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none"
+                      stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2"></path>
+                    </svg></a>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                <div class="relative h-56 bg-cover bg-center"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCYmpMQHBbMcH4l_PBXxe0VkGyv3hx9n1z8igSG53n3aq_OrHXm3Ms2VdpWRcnffV2ZIH9peozosFbl8KJlqABENziLpNKG7uubD-f9oiTfnr3D1uC8h0l6PwUTorIVc2Ngmy1TYsdAimBcvQtYSzvzcetOpiqIRNqG7eMrGnpZvXMKPnlOc8nGT8yFxIOa1xVu3ZQdvdBRpxp1O0cBqleLhYrdvwi2K9FVaovq_yU3w1W6_5UQ0K76eXvRkSYRf2RUjz3eITNlI8GM");'>
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold text-[var(--dark-blue)] mb-2">API for Mobile App</h3>
+                  <p class="text-[var(--slate-gray)] mb-4">Built a RESTful API using Flask to support a mobile
+                    application, focusing on performance and security.</p>
+                  <div class="flex items-center space-x-2 font-mono text-sm text-[var(--slate-gray)] mb-4">
+                    <span>Flask</span><span>-</span><span>Python</span><span>-</span><span>JWT</span>
+                  </div>
+                  <a class="inline-flex items-center text-[var(--primary)] font-semibold group-hover:underline"
+                    href="#">View Project <svg
+                      class="h-5 w-5 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none"
+                      stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2"></path>
+                    </svg></a>
+                </div>
+              </div>
+              <div class="bg-white rounded-lg shadow-lg overflow-hidden group">
+                <div class="relative h-56 bg-cover bg-center"
+                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCwWhh5SNVPtzwzvf1w_fhNQbDEDAvuTXyjo6-wQccMfteLggRvhfX3UPZmaItbQb9q27SN1JCL_M-Cx_jGhs3rejVu0x0a84WcDXfgbyJb-xe6Fixxrnee0Kej96rpF4u3h8uCKGJhu6Wuxh8Fdwf8LFg21WlIJKqfdMIrJLXdtoVx9ZLgS_Ycxsz3A-mWGPuOiX8WGZSk-CJROGRFAEltZK1VvnlHDa3JZAJJpIjmY7i_bxpj_Bxc367yQXKvF3WGd0fjj7eeEjPP");'>
+                </div>
+                <div class="p-6">
+                  <h3 class="text-xl font-bold text-[var(--dark-blue)] mb-2">Data Pipeline</h3>
+                  <p class="text-[var(--slate-gray)] mb-4">Designed and implemented a data pipeline with FastAPI to
+                    process and analyze large datasets in real-time.</p>
+                  <div class="flex items-center space-x-2 font-mono text-sm text-[var(--slate-gray)] mb-4">
+                    <span>FastAPI</span><span>-</span><span>Docker</span><span>-</span><span>AWS</span>
+                  </div>
+                  <a class="inline-flex items-center text-[var(--primary)] font-semibold group-hover:underline"
+                    href="#">View Project <svg
+                      class="h-5 w-5 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none"
+                      stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2"></path>
+                    </svg></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="py-20 px-4" id="contact">
+          <div class="container mx-auto max-w-2xl text-center">
+            <h2 class="text-3xl font-bold text-[var(--dark-blue)] mb-4">Get In Touch</h2>
+            <p class="text-[var(--slate-gray)] mb-8">I'm currently open to new opportunities. Whether you have a
+              question or just want to say hi, I'll try my best to get back to you!</p>
+
+            {% if success %}
+            <p class="text-green-600 font-semibold">Message sent successfully!</p>
+            {% elif error %}
+            <p class="text-red-600 font-semibold">Error: {{ error }}</p>
+            {% endif %}
+
+            <form method="post" action="/contact" class="space-y-6">
+              <div class="flex flex-col md:flex-row gap-6">
+                <input
+                  class="form-input w-full p-4 rounded-md border-[var(--light-gray)] focus:ring-[var(--primary)] focus:border-[var(--primary)] transition"
+                  placeholder="Your Name" type="text" />
+                <input
+                  class="form-input w-full p-4 rounded-md border-[var(--light-gray)] focus:ring-[var(--primary)] focus:border-[var(--primary)] transition"
+                  placeholder="Your Email" type="email" />
+              </div>
+              <textarea
+                class="form-textarea w-full p-4 rounded-md border-[var(--light-gray)] focus:ring-[var(--primary)] focus:border-[var(--primary)] transition"
+                placeholder="Your Message" rows="5"></textarea>
+              <button
+                class="bg-[var(--primary)] text-white font-semibold py-3 px-8 rounded-md hover:bg-blue-700 transition-colors shadow-lg"
+                type="submit">Send Message</button>
+            </form>
+
+          </div>
+        </section>
+      </main>
     </div>
-    <div class="flex justify-center md:justify-end">
-      <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-xl border-4 border-white bg-gray-100">
-        <img alt="Muhammad Farhan - Python Developer" 
-             class="w-full h-full object-cover" 
-             src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPnr4yb4B5j7RoC3xP_aYriJNYI46oD-S47omAxMpBPxvm-ZYEyucadKm9W6Qr43Zu2x2UVuDtk9dO57saY7VrZpowuiopM-NuByxxQzjR5bfNnN3taAsC5pSizDjZ4-Y-kgwgUCAsH0NroooP78QIlvADNdnQnRYbAyYlzSVtuioyIGlNHL7cnEQ86_jBy4kqsPya_SW7BG1KrkZ2zNuNF5sDGCYl_PpG9A0WwreXvFxvASeF_GrKyGXNLykZmME-Gcqw79CP4xKr"/>
+    <footer class="bg-[var(--dark-blue)] text-[var(--slate-gray)] py-12 px-4">
+      <div class="container mx-auto flex flex-col items-center">
+        <div class="flex space-x-6 mb-6">
+          <a class="hover:text-white transition-colors" href="#">
+            <svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z">
+              </path>
+            </svg>
+          </a>
+          <a class="hover:text-white transition-colors" href="#">
+            <svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z">
+              </path>
+            </svg>
+          </a>
+          <a class="hover:text-white transition-colors" href="#">
+            <svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z">
+              </path>
+            </svg>
+          </a>
+        </div>
+        <p class="font-mono text-sm">© 2024 Muhammad Farhan. All rights reserved.</p>
       </div>
-    </div>
+    </footer>
   </div>
-</section>
 
-<section class="py-20 px-4 bg-slate-50" id="about">
-<div class="container mx-auto grid md:grid-cols-5 gap-12 items-center">
-<div class="md:col-span-2">
-<div class="w-full aspect-square rounded-lg bg-cover bg-center shadow-lg" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB-jlvyAa4uhcCKemGjFGrAVM_JFKGoTPMi-wg1t6t8xkQJmDtbjuBG5W5Xs9Z8plauDG7p1wqUoFAxgmAlL7ZGEei_ki7BOMYTUYwQB0Bt7Ysc2bcibA_f39QQYsu3b-PkL8kH4J5qBljhU8pm-o65f3I3z0R9ah76QmpWbmlBSwxTNBVmd-0EzvCudHUEkb4VliRGizoNu3ied8GdLxyo7avxI2pZBi5eHIsMNspxXlwRn-p0f97-81kL5DvNAC28E0kZAdjY8wUF");'></div>
-</div>
-<div class="md:col-span-3">
-<h2 class="text-3xl font-bold text-[var(--dark-blue)] mb-4">About Me</h2>
-<p class="text-[var(--slate-gray)] mb-6">
-                  I'm a senior software engineer specializing in Python development, with a strong focus on backend systems and microservices. My expertise includes working with Odoo, Flask, and FastAPI to create scalable and efficient applications. I'm passionate about clean code, continuous integration, and delivering high-quality solutions.
-                </p>
-<p class="font-mono text-[var(--dark-blue)] mb-6">Key Skills: Python, Odoo, Flask, CI/CD, Docker</p>
-<a class="inline-block border-2 border-[var(--primary)] text-[var(--primary)] font-semibold py-3 px-8 rounded-md hover:bg-[var(--primary)] hover:text-white transition-colors" href="#">Download CV</a>
-</div>
-</div>
-</section>
-<section class="py-20 px-4" id="tech">
-<div class="container mx-auto">
-<h2 class="text-3xl font-bold text-[var(--dark-blue)] text-center mb-12">My Tech Stack</h2>
-<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
-<div class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
-<img alt="Python" class="h-16 w-16 mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrpxTq1H43wwbnzMKkai-B-3hCLEMq0WXjku5fVcocb3FLChd0eLSG0u9SZKVHK3xwObniOUDRyVXwQfD1TKZsFdOSMXIb5oJjaajxYoLkTzd4hPS0yGhw-dGfp6FuV4Uki6OsH5ED11zBr9fcITrAHExA7--FHTdNwxRHfbJ8SMSaXfbCz3-5-BmqPYeiRFULcfIr5Kz4mcmfLEQnfVFfPWOikaPJAIAJFl9zBB4P0l7oA7UhKwoZADXsNyvKt-y58Q7mnB0PJFyo"/>
-<span class="font-semibold text-[var(--dark-blue)]">Python</span>
-</div>
-<div class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
-<img alt="Flask" class="h-16 w-16 mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJz2mDFnhFYoAlJSjAGZ5_2C68HmaKmjNGkufRw7fb9bhbkeBX--jNPn8v-NTsGlAO8WkTE3c_O1KzUFQerALDbEZ1jY_ZV2xKVJdi9pEcvRJNZ3d2MjEbhCcPyxupeyBJ_V16uDl7dFAxqoql7fFqnPzbdSMYlEnh0ecJVgLuhFU-blSYz1fRlU-rPgGoQVNZX0NxA7AfYPm7Gp37dTlz0G-iuL1brxuk3yn-E_ysAYsR7hLD-he-O8jBIjoCQt32iEn3RcsE3M1Q"/>
-<span class="font-semibold text-[var(--dark-blue)]">Flask</span>
-</div>
-<div class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
-<img alt="Odoo" class="h-16 w-16 mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYj7MkwM7cJugaAxFlMTUI1ebCMQwFqp8t8bUqCsVhFMonajeoGUrEBTgEQL5FdA_1nY10c3-lnjvjYaIPppWKJHCE10uhhD1rsGE9L8T7HmODNZckWOgCcVpE96LtzEodyw17Fnax4royAXX955sh2jAgBu0UHwVsz6d5Kt7bg1Hcl0fvvlatkkdSXG3Msfmz2b2eEX_gnz9ijri1qANpdBWcvc3sNW7SEmewYyB4rhbI7MSS2Q5CHrk8Q9-JPQk5iwv_uymVXA2C"/>
-<span class="font-semibold text-[var(--dark-blue)]">Odoo</span>
-</div>
-<div class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
-<img alt="FastAPI" class="h-16 w-16 mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB351qUY8Xr1xPqE1vUeKJ2_-Ijj4eCL_y-S3mSM-Tn_Btlu6s8SBCDh5qklEsizj5bEKbVj-APOy0kQRiNwpx_9_U0UR98kbLCIzWr5nga4_I2XzMyvFYzbEE8vDzHotpozMfILsXkJDQ6U70XQtFiLT5QloGbu0cg972qpLKqc6hp1olOd_oOPiJoPTQTyulB25ip8SJVQNEL-tIr3pG49Ab9I_zhcZoVLf6cPkHrQAQG25twuMlxMxcvniQqPCsgK0lFdSDIvMb9"/>
-<span class="font-semibold text-[var(--dark-blue)]">FastAPI</span>
-</div>
-<div class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
-<img alt="PostgreSQL" class="h-16 w-16 mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcp2goBkJj3ihH0hA5-KRCJO4q_JpteBPAMBoATxnnzwbxxzYdjAc0QNIA2FCJLYFiN-9FORtApDfUwbXUrN_SI20nuBUPFLgC_EZAq_ohiQN4x_gkgTwp8qKegVOnLqjNXWbz1GgOdJB-nDXG4r2VAMeW5xqfK8r0ZEIEq94NLImRJfzPt0fzDDZhXlKko2ytgruszzEetM2RgdaCuHVqphF1c3r4r31wk_MzcrRxNiQwj0x3KYvY7T6UFq2eKiL8A0grwClTCy6Q"/>
-<span class="font-semibold text-[var(--dark-blue)]">PostgreSQL</span>
-</div>
-<div class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
-<img alt="Docker" class="h-16 w-16 mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuC3cBKJzt3-KIqfOzYi4k20DOvaRnPwIi_Y67WHG1jfHqP3gk4SjnW7wIiQ9PEYBlz4nsAGpXbe2aYPINh646plBV88oX5a8vg0GHExwjHGzOc3zpCBB5ZGxzMBeaqlXYiZ9jTWGdwAdofeOdUJY7Hgb9wPjGblhgKz2iY4UeW3f7Dhc-ug_kY860pg2rBlQY4VAPfSO922zn2nVFAJCJK1FSjkigCjC80QBOuLt_xygmcdQjDoWW1Yb1SngrqhFjHmyNkDf1bVcl"/>
-<span class="font-semibold text-[var(--dark-blue)]">Docker</span>
-</div>
-<div class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
-<img alt="AWS" class="h-16 w-16 mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3R7Gp_VUztzjBj-8n-aNHVrNYA7amGOX7lZbzS_5k_MzCa144LPxIxos5uhK6VUcNqe9Zsx17EW9_JrwkL-qWhalhi931_Bn_vrlKNxSuR4_AMg3mSKZvgU9-oVFNbM0azVX35zZ9S5-Job3A_5rJLeJWSCazFshLbfpR3xNTpWDQKiXw1hR0xesAtTQP9byZisDTRYWEh1oBYOyKBjq3dTxlklsD_rF9v6HzHuF_t4awdabYUxNCv4Z-cNK-p6iJyqMp1zsbdw33"/>
-<span class="font-semibold text-[var(--dark-blue)]">AWS</span>
-</div>
-<div class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
-<img alt="Git" class="h-16 w-16 mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg-Fg4oTVQ0ShnZJfOCulIil9QANw0hCmqQb8Q2RF15QgegZWyT4qT8CbxTDwhk4BAWIXPDmuu4Q8KZVcRdXqQHmcokJEiaedpKEK8-8KI8D-C3u0jJNh_4WfiroBp1eoRJX8RGaCtCcAAQrMuwO-W4kPzaegfNQlFbhz8NE2CS2AV-htsCqQB-fwKoZ1ptqZhcsgC10rl7CwYOiOBM2CbxDSY41re_72PFczYW1I3xOwscTUMPRDfOUYyJbVcnvynBOI5QldvHjv2"/>
-<span class="font-semibold text-[var(--dark-blue)]">Git</span>
-</div>
-<div class="flex flex-col items-center justify-center p-6 bg-slate-50 rounded-lg shadow-sm hover:shadow-lg transition-shadow">
-<img alt="GitHub Actions" class="h-16 w-16 mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgaP96h3UScZc_6jveIAoeQZDFsEBH22OlkyKb7gzaqkfYgnc-PqD-IcPBLHhXDVqIyivYiYeoZ-sK-5CH_8o3So7MNPBC4ONXh84dVm8dbkoDXVUYr_Swlaz1M-ZifKEK2iQmswi57dtDcfGKCIPBt1OkgkbNFoiDn595c7mXdG7rrlegrsTKambA_I0U8mOtIeR-ix2lMWsJnKNPEjeh6u9pLj5N0yGq1rn5K-wafH54sTtW1bW5_7fUdDc3iWi0vYGtIoxxwpew"/>
-<span class="font-semibold text-center text-[var(--dark-blue)]">GitHub Actions</span>
-</div>
-</div>
-</div>
-</section>
-<section class="py-20 px-4 bg-slate-50" id="projects">
-<div class="container mx-auto">
-<h2 class="text-3xl font-bold text-[var(--dark-blue)] text-center mb-12">My Projects</h2>
-<div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
-<div class="bg-white rounded-lg shadow-lg overflow-hidden group">
-<div class="relative h-56 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCJ8UAGSK8oi0nOFp2FptBhbXO1aqGSjxIdOAOPQQwwhQibZsGE5b6WX4d6AwA6qXAo6SG_Oe2hc7nUdS2aowd46Rbnld4HSxZHgBtttKJDFK0inEogi-uoYHuRT1Poiuim3nyfgpBFTc2Go0N10F-U4WVXlzv0weZUZDswZKJNzrLBc-LzBTVFXyyx5BPQc2p-mhWOxUrHby4bisRZkvUaKmd9dEnneXPLl7Lvj4et0vYNsK_Vl-q1faqHtBVXQO2NnksoSNEbu_1B");'></div>
-<div class="p-6">
-<h3 class="text-xl font-bold text-[var(--dark-blue)] mb-2">E-commerce Platform</h3>
-<p class="text-[var(--slate-gray)] mb-4">Developed a scalable e-commerce platform with Odoo, integrating payment gateways and inventory management.</p>
-<div class="flex items-center space-x-2 font-mono text-sm text-[var(--slate-gray)] mb-4">
-<span>Odoo</span><span>-</span><span>Python</span><span>-</span><span>PostgreSQL</span>
-</div>
-<a class="inline-flex items-center text-[var(--primary)] font-semibold group-hover:underline" href="#">View Project <svg class="h-5 w-5 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></a>
-</div>
-</div>
-<div class="bg-white rounded-lg shadow-lg overflow-hidden group">
-<div class="relative h-56 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCYmpMQHBbMcH4l_PBXxe0VkGyv3hx9n1z8igSG53n3aq_OrHXm3Ms2VdpWRcnffV2ZIH9peozosFbl8KJlqABENziLpNKG7uubD-f9oiTfnr3D1uC8h0l6PwUTorIVc2Ngmy1TYsdAimBcvQtYSzvzcetOpiqIRNqG7eMrGnpZvXMKPnlOc8nGT8yFxIOa1xVu3ZQdvdBRpxp1O0cBqleLhYrdvwi2K9FVaovq_yU3w1W6_5UQ0K76eXvRkSYRf2RUjz3eITNlI8GM");'></div>
-<div class="p-6">
-<h3 class="text-xl font-bold text-[var(--dark-blue)] mb-2">API for Mobile App</h3>
-<p class="text-[var(--slate-gray)] mb-4">Built a RESTful API using Flask to support a mobile application, focusing on performance and security.</p>
-<div class="flex items-center space-x-2 font-mono text-sm text-[var(--slate-gray)] mb-4">
-<span>Flask</span><span>-</span><span>Python</span><span>-</span><span>JWT</span>
-</div>
-<a class="inline-flex items-center text-[var(--primary)] font-semibold group-hover:underline" href="#">View Project <svg class="h-5 w-5 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></a>
-</div>
-</div>
-<div class="bg-white rounded-lg shadow-lg overflow-hidden group">
-<div class="relative h-56 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCwWhh5SNVPtzwzvf1w_fhNQbDEDAvuTXyjo6-wQccMfteLggRvhfX3UPZmaItbQb9q27SN1JCL_M-Cx_jGhs3rejVu0x0a84WcDXfgbyJb-xe6Fixxrnee0Kej96rpF4u3h8uCKGJhu6Wuxh8Fdwf8LFg21WlIJKqfdMIrJLXdtoVx9ZLgS_Ycxsz3A-mWGPuOiX8WGZSk-CJROGRFAEltZK1VvnlHDa3JZAJJpIjmY7i_bxpj_Bxc367yQXKvF3WGd0fjj7eeEjPP");'></div>
-<div class="p-6">
-<h3 class="text-xl font-bold text-[var(--dark-blue)] mb-2">Data Pipeline</h3>
-<p class="text-[var(--slate-gray)] mb-4">Designed and implemented a data pipeline with FastAPI to process and analyze large datasets in real-time.</p>
-<div class="flex items-center space-x-2 font-mono text-sm text-[var(--slate-gray)] mb-4">
-<span>FastAPI</span><span>-</span><span>Docker</span><span>-</span><span>AWS</span>
-</div>
-<a class="inline-flex items-center text-[var(--primary)] font-semibold group-hover:underline" href="#">View Project <svg class="h-5 w-5 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg></a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="py-20 px-4" id="contact">
-<div class="container mx-auto max-w-2xl text-center">
-<h2 class="text-3xl font-bold text-[var(--dark-blue)] mb-4">Get In Touch</h2>
-<p class="text-[var(--slate-gray)] mb-8">I'm currently open to new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
-<form class="space-y-6">
-<div class="flex flex-col md:flex-row gap-6">
-<input class="form-input w-full p-4 rounded-md border-[var(--light-gray)] focus:ring-[var(--primary)] focus:border-[var(--primary)] transition" placeholder="Your Name" type="text"/>
-<input class="form-input w-full p-4 rounded-md border-[var(--light-gray)] focus:ring-[var(--primary)] focus:border-[var(--primary)] transition" placeholder="Your Email" type="email"/>
-</div>
-<textarea class="form-textarea w-full p-4 rounded-md border-[var(--light-gray)] focus:ring-[var(--primary)] focus:border-[var(--primary)] transition" placeholder="Your Message" rows="5"></textarea>
-<button class="bg-[var(--primary)] text-white font-semibold py-3 px-8 rounded-md hover:bg-blue-700 transition-colors shadow-lg" type="submit">Send Message</button>
-</form>
-</div>
-</section>
-</main>
-</div>
-<footer class="bg-[var(--dark-blue)] text-[var(--slate-gray)] py-12 px-4">
-<div class="container mx-auto flex flex-col items-center">
-<div class="flex space-x-6 mb-6">
-<a class="hover:text-white transition-colors" href="#">
-<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg"><path d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"></path></svg>
-</a>
-<a class="hover:text-white transition-colors" href="#">
-<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"></path></svg>
-</a>
-<a class="hover:text-white transition-colors" href="#">
-<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z"></path></svg>
-</a>
-</div>
-<p class="font-mono text-sm">© 2024 Muhammad Farhan. All rights reserved.</p>
-</div>
-</footer>
-</div>
+</body>
 
-</body></html>
+</html>

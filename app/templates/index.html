@@ -248,35 +248,111 @@
             </div>
           </div>
         </section>
-        <section class="py-20 px-4" id="contact">
-          <div class="container mx-auto max-w-2xl text-center">
-            <h2 class="text-3xl font-bold text-[var(--dark-blue)] mb-4">Get In Touch</h2>
-            <p class="text-[var(--slate-gray)] mb-8">I'm currently open to new opportunities. Whether you have a
-              question or just want to say hi, I'll try my best to get back to you!</p>
 
-            {% if success %}
-            <p class="text-green-600 font-semibold">Message sent successfully!</p>
-            {% elif error %}
-            <p class="text-red-600 font-semibold">Error: {{ error }}</p>
-            {% endif %}
+        <section class="py-20 px-4 bg-[var(--light-gray)]" id="contact">
+          <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-bold text-[var(--dark-blue)] text-center mb-4">Connect With Me</h2>
+            <p class="text-[var(--slate-gray)] text-center mb-12">Choose your preferred channel</p>
 
-            <form method="post" action="/contact" class="space-y-6">
-              <div class="flex flex-col md:flex-row gap-6">
-                <input
-                  class="form-input w-full p-4 rounded-md border-[var(--light-gray)] focus:ring-[var(--primary)] focus:border-[var(--primary)] transition"
-                  placeholder="Your Name" type="text" />
-                <input
-                  class="form-input w-full p-4 rounded-md border-[var(--light-gray)] focus:ring-[var(--primary)] focus:border-[var(--primary)] transition"
-                  placeholder="Your Email" type="email" />
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <!-- WhatsApp -->
+              <div
+                class="bg-green-50 rounded-xl p-6 text-center border border-green-100 hover:shadow-md transition-all">
+                <div class="bg-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
+                  <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-10.01 6.869c-.248.124-.578.285-.988.285-.678 0-1.426-.371-2.078-1.238-.652-.866-.977-1.885-.977-2.904 0-1.02.325-1.934.752-2.558.322-.471.694-.76.941-.76.099 0 .198.05.298.149.099.099.124.223.074.347-.05.124-.223.421-.322.644-.1.223-.15.372-.05.52.1.15.421.644 1.141 1.141.72.497 1.29.694 1.439.694.149 0 .298-.074.397-.223.1-.149.347-.52.496-.842.15-.322.26-.434.372-.434.05 0 .1.025.15.05.05.025.223.1.322.198.1-.025.52-.297 1.04-.842.52-.545.694-.942.744-1.04.05-.1.025-.174-.025-.248-.05-.075-.397-.446-.941-.892-.545-.446-1.042-.669-1.29-.718-.248-.05-.434-.025-.57.074-.136.1-.421.397-1.29 1.588-.87 1.191-1.29 1.836-1.439 2.133-.15.297-.173.446-.074.644.1.198.421.842 1.29 1.588 1.812.694.471 1.29.545 1.588.446zM12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2m0 1a9 9 0 0 0-9 9 9 9 0 0 0 9 9 9 9 0 0 0 9-9 9 9 0 0 0-9-9z" />
+                  </svg>
+                </div>
+                <h3 class="font-bold text-lg mb-2">WhatsApp</h3>
+                <p class="text-sm text-[var(--slate-gray)] mb-4">Fast response (under 1 hour)</p>
+                <a href="https://wa.me/YOUR_NUMBER"
+                  class="bg-green-600 text-white px-4 py-2 rounded-lg inline-block text-sm font-medium hover:bg-green-700 transition-colors">
+                  Start Chat
+                </a>
               </div>
-              <textarea
-                class="form-textarea w-full p-4 rounded-md border-[var(--light-gray)] focus:ring-[var(--primary)] focus:border-[var(--primary)] transition"
-                placeholder="Your Message" rows="5"></textarea>
-              <button
-                class="bg-[var(--primary)] text-white font-semibold py-3 px-8 rounded-md hover:bg-blue-700 transition-colors shadow-lg"
-                type="submit">Send Message</button>
-            </form>
 
+              <!-- Telegram -->
+              <div class="bg-blue-50 rounded-xl p-6 text-center border border-blue-100 hover:shadow-md transition-all">
+                <div class="bg-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
+                  <svg class="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.25 1.58-1.18 5.16-1.66 6.86-.2.71-.6.94-1.02.96-.53.03-.78-.18-1.22-.6-.68-.6-1.06-.97-1.72-1.55-.76-.65-.27-.99.17-1.57.11-.13 2.05-1.89 2.07-2.03.03-.15-.06-.22-.2-.15-.8.35-2.25 1.1-3.19 1.58-.59.3-1.13.46-1.62.47-.54 0-1.41-.27-1.89-.5-.75-.35-1.35-.54-1.3-1.14.03-.37.45-.75 1.25-1.14 1.72-.85 3.64-1.45 5.53-1.68.6-.08 1.15-.05 1.6.11.53.19.47.64.43.91z" />
+                  </svg>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Telegram</h3>
+                <p class="text-sm text-[var(--slate-gray)] mb-4">For technical discussions</p>
+                <a href="https://t.me/YOUR_USERNAME"
+                  class="bg-blue-500 text-white px-4 py-2 rounded-lg inline-block text-sm font-medium hover:bg-blue-600 transition-colors">
+                  Message Me
+                </a>
+              </div>
+
+              <!-- Email -->
+              <div class="bg-red-50 rounded-xl p-6 text-center border border-red-100 hover:shadow-md transition-all">
+                <div class="bg-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
+                  <svg class="w-6 h-6 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                  </svg>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Email</h3>
+                <p class="text-sm text-[var(--slate-gray)] mb-4">For formal inquiries</p>
+                <button onclick="navigator.clipboard.writeText('your.email@example.com')"
+                  class="bg-red-500 text-white px-4 py-2 rounded-lg inline-block text-sm font-medium hover:bg-red-600 transition-colors">
+                  Copy Email
+                </button>
+              </div>
+
+              <!-- Calendly -->
+              <div
+                class="bg-purple-50 rounded-xl p-6 text-center border border-purple-100 hover:shadow-md transition-all">
+                <div class="bg-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
+                  <svg class="w-6 h-6 text-purple-500" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V9h14v10zM5 7V5h14v2H5zm2 4h10v2H7zm0 4h7v2H7z" />
+                  </svg>
+                </div>
+                <h3 class="font-bold text-lg mb-2">Calendly</h3>
+                <p class="text-sm text-[var(--slate-gray)] mb-4">Schedule a meeting</p>
+                <a href="https://calendly.com/YOUR_LINK"
+                  class="bg-purple-500 text-white px-4 py-2 rounded-lg inline-block text-sm font-medium hover:bg-purple-600 transition-colors">
+                  Book Call
+                </a>
+              </div>
+
+              <!-- LinkedIn -->
+              <div class="bg-blue-50 rounded-xl p-6 text-center border border-blue-100 hover:shadow-md transition-all">
+                <div class="bg-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
+                  <svg class="w-6 h-6 text-[#0077B5]" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                </div>
+                <h3 class="font-bold text-lg mb-2">LinkedIn</h3>
+                <p class="text-sm text-[var(--slate-gray)] mb-4">Professional network</p>
+                <a href="https://linkedin.com/in/YOUR_PROFILE"
+                  class="bg-[#0077B5] text-white px-4 py-2 rounded-lg inline-block text-sm font-medium hover:bg-[#006097] transition-colors">
+                  Connect
+                </a>
+              </div>
+
+              <!-- GitHub -->
+              <div class="bg-gray-50 rounded-xl p-6 text-center border border-gray-100 hover:shadow-md transition-all">
+                <div class="bg-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-3">
+                  <svg class="w-6 h-6 text-gray-800" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                  </svg>
+                </div>
+                <h3 class="font-bold text-lg mb-2">GitHub</h3>
+                <p class="text-sm text-[var(--slate-gray)] mb-4">For code collaboration</p>
+                <a href="https://github.com/YOUR_PROFILE"
+                  class="bg-gray-700 text-white px-4 py-2 rounded-lg inline-block text-sm font-medium hover:bg-gray-800 transition-colors">
+                  View Projects
+                </a>
+              </div>
+            </div>
           </div>
         </section>
       </main>

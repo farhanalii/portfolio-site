@@ -37,6 +37,16 @@ async def contact_submit(
         with smtplib.SMTP_SSL(smtp_server, smtp_port, context=context) as server:
             server.login(smtp_user, smtp_pass)
             server.send_message(msg)
+
+        # NEW: Send message to Flask microservice
+        async with httpx.AsyncClient() as client:
+            flask_url = os.getenv("FLASK_URL", "http://flask:5000/log-message")
+            payload = {
+                "name": name,
+                "email": email,
+                "message": message
+            }
+            await client.post(flask_url, json=payload)
         
         return templates.TemplateResponse("index.html", {"request": request, "success": True})
     except Exception as e:

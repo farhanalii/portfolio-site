@@ -40,7 +40,7 @@ async def contact_submit(
 
         # NEW: Send message to Flask microservice
         async with httpx.AsyncClient() as client:
-            flask_url = os.getenv("FLASK_URL", "http://flask:5000/log-message")
+            flask_url = os.getenv("FLASK_URL", "http://flask:5001/log-message")
             payload = {
                 "name": name,
                 "email": email,

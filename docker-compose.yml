@@ -1,0 +1,25 @@
+# docker-compose.yml
+
+version: '3.8'
+
+services:
+
+  fastapi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fastapi_app
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - flask
+
+  flask:
+    build:
+      context: ./flask_service
+      dockerfile: Dockerfile
+    container_name: flask_service
+    ports:
+      - "5001:5001"

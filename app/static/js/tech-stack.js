@@ -1,5 +1,10 @@
-// Enhanced Portfolio JavaScript with improved animations and functionality
-document.addEventListener('DOMContentLoaded', function () {
+// Enhanced Tech Stack with Interactive Features
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 Tech Stack script loading...');
+
+    // Initialize animated tech stack
+    initializeAnimatedTechStack();
+
     // Cache DOM elements for better performance
     const tabButtons = document.querySelectorAll('.tab-button');
     const skillsGrid = document.querySelector('.skills-grid');
@@ -12,8 +17,11 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log(`Found ${tabButtons.length} tab buttons`);
     console.log(`Found ${statCards.length} stat cards`);
 
+    // Flag to prevent automatic hash changes
+    let isManualNavigation = false;
+
     // Enhanced filtering with smooth animations
-    function filterSkills(category) {
+    function filterSkills(category, updateHash = false) {
         console.log(`🎯 Filtering for category: ${category}`);
 
         let visibleCount = 0;
@@ -55,16 +63,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
         console.log(`✅ Will show ${visibleCount} cards`);
 
-        // Update URL hash for better UX (optional)
-        if (category !== 'all') {
-            window.history.replaceState(null, null, `#tech-${category}`);
-        } else {
-            window.history.replaceState(null, null, '#tech');
+        // Only update URL hash when explicitly requested (user clicks tab)
+        if (updateHash && !isManualNavigation) {
+            if (category !== 'all') {
+                window.history.replaceState(null, null, `#tech-${category}`);
+            } else {
+                // Remove hash instead of setting to #tech
+                window.history.replaceState(null, null, window.location.pathname);
+            }
         }
     }
 
-    // Initialize with all skills visible
-    filterSkills('all');
+    // Initialize with all skills visible (don't update hash on load)
+    filterSkills('all', false);
 
     // Set initial active button
     tabButtons.forEach(btn => btn.classList.remove('active'));
@@ -96,8 +107,8 @@ document.addEventListener('DOMContentLoaded', function () {
             // Add active class to clicked button
             button.classList.add('active');
 
-            // Filter skills
-            filterSkills(category);
+            // Filter skills and update hash
+            filterSkills(category, true);
 
             // Re-enable buttons after animation
             setTimeout(() => {
@@ -189,27 +200,8 @@ document.addEventListener('DOMContentLoaded', function () {
         statsObserver.observe(card);
     });
 
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href === '#' || href.length <= 1) return;
-
-            e.preventDefault();
-            const target = document.querySelector(href);
-
-            if (target) {
-                const headerOffset = 100; // Account for fixed header
-                const elementPosition = target.offsetTop;
-                const offsetPosition = elementPosition - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+    // Navigation is now handled by navigation.js
+    // This prevents conflicts with the tech stack functionality
 
     // Enhanced skill card interactions
     skillCards.forEach(card => {
@@ -341,19 +333,25 @@ document.addEventListener('DOMContentLoaded', function () {
         element.style.pointerEvents = 'auto';
     }
 
-    // Initialize category from URL hash
+    // Modified: Only initialize from hash if it's specifically a tech filter
     function initializeFromHash() {
         const hash = window.location.hash;
+
+        // Only handle tech-specific hashes, ignore general navigation hashes
         if (hash.startsWith('#tech-')) {
             const category = hash.replace('#tech-', '');
             const button = document.querySelector(`[data-category="${category}"]`);
             if (button) {
-                button.click();
+                // Don't auto-click, just update the display
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                filterSkills(category, false);
             }
         }
+        // Don't auto-navigate to #tech section on load
     }
 
-    // Initialize from hash after a short delay
+    // Initialize from hash after a short delay, but only for tech filters
     setTimeout(initializeFromHash, 100);
 
     // Performance monitoring
@@ -436,3 +434,106 @@ dynamicStyles.textContent = `
 `;
 
 document.head.appendChild(dynamicStyles);
+
+// Initialize Animated Tech Stack
+function initializeAnimatedTechStack() {
+    const techItems = document.querySelectorAll('.tech-item');
+    
+    techItems.forEach(item => {
+        // Add click effect
+        item.addEventListener('click', function() {
+            // Create ripple effect
+            const ripple = document.createElement('span');
+            ripple.style.cssText = `
+                position: absolute;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.6);
+                transform: scale(0);
+                animation: ripple 0.6s linear;
+                pointer-events: none;
+            `;
+            
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = event.clientX - rect.left - size / 2;
+            const y = event.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            
+            this.appendChild(ripple);
+            
+            // Remove ripple after animation
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+            
+            // Add pulse effect
+            this.style.animation = 'techItemPulse 0.3s ease-out';
+            setTimeout(() => {
+                this.style.animation = '';
+            }, 300);
+            
+            console.log('Tech item clicked:', this.textContent);
+        });
+        
+        // Add hover tooltip
+        item.addEventListener('mouseenter', function() {
+            const tech = this.getAttribute('data-tech');
+            const tooltip = document.createElement('div');
+            tooltip.className = 'tech-tooltip';
+            tooltip.textContent = `Click to learn more about ${tech}`;
+            tooltip.style.cssText = `
+                position: absolute;
+                bottom: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                background: var(--dark-blue);
+                color: white;
+                padding: 0.5rem 0.75rem;
+                border-radius: var(--border-radius-sm);
+                font-size: 0.75rem;
+                white-space: nowrap;
+                z-index: 1000;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                pointer-events: none;
+            `;
+            
+            this.appendChild(tooltip);
+            
+            setTimeout(() => {
+                tooltip.style.opacity = '1';
+            }, 10);
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            const tooltip = this.querySelector('.tech-tooltip');
+            if (tooltip) {
+                tooltip.remove();
+            }
+        });
+    });
+    
+    // Add CSS for ripple animation
+    if (!document.querySelector('#tech-stack-styles')) {
+        const style = document.createElement('style');
+        style.id = 'tech-stack-styles';
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes techItemPulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.1); }
+                100% { transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}

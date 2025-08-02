@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description"
+    content="Muhammad Farhan - Senior Backend Engineer with 7+ years experience in Python, Odoo, Flask, FastAPI, and cloud technologies. Based in Manchester, UK." />
+  <meta name="keywords" content="Python Developer, Backend Engineer, Odoo, Flask, FastAPI, Manchester, UK" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+  <link as="style"
+    href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700%3B800%3B900&amp;family=Space+Mono%3Awght%40400%3B500"
+    onload="this.rel='stylesheet'" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="/static/css/tech-stack.css">
+  <link rel="stylesheet" href="/static/css/projects.css">
+  <link rel="stylesheet" href="/static/css/contact-animations.css">
+  
+  <title>{% block title %}Muhammad Farhan - Senior Backend Engineer | Python | Odoo | Manchester{% endblock %}</title>
+  <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  
+  <!-- Base Styles -->
+  <style type="text/tailwindcss">
+    :root {
+        --primary: #0c70f2;
+        --primary-dark: #0a5dd1;
+        --primary-light: #3b82f6;
+        --dark-blue: #0a192f;
+        --dark-blue-light: #112240;
+        --slate-gray: #64748b;
+        --slate-light: #94a3b8;
+        --light-gray: #f1f5f9;
+        --white: #ffffff;
+        --shadow-light: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        --shadow-medium: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        --shadow-large: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        --border-radius-sm: 8px;
+        --border-radius-md: 12px;
+        --border-radius-lg: 16px;
+        --border-radius-xl: 20px;
+      }
+      
+      body {
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        position: relative;
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      canvas { 
+        display: block; 
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      .font-mono {
+        font-family: 'Space Mono', monospace;
+      }
+
+      .btn-primary {
+        @apply inline-flex items-center justify-center px-6 py-3 bg-[var(--primary)] text-white font-semibold rounded-[var(--border-radius-md)] shadow-[var(--shadow-medium)] hover:bg-[var(--primary-dark)] hover:shadow-[var(--shadow-large)] transition-all duration-300 transform hover:-translate-y-1;
+      }
+
+      .btn-secondary {
+        @apply inline-flex items-center justify-center px-6 py-3 border-2 border-[var(--primary)] text-[var(--primary)] font-semibold rounded-[var(--border-radius-md)] hover:bg-[var(--primary)] hover:text-white transition-all duration-300 transform hover:-translate-y-1;
+      }
+
+      .section-padding {
+        @apply py-20 px-4;
+      }
+
+      .card-base {
+        @apply bg-white rounded-[var(--border-radius-lg)] shadow-[var(--shadow-medium)] overflow-hidden transition-all duration-300;
+      }
+
+      .card-hover {
+        @apply hover:shadow-[var(--shadow-large)] hover:-translate-y-2;
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, var(--dark-blue), var(--primary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-subtitle {
+        @apply inline-flex items-center gap-2 px-4 py-2 bg-[var(--light-gray)] text-[var(--primary)] rounded-full font-mono text-sm font-medium mb-6;
+      }
+
+      .floating-animation {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+
+      .micro-interaction {
+        @apply transition-all duration-200 hover:scale-105;
+      }
+
+      /* Typewriter Animation for Hero Title */
+      .typewriter-text {
+        position: relative;
+        background: linear-gradient(135deg, var(--dark-blue), var(--primary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .typewriter-cursor {
+        color: var(--primary);
+        animation: blink 1s infinite;
+        font-weight: 900;
+      }
+
+      @keyframes blink {
+        0%, 50% {
+          opacity: 1;
+        }
+        51%, 100% {
+          opacity: 0;
+        }
+      }
+    </style>
+  
+  <!-- Page-specific styles -->
+  <style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+
+    #about p {
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+      color: var(--slate-gray);
+    }
+
+    .contact-card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    /* Navigation link styles */
+    nav a {
+      position: relative;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    nav a:hover {
+      color: var(--primary) !important;
+    }
+
+    nav a.active {
+      color: var(--primary) !important;
+    }
+
+    /* Ensure all anchor links are clickable */
+    a[href^="#"] {
+      cursor: pointer;
+      pointer-events: auto;
+      z-index: 5;
+    }
+
+    /* Smooth scroll behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+  
+  {% block extra_head %}{% endblock %}
+</head>
+
+<body class="bg-white text-slate-800">
+  <div class="relative flex size-full min-h-screen flex-col justify-between group/design-root overflow-x-hidden">
+    <div class="bg-white">
+      <!-- Header/Navigation -->
+      {% include "components/header.html" %}
+      
+      <main class="pt-20">
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+
+    <!-- Footer -->
+    {% include "components/footer.html" %}
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="/static/js/navigation.js"></script>
+  <script src="/static/js/tech-stack.js"></script>
+  <script src="/static/js/projects.js"></script>
+  <script src="/static/js/contact-animations.js"></script>
+  <script src="/static/js/background-animation.js"></script>
+  
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html> 

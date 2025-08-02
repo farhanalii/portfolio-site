@@ -1,0 +1,120 @@
+<!-- Hero Section -->
+<section class="container mx-auto px-4 sm:px-6 lg:px-8 section-padding">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div class="flex flex-col gap-6 text-center lg:text-left">
+      <div class="hero-subtitle floating-animation">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd"
+            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+            clip-rule="evenodd"></path>
+        </svg>
+        Available for Full-time Opportunities
+      </div>
+      <h1 class="text-4xl md:text-5xl font-black leading-tight tracking-tight gradient-text typewriter-text">
+        <span class="typewriter-cursor">|</span>
+      </h1>
+      <!-- Animated Tech Stack -->
+      <div class="animated-tech-stack">
+        <div class="tech-stack-container">
+          <div class="tech-item" data-tech="Python">Python</div>
+          <div class="tech-item" data-tech="Odoo">Odoo</div>
+          <div class="tech-item" data-tech="Flask">Flask</div>
+          <div class="tech-item" data-tech="FastAPI">FastAPI</div>
+          <div class="tech-item" data-tech="Django">Django</div>
+          <div class="tech-item" data-tech="REST APIs">REST APIs</div>
+          <div class="tech-item" data-tech="Cloud">Cloud</div>
+          <div class="tech-item" data-tech="Docker">Docker</div>
+          <div class="tech-item" data-tech="CI/CD">CI/CD</div>
+        </div>
+      </div>
+      <p class="text-lg text-[var(--slate-gray)] max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+        I'm a passionate backend engineer with over <strong class="text-[var(--dark-blue)]">7 years of
+          experience</strong> delivering robust, modular, and production-ready solutions. From ERP customisation
+        and API development to cloud-native deployments and DevOps automation, I help organisations transform
+        complex workflows into efficient digital systems.
+      </p>
+      <p class="text-base text-[var(--slate-light)] max-w-2xl mx-auto lg:mx-0">
+        Currently based in <strong class="text-[var(--dark-blue)]">Manchester, UK</strong>, I'm open to
+        full-time roles where I can bring my Python expertise, system integration skills, and flexible tech
+        mindset to high-impact teams.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-4">
+        <a class="btn-primary" href="/projects">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+            </path>
+          </svg>
+          View My Work
+        </a>
+        <a class="btn-secondary" href="/contact">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+            </path>
+          </svg>
+          Contact Me
+        </a>
+      </div>
+    </div>
+    <div class="flex justify-center lg:justify-end">
+      <div class="relative">
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-[var(--primary)] to-[var(--dark-blue)] rounded-full blur opacity-20 scale-105">
+        </div>
+        <div
+          class="relative w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden shadow-[var(--shadow-large)] border-4 border-white bg-gray-100 floating-animation">
+          <img alt="Muhammad Farhan - Senior Backend Engineer" class="w-full h-full object-cover"
+            src="/static/images/IMG_8026.heic" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Typewriter animation for hero title
+  document.addEventListener('DOMContentLoaded', function() {
+    const typewriterText = document.querySelector('.typewriter-text');
+    const cursor = document.querySelector('.typewriter-cursor');
+    
+    if (typewriterText && cursor) {
+      const text = "Senior Backend Engineer";
+      let currentIndex = 0;
+      
+      // Clear the text initially
+      typewriterText.innerHTML = '<span class="typewriter-cursor">|</span>';
+      
+      // Start typewriter effect after a short delay
+      setTimeout(() => {
+        function typeNextChar() {
+          if (currentIndex < text.length) {
+            // Insert character before the cursor
+            const beforeCursor = text.substring(0, currentIndex + 1);
+            const afterCursor = text.substring(currentIndex + 1);
+            
+            typewriterText.innerHTML = `
+              <span style="background: linear-gradient(135deg, var(--dark-blue), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">${beforeCursor}</span>
+              <span class="typewriter-cursor">|</span>
+              <span style="opacity: 0;">${afterCursor}</span>
+            `;
+            
+            currentIndex++;
+            
+            // Continue typing with a slight delay
+            setTimeout(typeNextChar, 100);
+          } else {
+            // Animation complete - remove cursor and show full text
+            setTimeout(() => {
+              typewriterText.innerHTML = `
+                <span style="background: linear-gradient(135deg, var(--dark-blue), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">${text}</span>
+              `;
+            }, 500);
+          }
+        }
+        
+        typeNextChar();
+      }, 1000);
+    }
+  });
+</script> 

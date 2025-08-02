@@ -1,0 +1,228 @@
+<section class="section-padding bg-white" id="projects">
+  <div class="container mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-black gradient-text mb-4">Featured Projects</h2>
+      <div
+        class="w-16 h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--dark-blue)] rounded-full mx-auto mb-6">
+      </div>
+      <p class="text-lg text-[var(--slate-gray)] max-w-2xl mx-auto">Showcasing real-world solutions that
+        demonstrate my expertise in backend development, system integration, and cloud deployment</p>
+    </div>
+
+    <!-- Project Categories Filter -->
+    <div class="flex justify-center mb-12">
+      <div class="flex flex-wrap gap-3 bg-[var(--light-gray)] rounded-[var(--border-radius-lg)] p-2">
+        <button class="project-filter-btn active" data-category="all">
+          All Projects
+        </button>
+        <button class="project-filter-btn" data-category="enterprise">
+          Enterprise
+        </button>
+        <button class="project-filter-btn" data-category="api">
+          APIs & Microservices
+        </button>
+        <button class="project-filter-btn" data-category="data">
+          Data & Analytics
+        </button>
+        <button class="project-filter-btn" data-category="automation">
+          Automation
+        </button>
+      </div>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid">
+      <!-- Project 1 -->
+      <div class="project-card" data-categories="enterprise">
+        <div class="project-image">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ8UAGSK8oi0nOFp2FptBhbXO1aqGSjxIdOAOPQQwwhQibZsGE5b6WX4d6AwA6qXAo6SG_Oe2hc7nUdS2aowd46Rbnld4HSxZHgBtttKJDFK0inEogi-uoYHuRT1Poiuim3nyfgpBFTc2Go0N10F-U4WVXlzv0weZUZDswZKJNzrLBc-LzBTVFXyyx5BPQc2p-mhWOxUrHby4bisRZkvUaKmd9dEnneXPLl7Lvj4et0vYNsK_Vl-q1faqHtBVXQO2NnksoSNEbu_1B" alt="E-commerce Platform">
+          <div class="project-overlay">
+            <span class="project-category">Enterprise</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">E-commerce Platform</h3>
+          <p class="project-description">Developed a scalable e-commerce platform with Odoo, integrating payment gateways, inventory management, and real-time analytics for enhanced business operations.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Odoo</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">PostgreSQL</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">View Project</a>
+            <a href="#" class="project-link">Live Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card" data-categories="api">
+        <div class="project-image">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYmpMQHBbMcH4l_PBXxe0VkGyv3hx9n1z8igSG53n3aq_OrHXm3Ms2VdpWRcnffV2ZIH9peozosFbl8KJlqABENziLpNKG7uubD-f9oiTfnr3D1uC8h0l6PwUTorIVc2Ngmy1TYsdAimBcvQtYSzvzcetOpiqIRNqG7eMrGnpZvXMKPnlOc8nGT8yFxIOa1xVu3ZQdvdBRpxp1O0cBqleLhYrdvwi2K9FVaovq_yU3w1W6_5UQ0K76eXvRkSYRf2RUjz3eITNlI8GM" alt="Mobile API">
+          <div class="project-overlay">
+            <span class="project-category">API</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Mobile App API</h3>
+          <p class="project-description">Built a high-performance RESTful API using Flask to support a mobile application, focusing on security, scalability, and optimal response times.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Flask</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">JWT</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">View Project</a>
+            <a href="#" class="project-link">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card" data-categories="data">
+        <div class="project-image">
+          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwWhh5SNVPtzwzvf1w_fhNQbDEDAvuTXyjo6-wQccMfteLggRvhfX3UPZmaItbQb9q27SN1JCL_M-Cx_jGhs3rejVu0x0a84WcDXfgbyJb-xe6Fixxrnee0Kej96rpF4u3h8uCKGJhu6Wuxh8Fdwf8LFg21WlIJKqfdMIrJLXdtoVx9ZLgS_Ycxsz3A-mWGPuOiX8WGZSk-CJROGRFAEltZK1VvnlHDa3JZAJJpIjmY7i_bxpj_Bxc367yQXKvF3WGd0fjj7eeEjPP" alt="Data Pipeline">
+          <div class="project-overlay">
+            <span class="project-category">Data</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Data Pipeline System</h3>
+          <p class="project-description">Designed and implemented a robust data pipeline with FastAPI to process and analyze large datasets in real-time, deployed on AWS infrastructure.</p>
+          <div class="project-tech">
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">AWS</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">View Project</a>
+            <a href="#" class="project-link">Documentation</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card" data-categories="automation">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="HR Automation">
+          <div class="project-overlay">
+            <span class="project-category">Automation</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">HR Process Automation</h3>
+          <p class="project-description">Automated complete HR workflows including recruitment, onboarding, and performance management using Odoo and custom Python scripts.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Odoo</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Automation</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">View Project</a>
+            <a href="#" class="project-link">Case Study</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card" data-categories="api">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Microservices">
+          <div class="project-overlay">
+            <span class="project-category">API</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Microservices Architecture</h3>
+          <p class="project-description">Designed and implemented a microservices-based system using FastAPI, Docker, and Kubernetes for scalable application deployment.</p>
+          <div class="project-tech">
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">Kubernetes</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">View Project</a>
+            <a href="#" class="project-link">Architecture</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="project-card" data-categories="enterprise">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80" alt="Analytics Dashboard">
+          <div class="project-overlay">
+            <span class="project-category">Enterprise</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Business Analytics Dashboard</h3>
+          <p class="project-description">Built a comprehensive analytics dashboard using Flask, PostgreSQL, and modern frontend technologies for real-time business insights.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Flask</span>
+            <span class="tech-tag">PostgreSQL</span>
+            <span class="tech-tag">Chart.js</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">View Project</a>
+            <a href="#" class="project-link">Demo</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hidden Projects (will be shown with "Show More") -->
+      <div class="project-card hidden" data-categories="data">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Machine Learning">
+          <div class="project-overlay">
+            <span class="project-category">Data</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">ML Data Processing</h3>
+          <p class="project-description">Developed a machine learning pipeline for processing and analyzing large datasets using Python, Pandas, and scikit-learn.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Pandas</span>
+            <span class="tech-tag">scikit-learn</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">View Project</a>
+            <a href="#" class="project-link">Research</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card hidden" data-categories="automation">
+        <div class="project-image">
+          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="CI/CD Pipeline">
+          <div class="project-overlay">
+            <span class="project-category">Automation</span>
+          </div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">CI/CD Pipeline</h3>
+          <p class="project-description">Implemented automated CI/CD pipelines using GitHub Actions, Docker, and AWS for seamless deployment and testing.</p>
+          <div class="project-tech">
+            <span class="tech-tag">GitHub Actions</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">AWS</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link">View Project</a>
+            <a href="#" class="project-link">Workflow</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Show More/Less Button -->
+    <div class="text-center mt-12">
+      <button id="showMoreBtn" class="btn-primary">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+        Show More Projects
+      </button>
+    </div>
+  </div>
+</section> 

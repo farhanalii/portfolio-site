@@ -1,0 +1,40 @@
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-[var(--shadow-light)] border-b border-gray-100">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-20">
+      <div class="flex items-center space-x-4">
+        <a class="text-2xl font-bold gradient-text micro-interaction" href="/">MF</a>
+        <div class="hidden md:flex flex-col">
+          <span class="text-lg font-bold text-[var(--dark-blue)]">Muhammad Farhan</span>
+          <span class="text-sm text-[var(--slate-gray)]">Senior Backend Engineer</span>
+        </div>
+      </div>
+      <button
+        class="md:hidden flex items-center justify-center rounded-[var(--border-radius-sm)] h-12 w-12 bg-transparent text-[var(--dark-blue)] micro-interaction">
+        <svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z">
+          </path>
+        </svg>
+      </button>
+      <nav class="hidden md:flex space-x-8 text-sm font-semibold text-[var(--slate-gray)]">
+        <a class="hover:text-[var(--primary)] transition-colors micro-interaction" href="/about">About</a>
+        <a class="hover:text-[var(--primary)] transition-colors micro-interaction" href="/tech-stack">Tech Stack</a>
+        <a class="hover:text-[var(--primary)] transition-colors micro-interaction" href="/projects">Projects</a>
+        <a class="hover:text-[var(--primary)] transition-colors micro-interaction" href="/contact">Contact</a>
+      </nav>
+      
+      <!-- Mobile Menu -->
+      <nav class="md:hidden fixed top-20 left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100 transform -translate-y-full transition-transform duration-300 z-40" id="mobileMenu">
+        <div class="container mx-auto px-4 py-4">
+                      <div class="flex flex-col space-y-4 text-sm font-semibold text-[var(--slate-gray)]">
+              <a class="hover:text-[var(--primary)] transition-colors py-2 border-b border-gray-100" href="/about">About</a>
+              <a class="hover:text-[var(--primary)] transition-colors py-2 border-b border-gray-100" href="/tech-stack">Tech Stack</a>
+              <a class="hover:text-[var(--primary)] transition-colors py-2 border-b border-gray-100" href="/projects">Projects</a>
+              <a class="hover:text-[var(--primary)] transition-colors py-2" href="/contact">Contact</a>
+            </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header> 

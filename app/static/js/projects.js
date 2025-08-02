@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentFilter = 'all';
     let showingAll = false;
 
-    // Project filtering functionality
+    // Project filtering functionality - Smooth like tech-stack
     function filterProjects(category) {
         console.log(`🎯 Filtering projects for category: ${category}`);
         
@@ -28,38 +28,52 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Filter and animate project cards
-        projectCards.forEach((card, index) => {
-            const cardCategories = card.dataset.categories;
-            const shouldShow = category === 'all' || cardCategories === category;
-            
-            // Add loading state
-            card.classList.add('loading');
-            
-            setTimeout(() => {
-                if (shouldShow) {
-                    // Show card with animation
-                    card.classList.remove('filtered-out');
-                    card.classList.add('filtered-in');
-                    card.style.display = 'block';
-                    
-                    // Hide cards that should be hidden by "show more" logic
-                    if (!showingAll && card.classList.contains('hidden')) {
-                        card.style.display = 'none';
-                    }
-                } else {
-                    // Hide card
-                    card.classList.add('filtered-out');
-                    card.classList.remove('filtered-in');
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300);
-                }
-                
-                // Remove loading state
-                card.classList.remove('loading');
-            }, index * 100); // Stagger animation
+        let visibleCount = 0;
+        const animationDelay = 80; // Increased delay for smoother animation
+
+        // First, fade out all cards smoothly
+        projectCards.forEach((card) => {
+            card.style.transition = 'all 0.3s ease-out';
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(-10px) scale(0.95)';
         });
+
+        // Wait for fade out, then show filtered cards
+        setTimeout(() => {
+            projectCards.forEach((card, index) => {
+                const cardCategories = card.dataset.categories;
+                const shouldShow = category === 'all' || cardCategories === category;
+                
+                if (shouldShow) {
+                    // Show card with staggered animation
+                    setTimeout(() => {
+                        card.style.display = 'block';
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px) scale(0.9)';
+
+                        // Trigger reflow
+                        card.offsetHeight;
+
+                        // Animate in smoothly
+                        card.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0) scale(1)';
+
+                        visibleCount++;
+                        
+                        // Hide cards that should be hidden by "show more" logic
+                        if (!showingAll && card.classList.contains('hidden')) {
+                            card.style.display = 'none';
+                        }
+                    }, index * animationDelay);
+                } else {
+                    // Keep card hidden
+                    card.style.display = 'none';
+                }
+            });
+        }, 300); // Wait for fade out to complete
+
+        console.log(`✅ Will show ${visibleCount} cards`);
 
         // Update show more button
         updateShowMoreButton();
@@ -131,24 +145,38 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Event listeners for filter buttons
+    // Event listeners for filter buttons - Enhanced like tech-stack
     projectFilterBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             const category = btn.dataset.category;
             
+            console.log(`🔄 Filter button clicked: ${category}`);
+
             // Prevent multiple rapid clicks
             if (btn.classList.contains('loading')) return;
-            
+
             // Add loading state
             btn.classList.add('loading');
-            
+
+            // Remove active class from all buttons
+            projectFilterBtns.forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.pointerEvents = 'none';
+            });
+
+            // Add active class to clicked button
+            btn.classList.add('active');
+
             // Filter projects
             filterProjects(category);
-            
-            // Remove loading state
+
+            // Re-enable buttons after animation
             setTimeout(() => {
-                btn.classList.remove('loading');
+                projectFilterBtns.forEach(btn => {
+                    btn.classList.remove('loading');
+                    btn.style.pointerEvents = 'auto';
+                });
             }, 800);
         });
 
@@ -246,8 +274,15 @@ document.addEventListener('DOMContentLoaded', function() {
         projectObserver.observe(card);
     });
 
-    // Initialize with all projects visible
+    // Initialize with all projects visible (don't update hash on load)
     filterProjects('all');
+
+    // Set initial active button
+    projectFilterBtns.forEach(btn => btn.classList.remove('active'));
+    const allButton = document.querySelector('[data-category="all"]');
+    if (allButton) {
+        allButton.classList.add('active');
+    }
 
     // Error handling
     function handleMissingElements() {

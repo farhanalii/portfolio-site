@@ -17,6 +17,73 @@
   <link rel="stylesheet" href="/static/css/projects.css">
   <link rel="stylesheet" href="/static/css/contact-animations.css">
   
+  <style>
+    .chatbot-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #0c70f2, #0a5dd1);
+      color: white !important;
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-weight: 600;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .chatbot-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    .chatbot-link:hover::before {
+      left: 100%;
+    }
+    
+    .chatbot-link:hover {
+      background: linear-gradient(135deg, #0a5dd1, #0c70f2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(12, 112, 242, 0.4);
+      color: white !important;
+    }
+    
+    .chatbot-icon {
+      font-size: 16px;
+      animation: gentlePulse 2s ease-in-out infinite;
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+    }
+    
+    @keyframes gentlePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    
+    /* Mobile menu AI Assistant styling */
+    .md\\:hidden .chatbot-link {
+      background: linear-gradient(135deg, #0c70f2, #0a5dd1);
+      color: white !important;
+      margin-top: 8px;
+      border-radius: 8px;
+      padding: 12px 16px;
+      text-align: center;
+      justify-content: center;
+    }
+    
+    .md\\:hidden .chatbot-link:hover {
+      background: linear-gradient(135deg, #0a5dd1, #0c70f2);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(12, 112, 242, 0.3);
+    }
+  </style>
+  
   <title>{% block title %}Muhammad Farhan - Senior Backend Engineer | Python | Odoo | Manchester{% endblock %}</title>
   <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -210,6 +277,7 @@
   <script src="/static/js/projects.js"></script>
   <script src="/static/js/contact-animations.js"></script>
   <script src="/static/js/background-animation.js"></script>
+  <script src="/static/js/farhanbot-widget.js"></script>
   
   {% block extra_scripts %}{% endblock %}
 </body>

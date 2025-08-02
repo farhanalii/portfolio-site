@@ -11,7 +11,7 @@ APP_DIR = Path(__file__).parent.absolute()
 sys.path.insert(0, str(APP_DIR))
 
 # Now import routers
-from routers import site
+from routers import site, chatbot
 
 app = FastAPI()
 
@@ -24,6 +24,7 @@ else:
 
 # Include routes
 app.include_router(site.router)
+app.include_router(chatbot.router)
 
 if __name__ == "__main__":
     import uvicorn

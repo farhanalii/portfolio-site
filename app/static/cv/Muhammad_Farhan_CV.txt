@@ -1,0 +1,115 @@
+
+Muhammad Farhan Software Engineer
+
+Manchester, United Kingdom • +44 7448321229 • farhan.ali.se@gmail.com
+Personal Statement 
+
+
+Experienced Python Backend Engineer with over 7 years of success designing scalable, testable, and modular backend systems using Django rest, Flask, FastApi, Odoo (python based ERP Framework) and modern cloud-native technologies. Proven expertise in building RESTful APIs, microservices, SQL optimisations, and data pipelines for real-time applications across PropTech, Healthcare, and Enterprise SaaS. Strong background in clean code architecture, collaborative agile teams, and delivering production-grade systems with high performance, reliability, and maintainability. Ready to contribute immediately to fast-paced product teams where engineering excellence, impact, and innovation are valued.
+Work History 
+
+
+Senior Backend Engineer – Dalba Group of Companies, Riyadh, Saudi Arabia (Remote)
+(October 2020 – Present)
+
+Achievements and responsibilities: 
+
+Developed modular Python micro services using Flask and FastAPI (project-based), designed for scalable and distributed deployment with CI/CD pipelines.
+Built microservices for quoting, automated billing, real-time notifications, and document generation using Python.
+Designed and optimised PostgreSQL schemas with complex joins, indexes, and performance tuning for high-volume queries.
+Optimised PostgreSQL databases, improving system stability and query performance by 40%.
+Led CI/CD pipelines using GitHub Actions and Docker for deployments to AWS EC2, cutting deployment issues by 30% and accelerating delivery cycles.
+Collaborated with cross-functional teams including frontend (React), product, and QA using Agile/Scrum workflows.
+Designed secure API endpoints with token-based access control, rate limiting, and audit logging, ensuring privacy and traceability of sensitive records.  
+Simulated a blockchain-style tracking module that assigns unique, immutable digital IDs to transaction entries using hash-based integrity checks.  
+Applied privacy-first backend design by limiting data exposure via role-based access and encrypted API payloads (OWASP-guided).
+Developed and customised Odoo modules using Python, automating workflows and improving business operations by 20%.
+Integrated RESTful and third-party APIs to enhance inter-system communication and reduce manual processes.
+Refactored legacy Python code for efficiency and maintainability, improving system performance and reducing technical debt.
+Conducted automated unit and integration testing, reducing bugs by 35% and supporting continuous delivery.
+Managed deployments on AWS, Alibaba Cloud, and DigitalOcean, optimising resource usage and reducing server costs.
+Upgraded Odoo versions with full module compatibility and minimal downtime, maintaining system stability.
+Conducted code reviews and mentored junior developers, upholding coding standards and best practices.
+Tech Stack: Python, Flask, FastAPI, Pandas, NumPy, Pytest, Odoo(ORM/MVC/XML), JavaScript, PostgreSQL, SQL, REST APIs, GitHub, Git Flow, Docker, Linux, Nginx, CI/CD (GitHubActions, Jenkins), AWS (EC2, S3, API Gateway), DigitalOcean, Alibaba Cloud, Jira, Confluence, Agile/Scrum.
+
+
+Python Developer – Napollo Software Design (Lahore Office) – Remote for New York HQ, USA
+(November 2019 – September 2020
+
+Achievements and responsibilities: 
+
+Designed and deployed secure backend solutions for EHR, HRMS, and financial systems using Python, improving data processing and compliance.
+Created secure API endpoints and data ingestion pipelines from third-party platforms.
+Created secure API endpoints and data ingestion pipelines from third-party platforms.
+Built internal tooling for data validation and task automation across development teams.
+Developed backend architecture (models, workflows, business logic), enhancing system scalability and performance by 25%.
+Integrated third-party APIs to automate data exchange and extend system capabilities, reducing manual workload.
+Developed custom modules and backend features to automate business logic, resulting in higher system efficiency and reduced manual tasks.
+Built scalable backend infrastructure with robust version control (Git), cutting deployment issues by 30%.
+Implemented unit testing and CI workflows, significantly reducing bugs and improving release quality.
+Managed cloud deployments (AWS, Alibaba Cloud, DigitalOcean), tuning resources for better performance and cost-efficiency.
+Collaborated with cross-functional teams (QA, design, and product owners) to deliver high-quality features on time.
+Delivered projects under tight deadlines, achieving a 4.5/5 satisfaction score from stakeholders.
+Enhanced process automation by developing Odoo modules, improving operational efficiency across departments.
+
+Tech Stack: Python, Flask, Pandas, NumPy, Odoo, JavaScript, PostgreSQL, REST APIs, Git, Docker, Linux, Nginx, AWS,Alibaba Cloud CI/CD.
+
+Software Developer – Axiom World, Lahore, Pakistan
+(March 2018 – Oct 2019)
+
+Achievements and responsibilities: 
+
+Delivered end-to-end backend modules for HR, Sales, Inventory, and Education systems using Python, increasing operational automation.
+Designed and implemented scalable backend architectures and reusable Python modules, reducing repetitive code and accelerating feature delivery.
+Developed custom business logic and integrated third-party APIs, enabling seamless data exchange and improved user functionality.
+Led full project lifecycle from planning to deployment, ensuring timely delivery and alignment with business requirements.
+Standardised code practices and deployment processes, reducing post-release defects and improving long-term maintainability.
+Deployed and optimised cloud-hosted applications on AWS and DigitalOcean, enhancing performance and reducing server costs.
+Managed source code with Git, implementing effective branching strategies (Git Flow) for streamlined collaboration and releases.
+Collaborated with UI/UX designers, QA engineers, and stakeholders to build features that improved user experience and adoption rates.
+Provided Level 2 technical support, increasing system uptime and improving customer satisfaction by 30%.
+Analysed user feedback to refine software functionality and address pain points, contributing to increased platform adoption.
+Tech Stack: Python, REST APIs, PostgreSQL, Odoo, Git, AWS, DigitalOcean, Linux, Docker, Agile, Git Flow.
+
+Key Skills  
+
+Python Programming: clean, scalable, production-grade code
+Backend Development: Python, Django REST, Flask, FastAPI, RESTful APIs, database design
+System Integration: third-party APIs, payment gateways, external systems
+Microservices & Architecture: Microservices design patterns, service decomposition, and inter service communication.
+Data Handling: Pandas, NumPy, JSON, ETL pipelines, CSV processing, API data integration
+Odoo ERP Development: custom modules, workflows, reports
+Database Management: PostgreSQL & SQL schema design, performance tuning, queries, optimisation, backup/restore
+Version Control: Git, GitHub/GitLab workflows, GitHub Actions
+Cloud & Deployment: AWS (Lambda, EC2, S3), DigitalOcean, Linux server setup, Nginx
+Docker & Deployment: Docker, Kubernetes(Basic), CI/CD pipelines, Jenkins
+Testing & Quality: Unit testing(Pytest), code reviews, debugging
+Troubleshooting & Debugging: logs, test cases, critical issue resolution
+Team Support & Mentoring: code reviews, onboarding junior devs
+Technical Documentation: functional specs, user guides, developer notes
+Agile & Scrum Methodologies: sprints planning, stand-ups, retrospectives, task estimation, team collaboration
+Education 
+
+ 
+October 2019
+
+BSc (Hons) Software Engineering | Virtual University of Pakistan
+
+Certifications 
+ 
+
+Data analysis with python - IBM 
+Working with Version Control - University of Leeds 
+An Introduction to Cryptography - University of Leeds
+Agile Project Management - Google
+Career Essentials in GitHub Professional Certificate - Github
+Docker Foundation Professional Certificate - Github
+
+Professional Highlights  
+ 
+7+ Years of Hands-on Python Development: Successfully delivered end-to-end python based business solution applications, including custom module development, backend logic, workflow automation, and third-party integrations across multiple industries (Healthcare, Logistics, Manufacturing).
+Cross-Functional Team Collaboration: Worked closely with business analysts, project managers, and stakeholders to translate business needs into scalable technical solutions within Agile environments.
+Cloud Deployment & DevOps: Deployed Odoo applications on AWS, DigitalOcean, and Alibaba Cloud, using Docker and CI/CD pipelines (GitHub Actions) for efficient development and delivery.
+Client-Facing & Support Experience: Provided technical leadership, client demos, post-go-live training, and ongoing support, earning high satisfaction feedback from clients and end users.
+Production-level experience in API development, SQL optimisation, CI/CD, and containerised deployment.
+Code Review: Experience mentoring junior developers and conducting thorough code reviews.

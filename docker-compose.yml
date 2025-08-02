@@ -23,3 +23,7 @@ services:
     container_name: flask_service
     ports:
       - "5001:5001"
+
+networks:
+  my-project:
+    driver: bridge

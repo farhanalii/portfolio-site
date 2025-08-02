@@ -8,7 +8,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: fastapi_app
+    container_name: portfolio-site
     ports:
       - "8000:8000"
     env_file:
@@ -22,7 +22,7 @@ services:
     build:
       context: ./flask_service
       dockerfile: Dockerfile
-    container_name: flask_service
+    container_name: portfolio-site-services
     ports:
       - "5001:5001"
     networks:

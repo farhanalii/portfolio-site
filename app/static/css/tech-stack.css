@@ -23,6 +23,14 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    scroll-behavior: smooth;
+}
+
 .tech-section {
     margin: 0 auto;
     background: rgba(255, 255, 255, 0.98);
@@ -679,5 +687,140 @@
     .skill-card:nth-child(6n+5),
     .skill-card:nth-child(6n) {
         animation: none;
+    }
+}
+
+/* Animated Tech Stack for Hero Section */
+.animated-tech-stack {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(12, 112, 242, 0.05) 0%, rgba(10, 25, 47, 0.05) 100%);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid rgba(12, 112, 242, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.animated-tech-stack::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(12, 112, 242, 0.1), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.tech-stack-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.tech-item {
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    border-radius: var(--border-radius-md);
+    font-size: 0.875rem;
+    font-weight: 600;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: techItemAppear 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.tech-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.tech-item:hover::before {
+    left: 100%;
+}
+
+.tech-item:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(12, 112, 242, 0.3);
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+}
+
+.tech-item:nth-child(1) { animation-delay: 0.1s; }
+.tech-item:nth-child(2) { animation-delay: 0.2s; }
+.tech-item:nth-child(3) { animation-delay: 0.3s; }
+.tech-item:nth-child(4) { animation-delay: 0.4s; }
+.tech-item:nth-child(5) { animation-delay: 0.5s; }
+.tech-item:nth-child(6) { animation-delay: 0.6s; }
+.tech-item:nth-child(7) { animation-delay: 0.7s; }
+.tech-item:nth-child(8) { animation-delay: 0.8s; }
+.tech-item:nth-child(9) { animation-delay: 0.9s; }
+
+@keyframes techItemAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Floating animation for tech items */
+.tech-item {
+    animation: techItemAppear 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards, gentleFloat 3s ease-in-out infinite;
+}
+
+.tech-item:nth-child(1) { animation-delay: 0.1s, 0s; }
+.tech-item:nth-child(2) { animation-delay: 0.2s, 0.2s; }
+.tech-item:nth-child(3) { animation-delay: 0.3s, 0.4s; }
+.tech-item:nth-child(4) { animation-delay: 0.4s, 0.6s; }
+.tech-item:nth-child(5) { animation-delay: 0.5s, 0.8s; }
+.tech-item:nth-child(6) { animation-delay: 0.6s, 1s; }
+.tech-item:nth-child(7) { animation-delay: 0.7s, 1.2s; }
+.tech-item:nth-child(8) { animation-delay: 0.8s, 1.4s; }
+.tech-item:nth-child(9) { animation-delay: 0.9s, 1.6s; }
+
+@media (max-width: 768px) {
+    .tech-stack-container {
+        gap: 0.5rem;
+    }
+    
+    .tech-item {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media print {
+    .animated-tech-stack {
+        background: #f5f5f5;
+        border: 1px solid #ddd;
+    }
+    
+    .tech-item {
+        background: #333 !important;
+        color: white !important;
+        animation: none !important;
     }
 }

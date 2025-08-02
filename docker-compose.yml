@@ -8,18 +8,26 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: fastapi_app
+    container_name: portfolio-site
     ports:
       - "8000:8000"
     env_file:
       - .env
     depends_on:
       - flask
+    networks:
+      - my-project
 
   flask:
     build:
       context: ./flask_service
       dockerfile: Dockerfile
-    container_name: flask_service
+    container_name: portfolio-site-services
     ports:
       - "5001:5001"
+    networks:
+      - my-project
+
+networks:
+  my-project:
+    driver: bridge

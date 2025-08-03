@@ -3,13 +3,14 @@
     <div class="flex items-center justify-between h-20">
       <div class="flex items-center space-x-4">
         <a class="text-2xl font-bold gradient-text micro-interaction" href="/">MF</a>
-        <div class="hidden md:flex flex-col">
+        <div class="flex flex-col">
           <span class="text-lg font-bold text-[var(--dark-blue)]">Muhammad Farhan</span>
           <span class="text-sm text-[var(--slate-gray)]">Senior Backend Engineer</span>
         </div>
       </div>
       <button
-        class="md:hidden flex items-center justify-center rounded-[var(--border-radius-sm)] h-12 w-12 bg-transparent text-[var(--dark-blue)] micro-interaction">
+        id="mobileMenuBtn"
+        class="block md:hidden flex items-center justify-center rounded-[var(--border-radius-sm)] h-12 w-12 bg-transparent text-[var(--dark-blue)] micro-interaction">
         <svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px"
           xmlns="http://www.w3.org/2000/svg">
           <path
@@ -23,26 +24,26 @@
         <a class="hover:text-[var(--primary)] transition-colors micro-interaction" href="/projects">Projects</a>
         <a class="hover:text-[var(--primary)] transition-colors micro-interaction" href="/contact">Contact</a>
         <a class="hover:text-[var(--primary)] transition-colors micro-interaction chatbot-link" href="/chatbot">
-          <span class="chatbot-icon">🤖</span>
+          <span class="chatbot-icon">🧠</span>
           AI Assistant
         </a>
       </nav>
       
       <!-- Mobile Menu -->
-      <nav class="md:hidden fixed top-20 left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-100 transform -translate-y-full transition-transform duration-300 z-40" id="mobileMenu">
+      <div id="mobileMenu" class="mobile-menu hidden fixed top-20 left-0 right-0 bg-white shadow-lg border-b border-gray-100 z-50" style="display: none;">
         <div class="container mx-auto px-4 py-4">
-                      <div class="flex flex-col space-y-4 text-sm font-semibold text-[var(--slate-gray)]">
-              <a class="hover:text-[var(--primary)] transition-colors py-2 border-b border-gray-100" href="/about">About</a>
-              <a class="hover:text-[var(--primary)] transition-colors py-2 border-b border-gray-100" href="/tech-stack">Tech Stack</a>
-              <a class="hover:text-[var(--primary)] transition-colors py-2 border-b border-gray-100" href="/projects">Projects</a>
-              <a class="hover:text-[var(--primary)] transition-colors py-2" href="/contact">Contact</a>
-              <a class="hover:text-[var(--primary)] transition-colors py-2" href="/chatbot">
-                <span class="chatbot-icon">🤖</span>
-                AI Assistant
-              </a>
-            </div>
+          <div class="flex flex-col space-y-0 text-sm font-semibold text-[var(--slate-gray)]">
+            <a class="mobile-menu-link hover:text-[var(--primary)] transition-colors py-4 border-b border-gray-100 block w-full" href="/about">About</a>
+            <a class="mobile-menu-link hover:text-[var(--primary)] transition-colors py-4 border-b border-gray-100 block w-full" href="/tech-stack">Tech Stack</a>
+            <a class="mobile-menu-link hover:text-[var(--primary)] transition-colors py-4 border-b border-gray-100 block w-full" href="/projects">Projects</a>
+            <a class="mobile-menu-link hover:text-[var(--primary)] transition-colors py-4 border-b border-gray-100 block w-full" href="/contact">Contact</a>
+            <a class="mobile-menu-link hover:text-[var(--primary)] transition-colors py-4 block w-full" href="/chatbot">
+              <span class="chatbot-icon">🧠</span>
+              AI Assistant
+            </a>
+          </div>
         </div>
-      </nav>
+      </div>
     </div>
   </div>
 </header> 

@@ -318,6 +318,254 @@ window.addEventListener('error', function(e) {
     console.error('Projects JavaScript Error:', e.error);
 });
 
+// Global function for toggling project descriptions
+window.toggleProjectDescription = function(button) {
+    const descriptionContainer = button.parentElement;
+    const summary = descriptionContainer.querySelector('.project-summary');
+    const fullDescription = descriptionContainer.querySelector('.project-full-description');
+    
+    if (fullDescription.classList.contains('hidden')) {
+        // Show full description
+        summary.classList.add('hidden');
+        fullDescription.classList.remove('hidden');
+        button.textContent = 'Read Less';
+    } else {
+        // Show summary
+        summary.classList.remove('hidden');
+        fullDescription.classList.add('hidden');
+        button.textContent = 'Read More';
+    }
+};
+
+// Project Detail Modal Data
+const projectDetails = {
+    'ecommerce-platform': {
+        title: 'E-commerce Platform',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCJ8UAGSK8oi0nOFp2FptBhbXO1aqGSjxIdOAOPQQwwhQibZsGE5b6WX4d6AwA6qXAo6SG_Oe2hc7nUdS2aowd46Rbnld4HSxZHgBtttKJDFK0inEogi-uoYHuRT1Poiuim3nyfgpBFTc2Go0N10F-U4WVXlzv0weZUZDswZKJNzrLBc-LzBTVFXyyx5BPQc2p-mhWOxUrHby4bisRZkvUaKmd9dEnneXPLl7Lvj4et0vYNsK_Vl-q1faqHtBVXQO2NnksoSNEbu_1B',
+        description: 'Developed a comprehensive e-commerce platform using Odoo ERP system, featuring advanced payment gateway integrations (Stripe, PayPal), automated inventory management with real-time stock tracking, customer relationship management (CRM), order processing automation, and detailed analytics dashboard.',
+        features: [
+            'Multi-currency support with real-time exchange rates',
+            'Advanced payment gateway integrations (Stripe, PayPal)',
+            'Automated inventory management with real-time tracking',
+            'Customer relationship management (CRM) system',
+            'Order processing automation with status tracking',
+            'Detailed analytics dashboard with sales insights',
+            'Tax calculation automation',
+            'Third-party shipping and logistics integrations'
+        ],
+        tech: ['Odoo', 'Python', 'PostgreSQL', 'JavaScript', 'HTML/CSS'],
+        challenges: 'The main challenge was integrating multiple payment gateways while maintaining security standards and ensuring seamless user experience. Implemented robust error handling and fallback mechanisms to ensure 99.9% uptime.',
+        results: 'The platform now handles 10,000+ daily transactions with 99.9% uptime. Reduced order processing time by 60% and improved customer satisfaction scores by 40%.',
+        demo: '#',
+        code: '#'
+    },
+    'mobile-api': {
+        title: 'Mobile App API',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCYmpMQHBbMcH4l_PBXxe0VkGyv3hx9n1z8igSG53n3aq_OrHXm3Ms2VdpWRcnffV2ZIH9peozosFbl8KJlqABENziLpNKG7uubD-f9oiTfnr3D1uC8h0l6PwUTorIVc2Ngmy1TYsdAimBcvQtYSzvzcetOpiqIRNqG7eMrGnpZvXMKPnlOc8nGT8yFxIOa1xVu3ZQdvdBRpxp1O0cBqleLhYrdvwi2K9FVaovq_yU3w1W6_5UQ0K76eXvRkSYRf2RUjz3eITNlI8GM',
+        description: 'Built a high-performance RESTful API using Flask to support a mobile application, focusing on security, scalability, and optimal response times.',
+        features: [
+            'RESTful API design with comprehensive documentation',
+            'JWT-based authentication and authorization',
+            'Rate limiting and request throttling',
+            'Real-time data synchronization',
+            'Push notification system',
+            'File upload and media handling',
+            'Comprehensive error handling and logging',
+            'API versioning and backward compatibility'
+        ],
+        tech: ['Flask', 'Python', 'JWT', 'PostgreSQL', 'Redis'],
+        challenges: 'Implementing secure authentication while maintaining fast response times was challenging. Used JWT tokens with refresh mechanisms and implemented caching strategies to achieve sub-200ms response times.',
+        results: 'API now serves 50,000+ requests per minute with average response time of 150ms. Successfully scaled to support 100,000+ concurrent users.',
+        demo: '#',
+        code: '#'
+    },
+    'data-pipeline': {
+        title: 'Data Pipeline System',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCwWhh5SNVPtzwzvf1w_fhNQbDEDAvuTXyjo6-wQccMfteLggRvhfX3UPZmaItbQb9q27SN1JCL_M-Cx_jGhs3rejVu0x0a84WcDXfgbyJb-xe6Fixxrnee0Kej96rpF4u3h8uCKGJhu6Wuxh8Fdwf8LFg21WlIJKqfdMIrJLXdtoVx9ZLgS_Ycxsz3A-mWGPuOiX8WGZSk-CJROGRFAEltZK1VvnlHDa3JZAJJpIjmY7i_bxpj_Bxc367yQXKvF3WGd0fjj7eeEjPP',
+        description: 'Designed and implemented a robust data pipeline with FastAPI to process and analyze large datasets in real-time, deployed on AWS infrastructure.',
+        features: [
+            'Real-time data processing and streaming',
+            'Automated data validation and quality checks',
+            'Scalable microservices architecture',
+            'Real-time analytics and reporting',
+            'Data transformation and ETL processes',
+            'Error handling and retry mechanisms',
+            'Monitoring and alerting system',
+            'Data backup and recovery procedures'
+        ],
+        tech: ['FastAPI', 'Docker', 'AWS', 'Apache Kafka', 'PostgreSQL'],
+        challenges: 'Handling large-scale data processing while maintaining real-time performance was complex. Implemented streaming architecture with Apache Kafka and used containerization for scalability.',
+        results: 'Pipeline processes 1TB+ of data daily with 99.5% accuracy. Reduced processing time by 70% and enabled real-time analytics for business decisions.',
+        demo: '#',
+        code: '#'
+    },
+    'hr-automation': {
+        title: 'HR Process Automation',
+        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        description: 'Automated complete HR workflows including recruitment, onboarding, and performance management using Odoo and custom Python scripts.',
+        features: [
+            'Automated recruitment workflow management',
+            'Employee onboarding automation',
+            'Performance review system',
+            'Leave management automation',
+            'Payroll integration',
+            'Employee self-service portal',
+            'Compliance tracking and reporting',
+            'Integration with external HR tools'
+        ],
+        tech: ['Odoo', 'Python', 'Automation', 'PostgreSQL', 'REST APIs'],
+        challenges: 'Integrating multiple HR systems while maintaining data consistency was challenging. Built custom connectors and implemented data validation to ensure accuracy.',
+        results: 'Reduced HR administrative workload by 80% and improved employee satisfaction by 60%. Automated 95% of routine HR tasks.',
+        demo: '#',
+        code: '#'
+    },
+    'microservices': {
+        title: 'Microservices Architecture',
+        image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        description: 'Designed and implemented a microservices-based system using FastAPI, Docker, and Kubernetes for scalable application deployment.',
+        features: [
+            'Service discovery and load balancing',
+            'Container orchestration with Kubernetes',
+            'API gateway implementation',
+            'Distributed logging and monitoring',
+            'Circuit breaker pattern implementation',
+            'Health checks and auto-scaling',
+            'Blue-green deployment strategy',
+            'Centralized configuration management'
+        ],
+        tech: ['FastAPI', 'Docker', 'Kubernetes', 'Redis', 'PostgreSQL'],
+        challenges: 'Managing service communication and ensuring fault tolerance across multiple services was complex. Implemented circuit breakers and distributed tracing.',
+        results: 'Achieved 99.9% uptime with ability to handle 10x traffic spikes. Reduced deployment time from hours to minutes.',
+        demo: '#',
+        code: '#'
+    },
+    'analytics-dashboard': {
+        title: 'Business Analytics Dashboard',
+        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80',
+        description: 'Built a comprehensive analytics dashboard using Flask, PostgreSQL, and modern frontend technologies for real-time business insights.',
+        features: [
+            'Real-time data visualization',
+            'Interactive charts and graphs',
+            'Custom report generation',
+            'Data export functionality',
+            'User role-based access control',
+            'Automated data refresh',
+            'Mobile-responsive design',
+            'Integration with multiple data sources'
+        ],
+        tech: ['Flask', 'PostgreSQL', 'Chart.js', 'JavaScript', 'HTML/CSS'],
+        challenges: 'Creating real-time visualizations while maintaining performance with large datasets was challenging. Implemented data aggregation and caching strategies.',
+        results: 'Dashboard serves 500+ daily users with sub-second load times. Improved decision-making speed by 50% for business stakeholders.',
+        demo: '#',
+        code: '#'
+    },
+    'ml-processing': {
+        title: 'ML Data Processing',
+        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        description: 'Developed a machine learning pipeline for processing and analyzing large datasets using Python, Pandas, and scikit-learn.',
+        features: [
+            'Data preprocessing and cleaning',
+            'Feature engineering automation',
+            'Model training and validation',
+            'Hyperparameter optimization',
+            'Model deployment and monitoring',
+            'A/B testing framework',
+            'Performance metrics tracking',
+            'Automated retraining pipelines'
+        ],
+        tech: ['Python', 'Pandas', 'scikit-learn', 'NumPy', 'Matplotlib'],
+        challenges: 'Processing large datasets efficiently while maintaining model accuracy was challenging. Implemented data streaming and parallel processing.',
+        results: 'Improved model accuracy by 25% and reduced training time by 60%. Successfully deployed 10+ production models.',
+        demo: '#',
+        code: '#'
+    },
+    'cicd-pipeline': {
+        title: 'CI/CD Pipeline',
+        image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        description: 'Implemented automated CI/CD pipelines using GitHub Actions, Docker, and AWS for seamless deployment and testing.',
+        features: [
+            'Automated testing and quality checks',
+            'Docker containerization',
+            'Multi-environment deployment',
+            'Rollback mechanisms',
+            'Security scanning integration',
+            'Performance testing automation',
+            'Deployment notifications',
+            'Infrastructure as Code (IaC)'
+        ],
+        tech: ['GitHub Actions', 'Docker', 'AWS', 'Terraform', 'Jenkins'],
+        challenges: 'Ensuring consistent deployments across multiple environments while maintaining security was complex. Implemented comprehensive testing and security scanning.',
+        results: 'Reduced deployment time from 2 hours to 15 minutes. Achieved 99.5% deployment success rate with zero-downtime deployments.',
+        demo: '#',
+        code: '#'
+    }
+};
+
+// Global function for opening project details
+window.openProjectDetail = function(projectId) {
+    const project = projectDetails[projectId];
+    if (!project) {
+        console.error('Project not found:', projectId);
+        return;
+    }
+    
+    // Populate modal content
+    document.getElementById('modalProjectTitle').textContent = project.title;
+    document.getElementById('modalProjectImage').src = project.image;
+    document.getElementById('modalProjectImage').alt = project.title;
+    document.getElementById('modalProjectDescription').textContent = project.description;
+    
+    // Populate features
+    const featuresList = document.getElementById('modalProjectFeatures');
+    featuresList.innerHTML = '';
+    project.features.forEach(feature => {
+        const li = document.createElement('li');
+        li.textContent = feature;
+        featuresList.appendChild(li);
+    });
+    
+    // Populate tech stack
+    const techContainer = document.getElementById('modalProjectTech');
+    techContainer.innerHTML = '';
+    project.tech.forEach(tech => {
+        const tag = document.createElement('span');
+        tag.className = 'tech-tag';
+        tag.textContent = tech;
+        techContainer.appendChild(tag);
+    });
+    
+    // Populate challenges and results
+    document.getElementById('modalProjectChallenges').textContent = project.challenges;
+    document.getElementById('modalProjectResults').textContent = project.results;
+    
+    // Set links
+    document.getElementById('modalProjectDemo').href = project.demo;
+    document.getElementById('modalProjectCode').href = project.code;
+    
+    // Show modal
+    const modal = document.getElementById('projectDetailModal');
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    
+    console.log('Project detail opened:', projectId);
+};
+
+// Global function for closing project details
+window.closeProjectDetail = function() {
+    const modal = document.getElementById('projectDetailModal');
+    modal.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+    
+    console.log('Project detail closed');
+};
+
+// Close modal on escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeProjectDetail();
+    }
+});
+
 // Add global styles for dynamic elements
 const projectStyles = document.createElement('style');
 projectStyles.textContent = `

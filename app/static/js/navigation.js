@@ -1,5 +1,24 @@
 // Simple Navigation
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('🚀 Navigation script loaded');
+    
+    // Debug: Check if mobile menu elements exist
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    console.log('Mobile menu elements:', {
+        mobileBtn: mobileBtn ? 'Found' : 'Not found',
+        mobileMenu: mobileMenu ? 'Found' : 'Not found'
+    });
+    
+    // Debug: Check mobile menu structure
+    if (mobileMenu) {
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        console.log('🔍 Mobile menu structure:', {
+            totalLinks: menuLinks.length,
+            menuHTML: mobileMenu.innerHTML.substring(0, 200) + '...'
+        });
+    }
     // Get all navigation links
     const links = document.querySelectorAll('a[href^="#"]');
     
@@ -56,30 +75,74 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Mobile menu toggle
-    const mobileBtn = document.querySelector('button.md\\:hidden');
+    const mobileBtn = document.getElementById('mobileMenuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     
     if (mobileBtn && mobileMenu) {
-        mobileBtn.addEventListener('click', function() {
-            const isOpen = mobileMenu.classList.contains('translate-y-0');
+        console.log('✅ Mobile menu elements found:', { mobileBtn, mobileMenu });
+        
+        // Add click event listener
+        mobileBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('🎯 Mobile menu button clicked');
+            
+            const isOpen = mobileMenu.style.display === 'block';
+            console.log('📊 Menu is open:', isOpen);
+            console.log('📋 Mobile menu style display:', mobileMenu.style.display);
+            console.log('📋 Mobile menu classes:', mobileMenu.className);
             
             if (isOpen) {
-                mobileMenu.classList.remove('translate-y-0');
-                mobileMenu.classList.add('-translate-y-full');
+                mobileMenu.style.display = 'none';
+                mobileMenu.classList.add('hidden');
+                console.log('🔒 Closing mobile menu');
             } else {
-                mobileMenu.classList.remove('-translate-y-full');
-                mobileMenu.classList.add('translate-y-0');
+                mobileMenu.style.display = 'block';
+                mobileMenu.classList.remove('hidden');
+                console.log('🔓 Opening mobile menu');
+                
+                // Debug: Check if menu links are visible
+                const menuLinks = mobileMenu.querySelectorAll('a');
+                console.log('🔍 Menu links found:', menuLinks.length);
+                menuLinks.forEach((link, index) => {
+                    console.log(`Link ${index + 1}:`, link.textContent.trim(), link.href);
+                });
             }
         });
+        
+        // Test click functionality
+        console.log('🎯 Mobile menu button is clickable');
+        mobileBtn.style.cursor = 'pointer';
+        
+        // Add a test function to manually show menu
+        window.testMobileMenu = function() {
+            console.log('🧪 Testing mobile menu manually');
+            mobileMenu.style.display = 'block';
+            mobileMenu.classList.remove('hidden');
+            console.log('🧪 Mobile menu should now be visible');
+            console.log('🧪 Mobile menu display:', mobileMenu.style.display);
+        };
+        
+        // Log the test function
+        console.log('🧪 Test function available: window.testMobileMenu()');
         
         // Close mobile menu when clicking links
         const mobileLinks = mobileMenu.querySelectorAll('a');
         mobileLinks.forEach(link => {
             link.addEventListener('click', function() {
-                mobileMenu.classList.remove('translate-y-0');
-                mobileMenu.classList.add('-translate-y-full');
+                console.log('Mobile link clicked, closing menu');
+                mobileMenu.classList.add('hidden');
             });
         });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!mobileBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    } else {
+        console.log('Mobile menu elements not found:', { mobileBtn, mobileMenu });
     }
     
     // Special handler for MF logo link - SIMPLE RELOAD

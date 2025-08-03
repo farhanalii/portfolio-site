@@ -1,0 +1,135 @@
+/* Mobile Menu Styles */
+
+/* Mobile Menu Container */
+.mobile-menu {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #e5e7eb;
+    z-index: 9999;
+    display: none;
+}
+
+.mobile-menu.hidden {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+.mobile-menu:not(.hidden) {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Mobile Menu Links */
+.mobile-menu-link {
+    display: block;
+    width: 100%;
+    padding: 1rem 0;
+    text-decoration: none;
+    color: #64748b;
+    font-weight: 600;
+    font-size: 1rem;
+    border-bottom: 1px solid #f1f5f9;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-link:hover {
+    color: #0c70f2;
+    background: rgba(12, 112, 242, 0.05);
+}
+
+.mobile-menu-link:last-child {
+    border-bottom: none;
+}
+
+/* Mobile Menu Button */
+#mobileMenuBtn {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10000;
+}
+
+#mobileMenuBtn:hover {
+    background: rgba(12, 112, 242, 0.1);
+    border-radius: 8px;
+}
+
+/* Mobile Menu Container */
+.mobile-menu .container {
+    padding: 1rem;
+}
+
+.mobile-menu .flex {
+    gap: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mobile-menu {
+        top: 80px;
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+    }
+    
+    .mobile-menu-link {
+        padding: 1rem 0;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-menu {
+        top: 80px;
+    }
+    
+    .mobile-menu-link {
+        padding: 1rem 0;
+        font-size: 0.95rem;
+    }
+}
+
+/* Ensure mobile menu is always visible when not hidden */
+.mobile-menu:not(.hidden) {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Force mobile menu to be above other content */
+.mobile-menu {
+    z-index: 9999 !important;
+}
+
+/* Mobile menu button styles */
+#mobileMenuBtn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Hide mobile menu button on desktop */
+@media (min-width: 768px) {
+    #mobileMenuBtn {
+        display: none !important;
+    }
+}
+
+/* Show mobile menu button on mobile */
+@media (max-width: 767px) {
+    #mobileMenuBtn {
+        display: flex !important;
+    }
+}
+
+/* Hide desktop menu on mobile */
+@media (max-width: 768px) {
+    nav.hidden.md\\:flex {
+        display: none !important;
+    }
+} 

@@ -187,11 +187,11 @@ async def chatbot_page(request: Request):
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             :root {
-                --primary: #6366f1;
-                --primary-dark: #4f46e5;
-                --secondary: #8b5cf6;
-                --accent: #06b6d4;
-                --dark-blue: #0a192f;
+                --primary: #00d4ff;
+                --primary-dark: #00b8e6;
+                --secondary: #ff0080;
+                --accent: #00ff88;
+                --dark-blue: #0a0a0a;
                 --slate-gray: #64748b;
                 --light-gray: #f1f5f9;
                 --white: #ffffff;
@@ -212,25 +212,45 @@ async def chatbot_page(request: Request):
             
             body {
                 font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
                 min-height: 100vh;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 padding: 20px;
+                position: relative;
+                overflow: hidden;
+            }
+            
+            body::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: 
+                    radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(255, 0, 128, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 40% 40%, rgba(0, 255, 136, 0.05) 0%, transparent 50%);
+                pointer-events: none;
             }
             
             .chatbot-container {
-                background: white;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(20px);
                 border-radius: var(--border-radius-xl);
-                box-shadow: var(--shadow-large);
+                box-shadow: 
+                    0 25px 50px rgba(0, 0, 0, 0.25),
+                    0 0 0 1px rgba(255, 255, 255, 0.1),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
                 width: 100%;
-                max-width: 1000px;
-                height: 700px;
+                max-width: 1200px;
+                height: 800px;
                 display: flex;
                 flex-direction: column;
                 overflow: hidden;
-                border: 2px solid rgba(99, 102, 241, 0.2);
+                border: 2px solid rgba(0, 212, 255, 0.3);
                 position: relative;
             }
             
@@ -243,6 +263,7 @@ async def chatbot_page(request: Request):
                 height: 4px;
                 background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
                 border-radius: var(--border-radius-xl) var(--border-radius-xl) 0 0;
+                box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
             }
             
             .chatbot-header {
@@ -252,17 +273,21 @@ async def chatbot_page(request: Request):
                 text-align: center;
                 position: relative;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 
+                    0 4px 20px rgba(0, 212, 255, 0.3),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
             }
             
             .chatbot-header h1 {
                 font-size: 2rem;
                 font-weight: 800;
                 margin-bottom: 8px;
-                background: linear-gradient(45deg, #ffffff, #e0e7ff);
+                background: linear-gradient(45deg, #ffffff, var(--accent));
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
-                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+                filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.3));
             }
             
             .chatbot-header p {
@@ -277,25 +302,63 @@ async def chatbot_page(request: Request):
                 left: 25px;
                 width: 50px;
                 height: 50px;
-                background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+                background: linear-gradient(135deg, var(--accent), var(--primary));
                 border-radius: 50%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 font-size: 1.5rem;
                 backdrop-filter: blur(10px);
-                border: 2px solid rgba(255, 255, 255, 0.2);
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                border: 2px solid rgba(255, 255, 255, 0.3);
+                box-shadow: 
+                    0 4px 15px rgba(0, 0, 0, 0.2),
+                    0 0 20px rgba(0, 255, 136, 0.4),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-decoration: none;
+                color: inherit;
+                z-index: 10;
+            }
+            
+            .chatbot-avatar:hover {
+                transform: scale(1.1);
+                box-shadow: 
+                    0 6px 20px rgba(0, 0, 0, 0.3),
+                    0 0 30px rgba(0, 255, 136, 0.6),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            }
+            
+            .chatbot-avatar::after {
+                content: '🏠';
+                position: absolute;
+                top: -5px;
+                right: -5px;
+                font-size: 12px;
+                background: var(--secondary);
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+            
+            .chatbot-avatar:hover::after {
+                opacity: 1;
             }
             
             .chat-messages {
                 flex: 1;
-                padding: 25px;
+                padding: 30px;
                 overflow-y: auto;
                 display: flex;
                 flex-direction: column;
-                gap: 20px;
+                gap: 25px;
                 background: linear-gradient(180deg, #fafbfc 0%, #f1f5f9 100%);
+                min-height: 500px;
             }
             
             .message {
@@ -313,16 +376,22 @@ async def chatbot_page(request: Request):
                 color: white;
                 align-self: flex-end;
                 border-bottom-right-radius: 4px;
-                box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+                box-shadow: 
+                    0 4px 12px rgba(0, 212, 255, 0.4),
+                    0 0 20px rgba(0, 212, 255, 0.2);
+                border: 1px solid rgba(0, 212, 255, 0.3);
             }
             
             .message.bot {
-                background: linear-gradient(135deg, #ffffff, #f8fafc);
+                background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.8));
+                backdrop-filter: blur(10px);
                 color: var(--dark-blue);
                 align-self: flex-start;
                 border-bottom-left-radius: 4px;
-                border: 1px solid rgba(99, 102, 241, 0.1);
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+                border: 1px solid rgba(0, 212, 255, 0.2);
+                box-shadow: 
+                    0 4px 12px rgba(0, 0, 0, 0.1),
+                    0 0 0 1px rgba(255, 255, 255, 0.1);
             }
             
             .message.bot br {
@@ -340,23 +409,26 @@ async def chatbot_page(request: Request):
                 font-weight: 600;
                 border-bottom: 2px solid var(--primary);
                 transition: all 0.3s ease;
-                padding: 2px 0;
-                background: linear-gradient(120deg, transparent 0%, rgba(99, 102, 241, 0.1) 100%);
-                border-radius: 4px;
                 padding: 2px 6px;
+                background: linear-gradient(120deg, transparent 0%, rgba(0, 212, 255, 0.1) 100%);
+                border-radius: 4px;
+                box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
             }
             
             .message.bot a:hover {
-                color: var(--primary-dark);
-                border-bottom-color: var(--primary-dark);
-                background: linear-gradient(120deg, transparent 0%, rgba(99, 102, 241, 0.2) 100%);
+                color: var(--accent);
+                border-bottom-color: var(--accent);
+                background: linear-gradient(120deg, transparent 0%, rgba(0, 255, 136, 0.2) 100%);
                 transform: translateY(-1px);
-                box-shadow: 0 2px 8px rgba(99, 102, 241, 0.2);
+                box-shadow: 
+                    0 2px 8px rgba(0, 212, 255, 0.3),
+                    0 0 20px rgba(0, 255, 136, 0.3);
             }
             
             .message.bot strong {
-                color: var(--primary-dark);
+                color: var(--secondary);
                 font-weight: 700;
+                text-shadow: 0 0 10px rgba(255, 0, 128, 0.3);
             }
             
             .message.bot ul, .message.bot ol {
@@ -414,13 +486,18 @@ async def chatbot_page(request: Request):
                 font-size: 1rem;
                 transition: all 0.3s ease;
                 min-width: 90px;
-                box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+                box-shadow: 
+                    0 4px 12px rgba(0, 212, 255, 0.4),
+                    0 0 20px rgba(255, 0, 128, 0.2);
+                border: 1px solid rgba(255, 255, 255, 0.2);
             }
             
             .send-button:hover {
-                background: linear-gradient(135deg, var(--primary-dark), var(--secondary));
+                background: linear-gradient(135deg, var(--accent), var(--secondary));
                 transform: translateY(-2px);
-                box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+                box-shadow: 
+                    0 6px 20px rgba(0, 255, 136, 0.4),
+                    0 0 30px rgba(255, 0, 128, 0.3);
             }
             
             .send-button:disabled {
@@ -455,65 +532,7 @@ async def chatbot_page(request: Request):
             .typing-dot:nth-child(1) { animation-delay: -0.32s; }
             .typing-dot:nth-child(2) { animation-delay: -0.16s; }
             
-            .job-analysis-section {
-                margin-top: 25px;
-                padding: 25px;
-                background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-                border-radius: var(--border-radius-lg);
-                border: 2px solid rgba(99, 102, 241, 0.15);
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            }
-            
-            .job-analysis-section h3 {
-                color: var(--dark-blue);
-                margin-bottom: 20px;
-                font-size: 1.3rem;
-                font-weight: 700;
-                background: linear-gradient(45deg, var(--primary), var(--secondary));
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                background-clip: text;
-            }
-            
-            .job-description-input {
-                width: 100%;
-                min-height: 120px;
-                padding: 16px;
-                border: 2px solid rgba(99, 102, 241, 0.2);
-                border-radius: var(--border-radius-md);
-                font-family: inherit;
-                font-size: 1rem;
-                resize: vertical;
-                margin-bottom: 20px;
-                background: white;
-                transition: all 0.3s ease;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            }
-            
-            .job-description-input:focus {
-                outline: none;
-                border-color: var(--primary);
-                box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
-            }
-            
-            .analyze-button {
-                background: linear-gradient(135deg, var(--dark-blue), var(--primary));
-                color: white;
-                border: none;
-                border-radius: var(--border-radius-md);
-                padding: 14px 24px;
-                cursor: pointer;
-                font-weight: 600;
-                font-size: 1rem;
-                transition: all 0.3s ease;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            }
-            
-            .analyze-button:hover {
-                background: linear-gradient(135deg, var(--primary), var(--secondary));
-                transform: translateY(-2px);
-                box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
-            }
+
             
             @keyframes messageSlideIn {
                 from {
@@ -551,7 +570,7 @@ async def chatbot_page(request: Request):
     <body>
         <div class="chatbot-container">
             <div class="chatbot-header">
-                <div class="chatbot-avatar">🧠</div>
+                <a href="/" class="chatbot-avatar" title="Back to Home">🧠</a>
                 <h1>My AI Assistant</h1>
                 <p>Intelligent Assistant for Muhammad Farhan's Portfolio</p>
             </div>
@@ -584,20 +603,10 @@ async def chatbot_page(request: Request):
                     <textarea 
                         class="chat-input" 
                         id="chatInput" 
-                        placeholder="Ask me about Muhammad Farhan..."
+                        placeholder="Ask me about Muhammad Farhan... (or paste a job description to analyze)"
                         rows="1"
                     ></textarea>
                     <button class="send-button" id="sendButton">Send</button>
-                </div>
-                
-                <div class="job-analysis-section">
-                    <h3>📋 Job Description Analysis</h3>
-                    <textarea 
-                        class="job-description-input" 
-                        id="jobDescriptionInput" 
-                        placeholder="Paste a job description here to analyze how well Muhammad Farhan matches the requirements..."
-                    ></textarea>
-                    <button class="analyze-button" id="analyzeButton">Analyze Job Match</button>
                 </div>
             </div>
         </div>
@@ -605,12 +614,21 @@ async def chatbot_page(request: Request):
         <script>
             let sessionId = Date.now().toString();
             
+            // Add debugging
+            console.log('🧠 Chatbot page loaded');
+            
             const chatMessages = document.getElementById('chatMessages');
             const chatInput = document.getElementById('chatInput');
             const sendButton = document.getElementById('sendButton');
             const typingIndicator = document.getElementById('typingIndicator');
-            const jobDescriptionInput = document.getElementById('jobDescriptionInput');
-            const analyzeButton = document.getElementById('analyzeButton');
+            
+            // Debug element finding
+            console.log('Elements found:', {
+                chatMessages: !!chatMessages,
+                chatInput: !!chatInput,
+                sendButton: !!sendButton,
+                typingIndicator: !!typingIndicator
+            });
             
             // Auto-resize textarea
             chatInput.addEventListener('input', function() {
@@ -620,21 +638,37 @@ async def chatbot_page(request: Request):
             
             // Send message on Enter (but allow Shift+Enter for new line)
             chatInput.addEventListener('keydown', function(e) {
+                console.log('🧠 Key pressed:', e.key);
                 if (e.key === 'Enter' && !e.shiftKey) {
                     e.preventDefault();
+                    console.log('🧠 Enter pressed, calling sendMessage');
                     sendMessage();
                 }
             });
             
-            sendButton.addEventListener('click', sendMessage);
-            analyzeButton.addEventListener('click', analyzeJob);
+            sendButton.addEventListener('click', function() {
+                console.log('🧠 Send button clicked');
+                sendMessage();
+            });
+            
+            // Home link handler
+            const homeLink = document.querySelector('.chatbot-avatar');
+            if (homeLink) {
+                homeLink.addEventListener('click', function(e) {
+                    console.log('🧠 Home link clicked');
+                    // Ensure navigation works
+                    window.location.href = '/';
+                });
+            }
             
             function addMessage(content, isUser = false) {
+                console.log('🧠 Adding message:', content, 'isUser:', isUser);
                 const messageDiv = document.createElement('div');
                 messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
                 messageDiv.innerHTML = content;
                 chatMessages.appendChild(messageDiv);
                 chatMessages.scrollTop = chatMessages.scrollHeight;
+                console.log('🧠 Message added successfully');
             }
             
             function showTyping() {
@@ -647,8 +681,15 @@ async def chatbot_page(request: Request):
             }
             
             async function sendMessage() {
+                console.log('🧠 sendMessage function called');
+                
                 const message = chatInput.value.trim();
-                if (!message) return;
+                console.log('Message:', message);
+                
+                if (!message) {
+                    console.log('Empty message, returning');
+                    return;
+                }
                 
                 addMessage(message, true);
                 chatInput.value = '';
@@ -656,19 +697,38 @@ async def chatbot_page(request: Request):
                 
                 showTyping();
                 
+                // Check if this looks like a job description
+                const isJobDescription = message.toLowerCase().includes('job') || 
+                                       message.toLowerCase().includes('position') || 
+                                       message.toLowerCase().includes('role') || 
+                                       message.toLowerCase().includes('requirements') ||
+                                       message.toLowerCase().includes('responsibilities') ||
+                                       message.length > 200; // Long text likely job description
+                
                 try {
-                    const response = await fetch('/api/chatbot/chat', {
+                    console.log('🧠 Sending request to API...');
+                    const endpoint = isJobDescription ? '/api/chatbot/analyze-job' : '/api/chatbot/chat';
+                    const body = isJobDescription ? 
+                        JSON.stringify({
+                            job_description: message,
+                            session_id: sessionId
+                        }) :
+                        JSON.stringify({
+                            message: message,
+                            session_id: sessionId
+                        });
+                    
+                    const response = await fetch(endpoint, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
                         },
-                        body: JSON.stringify({
-                            message: message,
-                            session_id: sessionId
-                        })
+                        body: body
                     });
                     
+                    console.log('🧠 Response received:', response.status);
                     const data = await response.json();
+                    console.log('🧠 Response data:', data);
                     hideTyping();
                     
                     if (response.ok) {
@@ -677,45 +737,13 @@ async def chatbot_page(request: Request):
                         addMessage('Sorry, I encountered an error. Please try again.');
                     }
                 } catch (error) {
+                    console.error('🧠 Error in sendMessage:', error);
                     hideTyping();
-                    addMessage('Sorry, I\'m having trouble connecting. Please try again.');
+                    addMessage('Sorry, I am having trouble connecting. Please try again.');
                 }
             }
             
-            async function analyzeJob() {
-                const jobDescription = jobDescriptionInput.value.trim();
-                if (!jobDescription) {
-                    alert('Please paste a job description first.');
-                    return;
-                }
-                
-                showTyping();
-                
-                try {
-                    const response = await fetch('/api/chatbot/analyze-job', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            job_description: jobDescription,
-                            session_id: sessionId
-                        })
-                    });
-                    
-                    const data = await response.json();
-                    hideTyping();
-                    
-                    if (response.ok) {
-                        addMessage(data.response);
-                    } else {
-                        addMessage('Sorry, I encountered an error analyzing the job description.');
-                    }
-                } catch (error) {
-                    hideTyping();
-                    addMessage('Sorry, I\'m having trouble analyzing the job description.');
-                }
-            }
+
         </script>
     </body>
     </html>
@@ -728,7 +756,7 @@ async def chat_with_bot(chat_message: ChatMessage):
         # Check if model is properly configured
         if model is None:
             return ChatResponse(
-                response="I'm sorry, but the AI assistant is not properly configured. The Gemini API key is either missing, invalid, or the API is not accessible. Please contact the administrator to set up a valid API key. You can still learn about Muhammad Farhan by exploring the website sections.",
+                response="I am sorry, but the AI assistant is not properly configured. The Gemini API key is either missing, invalid, or the API is not accessible. Please contact the administrator to set up a valid API key. You can still learn about Muhammad Farhan by exploring the website sections.",
                 session_id=chat_message.session_id or "default",
                 timestamp=datetime.now().isoformat()
             )
@@ -776,7 +804,7 @@ Answer the user's question: {chat_message.message}
             
             if not response.text:
                 return ChatResponse(
-                    response="I'm sorry, but I received an empty response from the AI service. Please try again later.",
+                    response="I am sorry, but I received an empty response from the AI service. Please try again later.",
                     session_id=chat_message.session_id or "default",
                     timestamp=datetime.now().isoformat()
                 )
@@ -801,19 +829,19 @@ Answer the user's question: {chat_message.message}
             error_msg = str(api_error)
             if "quota" in error_msg.lower() or "429" in error_msg:
                 return ChatResponse(
-                    response="I'm sorry, but I've reached the daily limit for AI responses. Please try again tomorrow or contact Muhammad directly for immediate assistance.",
+                    response="I am sorry, but I have reached the daily limit for AI responses. Please try again tomorrow or contact Muhammad directly for immediate assistance.",
                     session_id=chat_message.session_id or "default",
                     timestamp=datetime.now().isoformat()
                 )
             elif "rate" in error_msg.lower():
                 return ChatResponse(
-                    response="I'm sorry, but I'm receiving too many requests right now. Please wait a moment and try again.",
+                    response="I am sorry, but I am receiving too many requests right now. Please wait a moment and try again.",
                     session_id=chat_message.session_id or "default",
                     timestamp=datetime.now().isoformat()
                 )
             else:
                 return ChatResponse(
-                    response="I'm sorry, but I encountered an error while processing your request. Please try again later or contact the administrator.",
+                    response="I am sorry, but I encountered an error while processing your request. Please try again later or contact the administrator.",
                     session_id=chat_message.session_id or "default",
                     timestamp=datetime.now().isoformat()
                 )
@@ -821,7 +849,7 @@ Answer the user's question: {chat_message.message}
     except Exception as e:
         print(f"Error in chat endpoint: {e}")
         return ChatResponse(
-            response="I'm sorry, but I encountered an error while processing your request. Please try again later or contact the administrator.",
+            response="I am sorry, but I encountered an error while processing your request. Please try again later or contact the administrator.",
             session_id=chat_message.session_id or "default",
             timestamp=datetime.now().isoformat()
         )
@@ -833,7 +861,7 @@ async def analyze_job_match(job_analysis: JobAnalysis):
         # Check if model is properly configured
         if model is None:
             return ChatResponse(
-                response="I'm sorry, but the AI assistant is not properly configured for job analysis. The Gemini API key is either missing, invalid, or the API is not accessible. Please contact the administrator to set up a valid API key. You can still learn about Muhammad Farhan's skills and experience by exploring the website sections.",
+                response="I am sorry, but the AI assistant is not properly configured for job analysis. The Gemini API key is either missing, invalid, or the API is not accessible. Please contact the administrator to set up a valid API key. You can still learn about Muhammad Farhan's skills and experience by exploring the website sections.",
                 session_id=job_analysis.session_id or "default",
                 timestamp=datetime.now().isoformat()
             )
@@ -889,7 +917,7 @@ Be honest but positive in your assessment. Focus on Muhammad's strengths while a
             
             if not response.text:
                 return ChatResponse(
-                    response="I'm sorry, but I received an empty response while analyzing the job description. Please try again later.",
+                    response="I am sorry, but I received an empty response while analyzing the job description. Please try again later.",
                     session_id=job_analysis.session_id or "default",
                     timestamp=datetime.now().isoformat()
                 )
@@ -914,19 +942,19 @@ Be honest but positive in your assessment. Focus on Muhammad's strengths while a
             error_msg = str(api_error)
             if "quota" in error_msg.lower() or "429" in error_msg:
                 return ChatResponse(
-                    response="I'm sorry, but I've reached the daily limit for AI responses. Please try again tomorrow or contact Muhammad directly for immediate assistance.",
+                    response="I am sorry, but I have reached the daily limit for AI responses. Please try again tomorrow or contact Muhammad directly for immediate assistance.",
                     session_id=job_analysis.session_id or "default",
                     timestamp=datetime.now().isoformat()
                 )
             elif "rate" in error_msg.lower():
                 return ChatResponse(
-                    response="I'm sorry, but I'm receiving too many requests right now. Please wait a moment and try again.",
+                    response="I am sorry, but I am receiving too many requests right now. Please wait a moment and try again.",
                     session_id=job_analysis.session_id or "default",
                     timestamp=datetime.now().isoformat()
                 )
             else:
                 return ChatResponse(
-                    response="I'm sorry, but I encountered an error while analyzing the job description. Please try again later or contact the administrator.",
+                    response="I am sorry, but I encountered an error while analyzing the job description. Please try again later or contact the administrator.",
                     session_id=job_analysis.session_id or "default",
                     timestamp=datetime.now().isoformat()
                 )
@@ -934,7 +962,7 @@ Be honest but positive in your assessment. Focus on Muhammad's strengths while a
     except Exception as e:
         print(f"Error in job analysis endpoint: {e}")
         return ChatResponse(
-            response="I'm sorry, but I encountered an error while analyzing the job description. Please try again later or contact the administrator.",
+            response="I am sorry, but I encountered an error while analyzing the job description. Please try again later or contact the administrator.",
             session_id=job_analysis.session_id or "default",
             timestamp=datetime.now().isoformat()
         )

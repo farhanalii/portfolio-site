@@ -74,14 +74,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Initialize with all skills visible (don't update hash on load)
-    filterSkills('all', false);
+    // Initialize with languages skills visible (don't update hash on load)
+    filterSkills('languages', false);
 
     // Set initial active button
     tabButtons.forEach(btn => btn.classList.remove('active'));
-    const allButton = document.querySelector('[data-category="all"]');
-    if (allButton) {
-        allButton.classList.add('active');
+    const languagesButton = document.querySelector('[data-category="languages"]');
+    if (languagesButton) {
+        languagesButton.classList.add('active');
     }
 
     // Enhanced tab button handlers with loading states

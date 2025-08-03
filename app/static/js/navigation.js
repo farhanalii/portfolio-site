@@ -74,9 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Mobile menu toggle
-    const mobileBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
+    // Mobile menu toggle (using existing variables)
     
     if (mobileBtn && mobileMenu) {
         console.log('✅ Mobile menu elements found:', { mobileBtn, mobileMenu });
@@ -91,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('📊 Menu is open:', isOpen);
             console.log('📋 Mobile menu style display:', mobileMenu.style.display);
             console.log('📋 Mobile menu classes:', mobileMenu.className);
+            console.log('📋 Mobile menu position:', mobileMenu.getBoundingClientRect());
             
             if (isOpen) {
                 mobileMenu.style.display = 'none';
@@ -101,12 +100,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 mobileMenu.classList.remove('hidden');
                 console.log('🔓 Opening mobile menu');
                 
+                // Force some styles to ensure visibility
+                mobileMenu.style.position = 'fixed';
+                mobileMenu.style.top = '80px';
+                mobileMenu.style.left = '0';
+                mobileMenu.style.right = '0';
+                mobileMenu.style.width = '100%';
+                mobileMenu.style.minHeight = '200px';
+                mobileMenu.style.zIndex = '9999';
+                mobileMenu.style.backgroundColor = '#f0f0f0';
+                mobileMenu.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+                
                 // Debug: Check if menu links are visible
                 const menuLinks = mobileMenu.querySelectorAll('a');
                 console.log('🔍 Menu links found:', menuLinks.length);
                 menuLinks.forEach((link, index) => {
                     console.log(`Link ${index + 1}:`, link.textContent.trim(), link.href);
                 });
+                
+                // Debug: Check menu dimensions
+                setTimeout(() => {
+                    const rect = mobileMenu.getBoundingClientRect();
+                    console.log('📏 Menu dimensions:', {
+                        width: rect.width,
+                        height: rect.height,
+                        top: rect.top,
+                        left: rect.left,
+                        visible: rect.width > 0 && rect.height > 0
+                    });
+                }, 100);
             }
         });
         
@@ -119,12 +141,41 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('🧪 Testing mobile menu manually');
             mobileMenu.style.display = 'block';
             mobileMenu.classList.remove('hidden');
+            mobileMenu.style.position = 'fixed';
+            mobileMenu.style.top = '80px';
+            mobileMenu.style.left = '0';
+            mobileMenu.style.right = '0';
+            mobileMenu.style.width = '100%';
+            mobileMenu.style.minHeight = '200px';
+            mobileMenu.style.zIndex = '9999';
+            mobileMenu.style.backgroundColor = '#f0f0f0';
             console.log('🧪 Mobile menu should now be visible');
             console.log('🧪 Mobile menu display:', mobileMenu.style.display);
+            console.log('🧪 Mobile menu position:', mobileMenu.getBoundingClientRect());
         };
         
         // Log the test function
         console.log('🧪 Test function available: window.testMobileMenu()');
+        
+        // Add contact section test function
+        window.testContactSection = function() {
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                console.log('📞 Contact section found:', contactSection);
+                console.log('📞 Contact section display:', contactSection.style.display);
+                console.log('📞 Contact section visibility:', contactSection.style.visibility);
+                console.log('📞 Contact section position:', contactSection.getBoundingClientRect());
+                
+                // Force show contact section
+                contactSection.style.display = 'block !important';
+                contactSection.style.visibility = 'visible !important';
+                contactSection.style.opacity = '1 !important';
+                
+                console.log('📞 Contact section should now be visible');
+            } else {
+                console.log('❌ Contact section not found');
+            }
+        };
         
         // Close mobile menu when clicking links
         const mobileLinks = mobileMenu.querySelectorAll('a');

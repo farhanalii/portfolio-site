@@ -184,7 +184,7 @@ async def chatbot_page(request: Request):
     <head>
         <title>FarhanBot - AI Assistant</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <style>
             :root {
                 --primary: #00d4ff;
@@ -252,6 +252,83 @@ async def chatbot_page(request: Request):
                 overflow: hidden;
                 border: 2px solid rgba(0, 212, 255, 0.3);
                 position: relative;
+            }
+            
+            /* Mobile responsiveness */
+            @media (max-width: 768px) {
+                body {
+                    padding: 10px;
+                }
+                
+                .chatbot-container {
+                    height: 100vh;
+                    max-width: 100%;
+                    border-radius: var(--border-radius-lg);
+                    margin: 0;
+                }
+                
+                .chatbot-header {
+                    padding: 15px;
+                }
+                
+                .chatbot-header h1 {
+                    font-size: 1.5rem;
+                }
+                
+                .chatbot-header p {
+                    font-size: 0.9rem;
+                }
+                
+                .chat-input-container {
+                    padding: 15px;
+                }
+                
+                .chat-input {
+                    min-height: 50px;
+                    max-height: 150px;
+                    font-size: 0.9rem;
+                }
+                
+                .send-button {
+                    padding: 12px 20px;
+                    font-size: 0.9rem;
+                    min-width: 80px;
+                }
+                
+                .chat-input-wrapper {
+                    gap: 8px;
+                }
+            }
+            
+            @media (max-width: 480px) {
+                .chatbot-container {
+                    height: 100vh;
+                    border-radius: 0;
+                }
+                
+                .chatbot-header {
+                    padding: 12px;
+                }
+                
+                .chatbot-header h1 {
+                    font-size: 1.3rem;
+                }
+                
+                .chat-input-container {
+                    padding: 12px;
+                }
+                
+                .chat-input {
+                    min-height: 45px;
+                    max-height: 120px;
+                    font-size: 0.85rem;
+                }
+                
+                .send-button {
+                    padding: 10px 16px;
+                    font-size: 0.85rem;
+                    min-width: 70px;
+                }
             }
             
             .chatbot-container::before {
@@ -361,6 +438,22 @@ async def chatbot_page(request: Request):
                 min-height: 500px;
             }
             
+            @media (max-width: 768px) {
+                .chat-messages {
+                    padding: 15px;
+                    gap: 15px;
+                    min-height: 300px;
+                }
+            }
+            
+            @media (max-width: 480px) {
+                .chat-messages {
+                    padding: 12px;
+                    gap: 12px;
+                    min-height: 250px;
+                }
+            }
+            
             .message {
                 max-width: 85%;
                 padding: 18px 22px;
@@ -459,13 +552,14 @@ async def chatbot_page(request: Request):
                 border: 2px solid rgba(99, 102, 241, 0.2);
                 border-radius: var(--border-radius-lg);
                 font-size: 1rem;
-                resize: none;
-                min-height: 50px;
-                max-height: 120px;
+                resize: vertical;
+                min-height: 60px;
+                max-height: 200px;
                 transition: all 0.3s ease;
                 font-family: inherit;
                 background: white;
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+                line-height: 1.5;
             }
             
             .chat-input:focus {
@@ -603,8 +697,8 @@ async def chatbot_page(request: Request):
                     <textarea 
                         class="chat-input" 
                         id="chatInput" 
-                        placeholder="Ask me about Muhammad Farhan... (or paste a job description to analyze)"
-                        rows="1"
+                        placeholder="Ask me about Muhammad Farhan's experience, skills, projects, or paste a job description to analyze how well he matches the requirements..."
+                        rows="2"
                     ></textarea>
                     <button class="send-button" id="sendButton">Send</button>
                 </div>
@@ -633,7 +727,8 @@ async def chatbot_page(request: Request):
             // Auto-resize textarea
             chatInput.addEventListener('input', function() {
                 this.style.height = 'auto';
-                this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+                const maxHeight = window.innerWidth <= 768 ? 150 : 200;
+                this.style.height = Math.min(this.scrollHeight, maxHeight) + 'px';
             });
             
             // Send message on Enter (but allow Shift+Enter for new line)
@@ -660,6 +755,32 @@ async def chatbot_page(request: Request):
                     window.location.href = '/';
                 });
             }
+            
+            // Add welcome message on page load (only once)
+            let welcomeMessageAdded = false;
+            document.addEventListener('DOMContentLoaded', function() {
+                if (welcomeMessageAdded) return;
+                welcomeMessageAdded = true;
+                
+                const welcomeMessage = `
+                    <div style="margin-bottom: 20px;">
+                        <strong style="color: #00d4ff; font-size: 1.1em;">👋 Hi! I'm your AI assistant here to help you learn more about Muhammad Farhan.</strong>
+                        <br><br>
+                        <strong style="color: #ff0080;">🎯 I can assist you with:</strong>
+                        <br><br>
+                        • <strong>Experience & background</strong> - Learn about Muhammad's 7+ years of experience
+                        <br>
+                        • <strong>Skills & expertise</strong> - Discover his technical capabilities and specializations
+                        <br>
+                        • <strong>Projects & tech stack</strong> - Explore his portfolio and technologies used
+                        <br>
+                        • <strong>Job description analysis</strong> - Analyze how well he matches specific roles
+                        <br><br>
+                        <strong style="color: #00ff88;">💡 Just ask me anything about Muhammad Farhan — I've got the answers!</strong>
+                    </div>
+                `;
+                addMessage(welcomeMessage, false);
+            });
             
             function addMessage(content, isUser = false) {
                 console.log('🧠 Adding message:', content, 'isUser:', isUser);

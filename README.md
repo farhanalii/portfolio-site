@@ -1,4 +1,4 @@
-# 🌐 Muhammad Farhan — Developer Portfolio
+# 🌐 Muhammad Farhan — Portfolio with AI Assistance
 
 This is my personal portfolio website built with **FastAPI**, styled using **Tailwind CSS**, and deployed using **Docker** and **GitHub Actions** to **AWS EC2 (Free Tier)**. It showcases my experience, projects, and skill set in a modern, scalable, and DevOps-friendly stack.
 
@@ -12,6 +12,38 @@ This is my personal portfolio website built with **FastAPI**, styled using **Tai
 - **DevOps:** Docker, GitHub Actions CI/CD
 - **Cloud:** AWS EC2 (Free Tier)
 - **Optional Additions:** PostgreSQL (for contact form or blogs), Flask microservice (for showcasing architecture)
+
+### 🧠 Additional Capabilities
+
+1. **API Design Patterns:**
+
+   - RESTful endpoints
+   - Request/Response models
+   - Error handling strategies
+
+2. **AI Integration:**
+
+   - Prompt engineering
+   - Model selection and fallbacks
+   - Rate limiting and quota management
+
+3. **Session Management:**
+
+   - Stateful vs stateless
+   - Memory vs database storage
+   - Security considerations
+
+4. **Error Handling:**
+
+   - Graceful degradation
+   - User-friendly error messages
+   - Logging and monitoring
+
+5. **Security:**
+
+   - API key management
+   - Input validation
+   - CORS configuration
 
 ---
 

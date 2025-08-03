@@ -670,18 +670,6 @@ async def chatbot_page(request: Request):
             </div>
             
             <div class="chat-messages" id="chatMessages">
-                <div class="message bot">
-                    👋 Hi! I’m your AI assistant here to help you learn more about Muhammad Farhan.
-
-🎯 I can assist you with:
-• Experience & background  
-• Skills & expertise  
-• Projects & tech stack  
-• Job description analysis  
-
- <strong>💡 Just ask me anything about Muhammad Farhan — I’ve got the answers!</strong>
-
-                </div>
             </div>
             
             <div class="typing-indicator" id="typingIndicator">

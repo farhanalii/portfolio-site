@@ -7,6 +7,14 @@
   transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+/* Fallback: Make cards visible on mobile even without JavaScript */
+@media (max-width: 768px) {
+  .contact-card-animate {
+    opacity: 1 !important;
+    transform: translateY(0) scale(1) !important;
+  }
+}
+
 /* Animated state for contact cards */
 .contact-card-animate.animate-in {
   opacity: 1;

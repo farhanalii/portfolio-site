@@ -34,6 +34,15 @@ class ContactAnimations {
     });
 
     observer.observe(this.contactSection);
+    
+    // Fallback: If Intersection Observer doesn't work, animate after 2 seconds
+    setTimeout(() => {
+      if (!this.hasAnimated) {
+        console.log('Contact animations fallback triggered');
+        this.animateContactCards();
+        this.hasAnimated = true;
+      }
+    }, 2000);
   }
 
   animateContactCards() {

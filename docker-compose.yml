@@ -30,5 +30,5 @@ services:
 
 networks:
   my-project:
-    driver: external
+    external: true
     # driver: bridge

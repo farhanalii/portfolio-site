@@ -339,29 +339,26 @@ window.toggleProjectDescription = function(button) {
 
 // Project Detail Modal Data
 const projectDetails = {
-    'ecommerce-platform': {
-        title: 'E-commerce Platform',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCJ8UAGSK8oi0nOFp2FptBhbXO1aqGSjxIdOAOPQQwwhQibZsGE5b6WX4d6AwA6qXAo6SG_Oe2hc7nUdS2aowd46Rbnld4HSxZHgBtttKJDFK0inEogi-uoYHuRT1Poiuim3nyfgpBFTc2Go0N10F-U4WVXlzv0weZUZDswZKJNzrLBc-LzBTVFXyyx5BPQc2p-mhWOxUrHby4bisRZkvUaKmd9dEnneXPLl7Lvj4et0vYNsK_Vl-q1faqHtBVXQO2NnksoSNEbu_1B',
-        description: 'Developed a comprehensive e-commerce platform using Odoo ERP system, featuring advanced payment gateway integrations (Stripe, PayPal), automated inventory management with real-time stock tracking, customer relationship management (CRM), order processing automation, and detailed analytics dashboard.',
+    'odoo-erp': {
+        title: 'Custom Odoo ERP Modules for Logistics & Manufacturing',
+        image: '/static/images/odoo-erp-for-logistics.jpg',
+        description: 'Developed and customised Odoo ERP modules tailored for inventory, HR, and production workflows in the logistics sector. Improved automation and user experience by integrating business logic directly into the ERP flows.',
         features: [
-            'Multi-currency support with real-time exchange rates',
-            'Advanced payment gateway integrations (Stripe, PayPal)',
-            'Automated inventory management with real-time tracking',
-            'Customer relationship management (CRM) system',
-            'Order processing automation with status tracking',
-            'Detailed analytics dashboard with sales insights',
-            'Tax calculation automation',
-            'Third-party shipping and logistics integrations'
+            'Custom Odoo models and views for real-time inventory tracking',
+            'Automated HR workflows including attendance and payroll',
+            'Production order scheduling with status dashboards',
+            'Role-based access control integrated with ERP rules',
+            'Optimized PostgreSQL queries and schema design for Odoo',
         ],
-        tech: ['Odoo', 'Python', 'PostgreSQL', 'JavaScript', 'HTML/CSS'],
-        challenges: 'The main challenge was integrating multiple payment gateways while maintaining security standards and ensuring seamless user experience. Implemented robust error handling and fallback mechanisms to ensure 99.9% uptime.',
-        results: 'The platform now handles 10,000+ daily transactions with 99.9% uptime. Reduced order processing time by 60% and improved customer satisfaction scores by 40%.',
-        demo: '#',
+        tech: ['Odoo', 'Python','PostgreSQL', 'Docker', 'CI/CD'],
+        challenges: 'Version upgrade issues and module compatibility conflicts. Solved by creating abstract modules and backward-compatible logic.',
+        results: 'Boosted operational efficiency by 20%, reduced human errors, and increased ERP adoption across departments.',
+        demo: 'https://dalbagroup.odoo.com',
         code: '#'
     },
     'mobile-api': {
         title: 'Mobile App API',
-        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCYmpMQHBbMcH4l_PBXxe0VkGyv3hx9n1z8igSG53n3aq_OrHXm3Ms2VdpWRcnffV2ZIH9peozosFbl8KJlqABENziLpNKG7uubD-f9oiTfnr3D1uC8h0l6PwUTorIVc2Ngmy1TYsdAimBcvQtYSzvzcetOpiqIRNqG7eMrGnpZvXMKPnlOc8nGT8yFxIOa1xVu3ZQdvdBRpxp1O0cBqleLhYrdvwi2K9FVaovq_yU3w1W6_5UQ0K76eXvRkSYRf2RUjz3eITNlI8GM',
+        image: '/static/images/mobile-api.png',
         description: 'Built a high-performance RESTful API using Flask to support a mobile application, focusing on security, scalability, and optimal response times.',
         features: [
             'RESTful API design with comprehensive documentation',
@@ -421,7 +418,7 @@ const projectDetails = {
     },
     'microservices': {
         title: 'Microservices Architecture',
-        image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        image: '/static/images/microservices.jpg',
         description: 'Designed and implemented a microservices-based system using FastAPI, Docker, and Kubernetes for scalable application deployment.',
         features: [
             'Service discovery and load balancing',
@@ -459,29 +456,10 @@ const projectDetails = {
         demo: '#',
         code: '#'
     },
-    'ml-processing': {
-        title: 'ML Data Processing',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-        description: 'Developed a machine learning pipeline for processing and analyzing large datasets using Python, Pandas, and scikit-learn.',
-        features: [
-            'Data preprocessing and cleaning',
-            'Feature engineering automation',
-            'Model training and validation',
-            'Hyperparameter optimization',
-            'Model deployment and monitoring',
-            'A/B testing framework',
-            'Performance metrics tracking',
-            'Automated retraining pipelines'
-        ],
-        tech: ['Python', 'Pandas', 'scikit-learn', 'NumPy', 'Matplotlib'],
-        challenges: 'Processing large datasets efficiently while maintaining model accuracy was challenging. Implemented data streaming and parallel processing.',
-        results: 'Improved model accuracy by 25% and reduced training time by 60%. Successfully deployed 10+ production models.',
-        demo: '#',
-        code: '#'
-    },
+
     'cicd-pipeline': {
         title: 'CI/CD Pipeline',
-        image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+        image: '/static/images/devops-ci-cd.png',
         description: 'Implemented automated CI/CD pipelines using GitHub Actions, Docker, and AWS for seamless deployment and testing.',
         features: [
             'Automated testing and quality checks',
@@ -498,7 +476,41 @@ const projectDetails = {
         results: 'Reduced deployment time from 2 hours to 15 minutes. Achieved 99.5% deployment success rate with zero-downtime deployments.',
         demo: '#',
         code: '#'
-    }
+    },
+    'data-automation-toolkit': {
+        title: 'Data Processing & Analytics Automation Toolkit',
+        image: '/static/images/automation.jpg',
+        description: 'Built a Python toolkit using Pandas and NumPy to automate data cleaning, report generation, and statistical analysis for the business intelligence team. This internal tool reduced manual spreadsheet work and enabled data-driven decision-making.',
+        features: [
+            'CSV and API-based data ingestion pipeline',
+            'Automated outlier detection and normalisation routines',
+            'Dynamic Excel report generation with charts',
+            'Data validation rules to flag anomalies',
+            'CLI-based interface for scheduled or ad hoc use'
+        ],
+        tech: ['Python', 'Pandas', 'NumPy', 'Jupyter', 'Git', 'Docker', 'AWS'],
+        challenges: 'Memory inefficiency and slow computation for large files. Solved using vectorized Pandas operations and chunk-based data reads.',
+        results: 'Reduced manual analysis time by 60%, improved report accuracy, and enabled weekly reporting to be done in under 5 minutes.',
+        demo: '#',
+        code: '#'
+    },
+    'mutli-cloud-cicd': {
+        title: 'Multi-Cloud CI/CD Orchestration System',
+        image: '/static/images/cloud.jpg',
+        description: 'Built an advanced CI/CD orchestration system managing deployments across AWS, Alibaba Cloud, and DigitalOcean. The system automates the entire software delivery lifecycle with intelligent resource optimization, automated testing, and zero-downtime deployments for multiple production environments.',
+        features: [
+            'Multi-cloud deployment automation with intelligent resource allocation and cost optimization',
+            'Automated testing pipeline with unit, integration, and performance testing stages',
+            'Blue-green deployment strategy with automatic rollback capabilities on failure detection',
+            'Real-time monitoring and alerting system with Slack/email notifications for deployment status',
+            'Infrastructure as Code (IaC) templates for consistent environment provisioning across clouds'
+        ],
+        tech: ['GitHub Actions', 'Docker', 'Kubernetes', 'AWS EC2', 'DigitalOcean', 'Python', 'Jenkins', 'Nginx'],
+        challenges: 'Managing deployments across multiple cloud providers with different APIs and configurations was complex. Solved by creating abstraction layers and standardized deployment templates. Addressed network latency and cross-cloud communication issues by implementing intelligent routing and caching strategies.',
+        results: 'Reduced deployment time by 70%, decreased deployment failures by 85%, achieved 99.95% deployment success rate, cut infrastructure costs by 35% through automated resource optimization, and enabled 50+ deployments per week with zero manual intervention.',
+        demo: '#',
+        code: '#'
+    },
 };
 
 // Global function for opening project details

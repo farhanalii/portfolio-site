@@ -38,4 +38,9 @@ app/static/assets/
 
 # Claude Code
 .claude/
+.agents/
+skills-lock.json
+
+# Server setup script (local only)
+server-setup.sh
 

@@ -148,6 +148,30 @@ body {
     color: var(--primary);
 }
 
+/* AI & LLMs tab — special accent */
+.tab-button-ai {
+    background: linear-gradient(135deg, rgba(12, 112, 242, 0.08), rgba(10, 25, 47, 0.06));
+    border: 1px solid rgba(12, 112, 242, 0.2);
+    color: var(--primary) !important;
+    position: relative;
+}
+
+.tab-button-ai::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--border-radius-md);
+    background: linear-gradient(135deg, transparent, rgba(12, 112, 242, 0.06));
+    pointer-events: none;
+}
+
+.tab-button-ai.active {
+    background: linear-gradient(135deg, var(--primary), var(--dark-blue)) !important;
+    color: white !important;
+    border-color: transparent !important;
+    box-shadow: var(--shadow-medium), 0 0 20px rgba(12, 112, 242, 0.3);
+}
+
 /* Skills Grid - Enhanced Design */
 .skills-container {
     position: relative;
@@ -486,29 +510,7 @@ body {
     }
 }
 
-.skill-card:nth-child(6n+1) {
-    animation: gentleFloat 8s ease-in-out infinite;
-}
-
-.skill-card:nth-child(6n+2) {
-    animation: gentleFloat 8s ease-in-out infinite 1.3s;
-}
-
-.skill-card:nth-child(6n+3) {
-    animation: gentleFloat 8s ease-in-out infinite 2.6s;
-}
-
-.skill-card:nth-child(6n+4) {
-    animation: gentleFloat 8s ease-in-out infinite 4s;
-}
-
-.skill-card:nth-child(6n+5) {
-    animation: gentleFloat 8s ease-in-out infinite 5.3s;
-}
-
-.skill-card:nth-child(6n) {
-    animation: gentleFloat 8s ease-in-out infinite 6.6s;
-}
+/* Float animation removed from cards — applied only on hover via transform in .skill-card:hover */
 
 /* Responsive Design */
 @media (max-width: 1024px) {

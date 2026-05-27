@@ -9,88 +9,69 @@ class FarhanBotWidget {
     init() {
         this.createWidget();
         this.bindEvents();
-        console.log('🤖 Farhan\'s AI Assistant Widget initialized');
-        
-        // Add debugging for menu clicks
-        const chatbotLinks = document.querySelectorAll('a[href="/chatbot"]');
-        chatbotLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                console.log('🧠 AI Assistant menu link clicked!');
-                // Let the default navigation happen
-            });
-        });
-        
-        // Add debugging for widget toggle
-        const toggle = document.getElementById('farhanbotToggle');
-        if (toggle) {
-            toggle.addEventListener('click', function() {
-                console.log('🧠 Widget toggle clicked!');
-            });
-        }
     }
 
     createWidget() {
-        // Create widget container
         const widget = document.createElement('div');
         widget.id = 'farhanbot-widget';
         widget.innerHTML = `
             <div class="farhanbot-toggle" id="farhanbotToggle">
-                <div class="farhanbot-avatar">🧠</div>
-                <div class="farhanbot-label">My AI Arsenal</div>
+                <div class="farhanbot-toggle-icon">🧠</div>
+                <div class="farhanbot-label">Farhan.AI</div>
             </div>
-            
+
             <div class="farhanbot-chat" id="farhanbotChat">
                 <div class="farhanbot-header">
                     <div class="farhanbot-title">
-                        <a href="/" class="farhanbot-avatar-small" title="Back to Home">🧠</a>
+                        <div class="farhanbot-avatar-small">🧠</div>
                         <div>
-                            <h3>My AI Assistant</h3>
-                            <p>Intelligent Assistant</p>
+                            <h3>Farhan.AI</h3>
+                            <p>Portfolio Intelligence</p>
                         </div>
                     </div>
-                    <button class="farhanbot-close" id="farhanbotClose">×</button>
-                </div>
-                
-                <div class="farhanbot-messages" id="farhanbotMessages">
-                    <div class="farhanbot-message bot">
-                        👋 Hi! I’m your AI assistant here to help you learn more about Muhammad Farhan.
-
-🎯 I can assist you with:
-• Experience & background  
-• Skills & expertise  
-• Projects & tech stack  
-• Job description analysis  
-
-<strong>💡 Just ask me anything about Muhammad Farhan — I’ve got the answers!</strong>
-
-
-                    </div>
-                </div>
-                
-                <div class="farhanbot-typing" id="farhanbotTyping">
-                    <div class="typing-dots">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-                
-                <div class="farhanbot-input-container">
-                    <div class="farhanbot-input-wrapper">
-                        <textarea 
-                            class="farhanbot-input" 
-                            id="farhanbotInput" 
-                            placeholder="Ask me about Muhammad Farhan... (or paste a job description to analyze)"
-                            rows="1"
-                        ></textarea>
-                        <button class="farhanbot-send" id="farhanbotSend">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="22" y1="2" x2="11" y2="13"></line>
-                                <polygon points="22,2 15,22 11,13 2,9"></polygon>
+                    <div class="farhanbot-header-actions">
+                        <a href="/chatbot" class="farhanbot-expand" title="Open full chat">
+                            <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                            </svg>
+                        </a>
+                        <button class="farhanbot-close" id="farhanbotClose">
+                            <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                             </svg>
                         </button>
                     </div>
-                    
+                </div>
+
+                <div class="farhanbot-messages" id="farhanbotMessages">
+                    <div class="farhanbot-message bot">
+                        <strong>👋 Hi — I'm Farhan.AI.</strong><br><br>
+                        Ask me about Muhammad Farhan's skills, experience, or projects. Or paste a job description and I'll analyse the fit.<br><br>
+                        <span class="fb-hint">Use the prompts below or type your own →</span>
+                    </div>
+                </div>
+
+                <div class="farhanbot-typing" id="farhanbotTyping">
+                    <div class="typing-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+
+                <div class="farhanbot-input-container">
+                    <div class="farhanbot-input-wrapper">
+                        <textarea
+                            class="farhanbot-input"
+                            id="farhanbotInput"
+                            placeholder="Ask about skills, projects, availability…"
+                            rows="1"
+                        ></textarea>
+                        <button class="farhanbot-send" id="farhanbotSend">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                            </svg>
+                        </button>
+                    </div>
                     <div class="farhanbot-quick-actions">
                         <button class="quick-action" data-action="experience">Experience</button>
                         <button class="quick-action" data-action="skills">Skills</button>
@@ -100,10 +81,8 @@ class FarhanBotWidget {
                 </div>
             </div>
         `;
-        
+
         document.body.appendChild(widget);
-        
-        // Add styles
         this.addStyles();
     }
 
@@ -115,488 +94,410 @@ class FarhanBotWidget {
                 bottom: 20px;
                 right: 20px;
                 z-index: 10000;
-                font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+                font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             }
-            
+
+            /* ── Toggle pill ── */
             .farhanbot-toggle {
-                background: linear-gradient(135deg, #00d4ff, #ff0080);
-                color: white;
-                padding: 14px 20px;
+                background: #0c70f2;
+                color: #ffffff;
+                padding: 12px 20px;
                 border-radius: 50px;
                 cursor: pointer;
                 display: flex;
                 align-items: center;
-                gap: 10px;
-                box-shadow: 
-                    0 8px 25px rgba(0, 212, 255, 0.4),
-                    0 0 20px rgba(255, 0, 128, 0.3);
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-                border: 2px solid rgba(255, 255, 255, 0.3);
-                font-weight: 700;
-                font-size: 15px;
+                gap: 9px;
+                border: 1px solid rgba(255,255,255,0.2);
+                box-shadow: 0 4px 18px rgba(12,112,242,0.45);
+                transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+                font-weight: 600;
+                font-size: 14.5px;
+                user-select: none;
             }
-            
+
             .farhanbot-toggle:hover {
-                transform: translateY(-3px);
-                box-shadow: 
-                    0 12px 35px rgba(0, 212, 255, 0.5),
-                    0 0 30px rgba(255, 0, 128, 0.4);
-                background: linear-gradient(135deg, #00ff88, #ff0080);
+                transform: translateY(-2px);
+                background: #0a5dd1;
+                box-shadow: 0 6px 26px rgba(12,112,242,0.58);
             }
-            
-            .farhanbot-avatar {
-                width: 24px;
-                height: 24px;
-                background: rgba(255, 255, 255, 0.2);
-                border-radius: 50%;
+
+            .farhanbot-toggle-icon {
+                width: 27px;
+                height: 27px;
+                background: rgba(255,255,255,0.18);
+                border-radius: 8px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 14px;
+                font-size: 15px;
             }
-            
+
+            /* ── Chat popup ── */
             .farhanbot-chat {
                 position: absolute;
-                bottom: 70px;
+                bottom: 68px;
                 right: 0;
-                width: 420px;
-                height: 600px;
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(20px);
-                border-radius: 20px;
-                box-shadow:
-                    0 25px 50px rgba(0, 0, 0, 0.25),
-                    0 0 0 1px rgba(255, 255, 255, 0.1),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+                width: 400px;
+                height: 570px;
+                background: #ffffff;
+                border-radius: 18px;
+                box-shadow: 0 24px 60px rgba(10,25,47,0.22), 0 0 0 1px rgba(0,0,0,0.06);
                 display: none;
                 flex-direction: column;
-                border: 2px solid rgba(0, 212, 255, 0.3);
                 overflow: hidden;
             }
-            
-            .farhanbot-chat::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 4px;
-                background: linear-gradient(90deg, #00d4ff, #ff0080, #00ff88);
-                border-radius: 20px 20px 0 0;
-                box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
-            }
-            
+
             .farhanbot-chat.open {
                 display: flex;
-                animation: farhanbotSlideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                animation: fb-slide-in 0.28s cubic-bezier(0.34, 1.2, 0.64, 1);
             }
-            
-            @keyframes farhanbotSlideIn {
-                from {
-                    opacity: 0;
-                    transform: translateY(20px) scale(0.95);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0) scale(1);
-                }
+
+            @keyframes fb-slide-in {
+                from { opacity: 0; transform: translateY(14px) scale(0.96); }
+                to   { opacity: 1; transform: none; }
             }
-            
+
+            /* ── Header ── */
             .farhanbot-header {
-                background: linear-gradient(135deg, #00d4ff, #ff0080);
-                color: white;
-                padding: 20px;
+                background: #ffffff;
+                padding: 13px 16px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                box-shadow: 
-                    0 4px 20px rgba(0, 212, 255, 0.3),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+                border-bottom: 1px solid #e2e8f0;
+                box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+                flex-shrink: 0;
             }
-            
+
             .farhanbot-title {
                 display: flex;
                 align-items: center;
-                gap: 12px;
+                gap: 10px;
             }
-            
+
             .farhanbot-avatar-small {
-                width: 32px;
-                height: 32px;
-                background: rgba(255, 255, 255, 0.2);
-                border-radius: 50%;
+                width: 36px;
+                height: 36px;
+                background: #0c70f2;
+                border-radius: 10px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 16px;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                text-decoration: none;
-                color: inherit;
+                font-size: 17px;
+                flex-shrink: 0;
             }
-            
-            .farhanbot-avatar-small:hover {
-                transform: scale(1.1);
-                box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
-            }
-            
-            .farhanbot-avatar-small::after {
-                content: '🏠';
-                position: absolute;
-                top: -3px;
-                right: -3px;
-                font-size: 10px;
-                background: #ff0080;
-                border-radius: 50%;
-                width: 16px;
-                height: 16px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-            }
-            
-            .farhanbot-avatar-small:hover::after {
-                opacity: 1;
-            }
-            
+
             .farhanbot-title h3 {
                 margin: 0;
-                font-size: 16px;
-                font-weight: 700;
+                font-family: 'Bricolage Grotesque', 'DM Sans', sans-serif;
+                font-weight: 800;
+                font-size: 14px;
+                color: #0a192f;
+                line-height: 1.2;
             }
-            
+
             .farhanbot-title p {
-                margin: 0;
-                font-size: 12px;
-                opacity: 0.9;
+                margin: 2px 0 0;
+                font-size: 11px;
+                color: #64748b;
             }
-            
-            .farhanbot-close {
-                background: none;
-                border: none;
-                color: white;
-                font-size: 24px;
-                cursor: pointer;
-                padding: 0;
-                width: 24px;
-                height: 24px;
+
+            .farhanbot-header-actions {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+            }
+
+            .farhanbot-expand {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                border-radius: 50%;
-                transition: background-color 0.3s ease;
+                width: 30px;
+                height: 30px;
+                border-radius: 7px;
+                background: #f1f5f9;
+                border: 1px solid #e2e8f0;
+                color: #64748b;
+                text-decoration: none;
+                transition: all 0.18s;
+                cursor: pointer;
             }
-            
+
+            .farhanbot-expand:hover {
+                color: #0c70f2;
+                background: rgba(12,112,242,0.07);
+                border-color: rgba(12,112,242,0.22);
+            }
+
+            .farhanbot-close {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 30px;
+                height: 30px;
+                border-radius: 7px;
+                background: #f1f5f9;
+                border: 1px solid #e2e8f0;
+                color: #64748b;
+                cursor: pointer;
+                transition: all 0.18s;
+            }
+
             .farhanbot-close:hover {
-                background: rgba(255, 255, 255, 0.2);
+                background: #fee2e2;
+                color: #ef4444;
+                border-color: #fecaca;
             }
-            
+
+            /* ── Messages area ── */
             .farhanbot-messages {
                 flex: 1;
-                padding: 20px;
+                padding: 16px;
                 overflow-y: auto;
                 display: flex;
                 flex-direction: column;
-                gap: 15px;
-                min-height: 350px;
+                gap: 12px;
+                background: #f1f5f9;
             }
-            
+
+            .farhanbot-messages::-webkit-scrollbar { width: 3px; }
+            .farhanbot-messages::-webkit-scrollbar-track { background: transparent; }
+            .farhanbot-messages::-webkit-scrollbar-thumb {
+                background: #e2e8f0;
+                border-radius: 2px;
+            }
+
             .farhanbot-message {
-                max-width: 85%;
-                padding: 10px 14px;
-                border-radius: 12px;
-                font-size: 14px;
-                line-height: 1.4;
-                animation: messageSlideIn 0.3s ease-out;
+                max-width: 87%;
+                padding: 11px 14px;
+                border-radius: 14px;
+                font-size: 13.5px;
+                line-height: 1.62;
+                word-break: break-word;
+                animation: fb-msg-in 0.24s cubic-bezier(0.34, 1.4, 0.64, 1) both;
             }
-            
+
+            @keyframes fb-msg-in {
+                from { opacity: 0; transform: translateY(6px) scale(0.97); }
+                to   { opacity: 1; transform: none; }
+            }
+
             .farhanbot-message.user {
-                background: #0c70f2;
-                color: white;
+                background: linear-gradient(135deg, #0c70f2, #0a5dd1);
+                color: #fff;
                 align-self: flex-end;
                 border-bottom-right-radius: 4px;
+                font-weight: 500;
+                box-shadow: 0 3px 12px rgba(12,112,242,0.28);
             }
-            
+
             .farhanbot-message.bot {
-                background: #f1f5f9;
+                background: #ffffff;
                 color: #0a192f;
                 align-self: flex-start;
                 border-bottom-left-radius: 4px;
+                border: 1px solid #e2e8f0;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.06);
             }
-            
-            .farhanbot-message.bot br {
-                display: block;
-                margin: 6px 0;
-            }
-            
-            .farhanbot-message.bot br + br {
-                margin: 12px 0;
-            }
-            
+
+            .farhanbot-message.bot strong { color: #0c70f2; }
+
             .farhanbot-message.bot a {
-                color: #00d4ff;
+                color: #0c70f2;
                 text-decoration: none;
-                font-weight: 600;
-                border-bottom: 2px solid #00d4ff;
-                transition: all 0.3s ease;
-                padding: 2px 6px;
-                background: linear-gradient(120deg, transparent 0%, rgba(0, 212, 255, 0.1) 100%);
-                border-radius: 4px;
-                box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+                border-bottom: 1px solid rgba(12,112,242,0.3);
+                transition: color .18s;
             }
-            
-            .farhanbot-message.bot a:hover {
-                color: #00ff88;
-                border-bottom-color: #00ff88;
-                background: linear-gradient(120deg, transparent 0%, rgba(0, 255, 136, 0.2) 100%);
-                transform: translateY(-1px);
-                box-shadow: 
-                    0 2px 8px rgba(0, 212, 255, 0.3),
-                    0 0 20px rgba(0, 255, 136, 0.3);
+
+            .farhanbot-message.bot a:hover { color: #0a5dd1; }
+
+            .farhanbot-message.bot br { display: block; margin: 4px 0; }
+
+            .fb-hint {
+                font-size: 11px;
+                color: #94a3b8;
             }
-            
-            @keyframes messageSlideIn {
-                from {
-                    opacity: 0;
-                    transform: translateY(10px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-            
+
+            /* ── Typing ── */
             .farhanbot-typing {
                 display: none;
                 align-self: flex-start;
-                padding: 10px 14px;
-                background: #f1f5f9;
-                border-radius: 12px;
+                padding: 11px 15px;
+                background: #ffffff;
+                border: 1px solid #e2e8f0;
+                border-radius: 14px;
                 border-bottom-left-radius: 4px;
-                margin: 0 16px 8px 16px;
+                margin: 0 16px 8px;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.06);
             }
-            
-            .typing-dots {
-                display: flex;
-                gap: 4px;
-            }
-            
+
+            .typing-dots { display: flex; gap: 4px; align-items: center; }
+
             .typing-dots span {
-                width: 6px;
-                height: 6px;
-                background: #64748b;
+                width: 7px;
+                height: 7px;
+                background: #cbd5e1;
                 border-radius: 50%;
-                animation: typingBounce 1.4s infinite ease-in-out;
+                animation: fb-dot 1.25s ease-in-out infinite;
             }
-            
-            .typing-dots span:nth-child(1) { animation-delay: -0.32s; }
-            .typing-dots span:nth-child(2) { animation-delay: -0.16s; }
-            
-            @keyframes typingBounce {
-                0%, 80%, 100% {
-                    transform: scale(0);
-                }
-                40% {
-                    transform: scale(1);
-                }
+
+            .typing-dots span:nth-child(1) { animation-delay: 0s; }
+            .typing-dots span:nth-child(2) { animation-delay: 0.18s; }
+            .typing-dots span:nth-child(3) { animation-delay: 0.36s; }
+
+            @keyframes fb-dot {
+                0%,60%,100% { transform: translateY(0);   background: #cbd5e1; }
+                30%          { transform: translateY(-5px); background: #0c70f2; }
             }
-            
+
+            /* ── Input container ── */
             .farhanbot-input-container {
-                padding: 16px;
-                border-top: 1px solid #f1f5f9;
-                background: white;
+                padding: 11px 14px 14px;
+                border-top: 1px solid #e2e8f0;
+                background: #ffffff;
+                flex-shrink: 0;
             }
-            
+
             .farhanbot-input-wrapper {
                 display: flex;
                 gap: 8px;
                 align-items: flex-end;
-                margin-bottom: 12px;
+                background: #f1f5f9;
+                border: 1.5px solid #e2e8f0;
+                border-radius: 12px;
+                padding: 6px 6px 6px 12px;
+                margin-bottom: 9px;
+                transition: border-color .2s, box-shadow .2s;
             }
-            
+
+            .farhanbot-input-wrapper:focus-within {
+                border-color: #cbd5e1;
+                background: #fff;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            }
+
             .farhanbot-input {
                 flex: 1;
-                padding: 10px 12px;
-                border: 2px solid #f1f5f9;
-                border-radius: 12px;
-                font-size: 14px;
-                resize: none;
-                min-height: 40px;
-                max-height: 100px;
-                transition: border-color 0.3s ease;
-                font-family: inherit;
-            }
-            
-            .farhanbot-input:focus {
-                outline: none;
-                border-color: #0c70f2;
-            }
-            
-            .farhanbot-send {
-                background: #0c70f2;
-                color: white;
+                background: transparent;
                 border: none;
-                border-radius: 12px;
-                padding: 10px;
+                outline: none;
+                color: #0a192f;
+                font-family: 'DM Sans', sans-serif;
+                font-size: 13.5px;
+                resize: none;
+                min-height: 30px;
+                max-height: 88px;
+                padding: 4px 0;
+                caret-color: #0c70f2;
+                line-height: 1.45;
+            }
+
+            .farhanbot-input::placeholder { color: #94a3b8; }
+
+            .farhanbot-send {
+                flex-shrink: 0;
+                width: 34px;
+                height: 34px;
+                border-radius: 8px;
+                background: #0c70f2;
+                border: none;
                 cursor: pointer;
-                transition: all 0.3s ease;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                min-width: 40px;
-                height: 40px;
+                color: white;
+                transition: all .18s;
+                box-shadow: 0 2px 8px rgba(12,112,242,0.3);
             }
-            
-            .farhanbot-send:hover {
+
+            .farhanbot-send:hover:not(:disabled) {
                 background: #0a5dd1;
-                transform: translateY(-1px);
+                transform: scale(1.06);
+                box-shadow: 0 4px 14px rgba(12,112,242,0.4);
             }
-            
-            .farhanbot-send:disabled {
-                opacity: 0.6;
-                cursor: not-allowed;
-                transform: none;
-            }
-            
-            .farhanbot-quick-actions {
-                display: flex;
-                gap: 6px;
-                flex-wrap: wrap;
-            }
-            
+
+            .farhanbot-send:disabled { opacity: 0.38; cursor: not-allowed; transform: none; box-shadow: none; }
+
+            /* ── Quick action chips ── */
+            .farhanbot-quick-actions { display: flex; gap: 5px; flex-wrap: wrap; }
+
             .quick-action {
-                background: #f1f5f9;
-                color: #0a192f;
-                border: none;
-                border-radius: 8px;
-                padding: 6px 12px;
-                font-size: 12px;
-                cursor: pointer;
-                transition: all 0.3s ease;
+                font-family: 'DM Sans', sans-serif;
+                font-size: 11.5px;
                 font-weight: 500;
+                color: #0c70f2;
+                background: rgba(12,112,242,0.07);
+                border: 1px solid rgba(12,112,242,0.2);
+                border-radius: 20px;
+                padding: 4px 11px;
+                cursor: pointer;
+                transition: all .18s;
             }
-            
+
             .quick-action:hover {
                 background: #0c70f2;
-                color: white;
-                transform: translateY(-1px);
+                color: #fff;
+                border-color: #0c70f2;
             }
-            
+
+            /* ── Mobile ── */
             @media (max-width: 600px) {
-                #farhanbot-widget {
-                    bottom: 12px;
-                    right: 12px;
-                }
+                #farhanbot-widget { bottom: 12px; right: 12px; }
 
                 .farhanbot-chat {
                     position: fixed !important;
-                    bottom: 76px;
+                    bottom: 72px;
                     right: 12px;
                     left: 12px;
                     width: auto;
-                    height: 70vh;
-                    max-height: 560px;
+                    height: 68vh;
+                    max-height: 530px;
                     border-radius: 16px;
                 }
 
-                .farhanbot-messages {
-                    padding: 14px;
-                    gap: 10px;
-                    min-height: unset;
-                }
+                .farhanbot-label { display: none; }
 
-                .farhanbot-message {
-                    max-width: 92%;
-                    font-size: 13px;
-                    padding: 9px 12px;
-                }
+                .farhanbot-messages { padding: 13px; gap: 9px; }
 
-                .farhanbot-input-container {
-                    padding: 10px 12px 12px;
-                }
+                .farhanbot-message { max-width: 92%; font-size: 13px; padding: 10px 12px; }
 
-                .farhanbot-input {
-                    font-size: 13px;
-                    padding: 9px 10px;
-                }
+                .farhanbot-input-container { padding: 10px 13px 13px; }
 
-                .farhanbot-toggle {
-                    padding: 11px 14px;
-                    font-size: 13px;
-                }
-
-                .farhanbot-label {
-                    display: none;
-                }
+                .farhanbot-toggle { padding: 10px 16px; font-size: 13.5px; }
             }
         `;
-        
+
         document.head.appendChild(styles);
     }
 
     bindEvents() {
         const toggle = document.getElementById('farhanbotToggle');
-        const close = document.getElementById('farhanbotClose');
-        const chat = document.getElementById('farhanbotChat');
-        const input = document.getElementById('farhanbotInput');
-        const send = document.getElementById('farhanbotSend');
+        const close  = document.getElementById('farhanbotClose');
+        const input  = document.getElementById('farhanbotInput');
+        const send   = document.getElementById('farhanbotSend');
         const quickActions = document.querySelectorAll('.quick-action');
 
-        // Toggle chat
-        toggle.addEventListener('click', () => {
-            this.toggleChat();
-        });
+        toggle.addEventListener('click', () => this.toggleChat());
+        close.addEventListener('click',  () => this.closeChat());
+        send.addEventListener('click',   () => this.sendMessage());
 
-        // Close chat
-        close.addEventListener('click', () => {
-            this.closeChat();
-        });
-
-        // Send message
-        send.addEventListener('click', () => {
-            this.sendMessage();
-        });
-
-        // Enter key to send
         input.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
-                this.sendMessage();
-            }
+            if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); this.sendMessage(); }
         });
 
-        // Auto-resize textarea
         input.addEventListener('input', () => {
             input.style.height = 'auto';
-            input.style.height = Math.min(input.scrollHeight, 100) + 'px';
+            input.style.height = Math.min(input.scrollHeight, 88) + 'px';
         });
 
-        // Quick actions
-        quickActions.forEach(button => {
-            button.addEventListener('click', () => {
-                const action = button.dataset.action;
-                this.handleQuickAction(action);
-            });
+        quickActions.forEach(btn => {
+            btn.addEventListener('click', () => this.handleQuickAction(btn.dataset.action));
         });
-
-        // Home link handler
-        const homeLink = document.querySelector('.farhanbot-avatar-small');
-        if (homeLink) {
-            homeLink.addEventListener('click', (e) => {
-                console.log('🧠 Home link clicked');
-                // Ensure navigation works
-                window.location.href = '/';
-            });
-        }
     }
 
     toggleChat() {
         const chat = document.getElementById('farhanbotChat');
         this.isOpen = !this.isOpen;
-        
         if (this.isOpen) {
             chat.classList.add('open');
             document.getElementById('farhanbotInput').focus();
@@ -606,131 +507,91 @@ class FarhanBotWidget {
     }
 
     closeChat() {
-        const chat = document.getElementById('farhanbotChat');
+        document.getElementById('farhanbotChat').classList.remove('open');
         this.isOpen = false;
-        chat.classList.remove('open');
     }
 
     addMessage(content, isUser = false) {
         const messages = document.getElementById('farhanbotMessages');
-        const messageDiv = document.createElement('div');
-        messageDiv.className = `farhanbot-message ${isUser ? 'user' : 'bot'}`;
-        messageDiv.innerHTML = content;
-        messages.appendChild(messageDiv);
+        const div = document.createElement('div');
+        div.className = `farhanbot-message ${isUser ? 'user' : 'bot'}`;
+        div.innerHTML = content;
+        messages.appendChild(div);
         messages.scrollTop = messages.scrollHeight;
     }
 
     showTyping() {
-        const typing = document.getElementById('farhanbotTyping');
-        typing.style.display = 'block';
-        document.getElementById('farhanbotMessages').scrollTop = document.getElementById('farhanbotMessages').scrollHeight;
+        const t = document.getElementById('farhanbotTyping');
+        t.style.display = 'block';
+        document.getElementById('farhanbotMessages').scrollTop = 99999;
     }
 
     hideTyping() {
-        const typing = document.getElementById('farhanbotTyping');
-        typing.style.display = 'none';
+        document.getElementById('farhanbotTyping').style.display = 'none';
     }
 
     async sendMessage() {
-        const input = document.getElementById('farhanbotInput');
+        const input   = document.getElementById('farhanbotInput');
         const message = input.value.trim();
-        
         if (!message) return;
-        
+
         this.addMessage(message, true);
         input.value = '';
         input.style.height = 'auto';
-        
         this.showTyping();
-        
-        // Check if this looks like a job description
-        const isJobDescription = message.toLowerCase().includes('job') || 
-                               message.toLowerCase().includes('position') || 
-                               message.toLowerCase().includes('role') || 
-                               message.toLowerCase().includes('requirements') ||
-                               message.toLowerCase().includes('responsibilities') ||
-                               message.length > 200; // Long text likely job description
-        
+
+        const isJob = message.toLowerCase().includes('job') ||
+            message.toLowerCase().includes('position') ||
+            message.toLowerCase().includes('role') ||
+            message.toLowerCase().includes('requirements') ||
+            message.toLowerCase().includes('responsibilities') ||
+            message.length > 200;
+
         try {
-            const endpoint = isJobDescription ? '/api/chatbot/analyze-job' : '/api/chatbot/chat';
-            const body = isJobDescription ? 
-                JSON.stringify({
-                    job_description: message,
-                    session_id: this.sessionId
-                }) :
-                JSON.stringify({
-                    message: message,
-                    session_id: this.sessionId
-                });
-            
-            const response = await fetch(endpoint, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: body
-            });
-            
-            const data = await response.json();
+            const endpoint = isJob ? '/api/chatbot/analyze-job' : '/api/chatbot/chat';
+            const body = isJob
+                ? JSON.stringify({ job_description: message, session_id: this.sessionId })
+                : JSON.stringify({ message: message, session_id: this.sessionId });
+
+            const res  = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body });
+            const data = await res.json();
             this.hideTyping();
-            
-            if (response.ok) {
-                this.addMessage(data.response);
-            } else {
-                this.addMessage('Sorry, I encountered an error. Please try again.');
-            }
-        } catch (error) {
+            this.addMessage(res.ok ? data.response : 'Sorry, I encountered an error. Please try again.');
+        } catch {
             this.hideTyping();
-            this.addMessage('Sorry, I am having trouble connecting. Please try again.');
+            this.addMessage('Sorry, I\'m having trouble connecting. Please try again.');
         }
     }
 
     handleQuickAction(action) {
         const questions = {
-            'experience': 'What is Muhammad Farhan experience?',
-            'skills': 'What are his top skills?',
-            'projects': 'Tell me about his projects',
-            'contact': 'How can I contact Muhammad Farhan?'
+            experience: "What is Muhammad Farhan's experience?",
+            skills:     "What are his top technical skills?",
+            projects:   "Tell me about his key projects.",
+            contact:    "How can I contact Muhammad Farhan?"
         };
-        
-        const question = questions[action];
-        if (question) {
-            this.addMessage(question, true);
-            this.sendQuickQuestion(question);
-        }
+        const q = questions[action];
+        if (q) { this.addMessage(q, true); this.sendQuickQuestion(q); }
     }
 
     async sendQuickQuestion(question) {
         this.showTyping();
-        
         try {
-            const response = await fetch('/api/chatbot/chat', {
+            const res  = await fetch('/api/chatbot/chat', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    message: question,
-                    session_id: this.sessionId
-                })
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: question, session_id: this.sessionId })
             });
-            
-            const data = await response.json();
+            const data = await res.json();
             this.hideTyping();
-            
-            if (response.ok) {
-                this.addMessage(data.response);
-            } else {
-                this.addMessage('Sorry, I encountered an error. Please try again.');
-            }
-        } catch (error) {
+            this.addMessage(res.ok ? data.response : 'Sorry, I encountered an error. Please try again.');
+        } catch {
             this.hideTyping();
-            this.addMessage('Sorry, I am having trouble connecting. Please try again.');
+            this.addMessage('Sorry, I\'m having trouble connecting. Please try again.');
         }
     }
 }
 
-// Initialize FarhanBot Widget when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     window.farhanBot = new FarhanBotWidget();
-}); 
+});

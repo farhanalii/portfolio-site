@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log(`Found ${projectCards.length} project cards`);
     console.log(`Found ${projectFilterBtns.length} filter buttons`);
 
-    let currentFilter = 'enterprise'; // Default to enterprise
+    let currentFilter = 'all'; // Default to all projects
     let showingAll = false;
 
     // Project filtering functionality - Smooth like tech-stack

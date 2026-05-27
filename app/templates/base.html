@@ -6,10 +6,13 @@
     content="Muhammad Farhan - Senior Backend Engineer with 7+ years experience in Python, Odoo, Flask, FastAPI, and cloud technologies. Based in Manchester, UK." />
   <meta name="keywords" content="Python Developer, Backend Engineer, Odoo, Flask, FastAPI, Manchester, UK" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Muhammad Farhan — Senior Backend Engineer | Python | Odoo | Manchester" />
+  <meta property="og:description" content="7+ years building scalable backend systems, ERP platforms, and cloud deployments. Python, Odoo, FastAPI, Docker, AWS. Based in Manchester, UK." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/static/images/IMG_8026.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
-  <link as="style"
-    href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700%3B800%3B900&amp;family=Space+Mono%3Awght%40400%3B500"
-    onload="this.rel='stylesheet'" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   
   <!-- CSS Files -->
@@ -23,20 +26,18 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      background: linear-gradient(135deg, #00d4ff, #ff0080);
+      background: var(--primary);
       color: white !important;
       padding: 10px 16px;
       border-radius: 12px;
-      border: 2px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       font-weight: 600;
       position: relative;
       overflow: hidden;
-      box-shadow: 
-        0 4px 12px rgba(0, 212, 255, 0.4),
-        0 0 20px rgba(255, 0, 128, 0.2);
+      box-shadow: 0 4px 14px rgba(12, 112, 242, 0.35);
     }
-    
+
     .chatbot-link::before {
       content: '';
       position: absolute;
@@ -44,57 +45,44 @@
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
       transition: left 0.5s;
     }
-    
+
     .chatbot-link:hover::before {
       left: 100%;
     }
-    
+
     .chatbot-link:hover {
-      background: linear-gradient(135deg, #00ff88, #ff0080);
+      background: var(--primary-dark);
       transform: translateY(-2px);
-      box-shadow: 
-        0 6px 20px rgba(0, 255, 136, 0.4),
-        0 0 30px rgba(255, 0, 128, 0.3);
-      color: white !important;
-      border-color: rgba(255, 255, 255, 0.4);
+      box-shadow: 0 6px 22px rgba(12, 112, 242, 0.5);
     }
-    
+
     .chatbot-icon {
       font-size: 16px;
-      animation: gentlePulse 2s ease-in-out infinite;
-      filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.5));
+      animation: gentlePulse 3s ease-in-out infinite;
     }
-    
+
     @keyframes gentlePulse {
       0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
+      50% { transform: scale(1.15); }
     }
-    
-    /* Mobile menu AI Assistant styling */
-    .md\\:hidden .chatbot-link {
-      background: linear-gradient(135deg, #00d4ff, #ff0080);
-      color: white !important;
-      margin-top: 8px;
-      border-radius: 8px;
-      padding: 12px 16px;
-      text-align: center;
-      justify-content: center;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 
-        0 4px 12px rgba(0, 212, 255, 0.3),
-        0 0 20px rgba(255, 0, 128, 0.2);
+
+    /* Scroll reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
     }
-    
-    .md\\:hidden .chatbot-link:hover {
-      background: linear-gradient(135deg, #00ff88, #ff0080);
-      transform: translateY(-1px);
-      box-shadow: 
-        0 6px 20px rgba(0, 255, 136, 0.3),
-        0 0 30px rgba(255, 0, 128, 0.3);
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
   </style>
   
   <title>{% block title %}Muhammad Farhan - Senior Backend Engineer | Python | Odoo | Manchester{% endblock %}</title>
@@ -123,11 +111,15 @@
       }
       
       body {
-        font-family: 'Inter', sans-serif;
+        font-family: 'DM Sans', sans-serif;
         line-height: 1.6;
         position: relative;
         margin: 0;
         overflow-x: hidden;
+      }
+
+      h1, h2, h3, h4, h5, h6, .gradient-text, .section-title {
+        font-family: 'Bricolage Grotesque', sans-serif;
       }
 
       canvas { 
@@ -293,5 +285,20 @@
   <script src="/static/js/farhanbot-widget.js"></script>
   
   {% block extra_scripts %}{% endblock %}
+
+  <script>
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          revealObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    });
+  </script>
 </body>
 </html> 

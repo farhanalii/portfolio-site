@@ -19,11 +19,12 @@
         </svg>
       </button>
       <nav class="hidden md:flex space-x-8 text-sm font-semibold text-[var(--slate-gray)]">
-        <a class="hover:text-[var(--primary)] transition-colors micro-interaction" href="/about">About</a>
-        <a class="hover:text-[var(--primary)] transition-colors micro-interaction" href="/tech-stack">Tech Stack</a>
-        <a class="hover:text-[var(--primary)] transition-colors micro-interaction" href="/projects">Projects</a>
-        <a class="hover:text-[var(--primary)] transition-colors micro-interaction" href="/contact">Contact</a>
-        <a class="hover:text-[var(--primary)] transition-colors micro-interaction chatbot-link" href="/chatbot">
+        {% set p = request.url.path %}
+        <a class="hover:text-[var(--primary)] transition-colors micro-interaction {% if p == '/about' %}text-[var(--primary)]{% endif %}" href="/about">About</a>
+        <a class="hover:text-[var(--primary)] transition-colors micro-interaction {% if p == '/tech-stack' %}text-[var(--primary)]{% endif %}" href="/tech-stack">Tech Stack</a>
+        <a class="hover:text-[var(--primary)] transition-colors micro-interaction {% if p == '/projects' %}text-[var(--primary)]{% endif %}" href="/projects">Projects</a>
+        <a class="hover:text-[var(--primary)] transition-colors micro-interaction {% if p == '/contact' %}text-[var(--primary)]{% endif %}" href="/contact">Contact</a>
+        <a class="transition-colors micro-interaction chatbot-link {% if p == '/chatbot' %}opacity-90{% endif %}" href="/chatbot">
           <span class="chatbot-icon">🧠</span>
           AI Assistant
         </a>
@@ -33,7 +34,7 @@
 </header>
 
 <!-- Mobile Menu - Outside Header -->
-<div id="mobileMenu" class="mobile-menu hidden fixed top-20 left-0 right-0 bg-white shadow-lg border-b border-gray-100 z-50" style="display: none; background: #f0f0f0 !important;">
+<div id="mobileMenu" class="mobile-menu hidden fixed top-20 left-0 right-0 bg-white shadow-lg border-b border-gray-100 z-50" style="display: none;">
   <div class="container mx-auto px-4 py-4">
     <div class="flex flex-col space-y-0 text-sm font-semibold text-[var(--slate-gray)]">
       <a class="mobile-menu-link hover:text-[var(--primary)] transition-colors py-4 border-b border-gray-100 block w-full" href="/about">About</a>

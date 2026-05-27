@@ -395,6 +395,19 @@
   transform: translateX(2px);
 }
 
+.project-link-nda {
+  color: var(--slate-light) !important;
+  cursor: default;
+  font-size: 0.8rem;
+  font-weight: 500;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.project-link-nda::after {
+  content: '' !important;
+}
+
 /* Show More Button */
 #showMoreBtn {
   transition: all 0.3s ease;

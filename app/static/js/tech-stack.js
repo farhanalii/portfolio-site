@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // First, hide all cards with fade out
         skillCards.forEach((card, index) => {
-            const cardCategory = card.dataset.categories;
-            const shouldShow = category === 'all' || cardCategory === category;
+            const cardCategories = (card.dataset.categories || '').split(' ');
+            const shouldShow = category === 'all' || cardCategories.includes(category);
 
             if (shouldShow) {
                 // Show card with staggered animation

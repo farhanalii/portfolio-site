@@ -13,27 +13,27 @@ templates = Jinja2Templates(directory=str(APP_DIR / "templates"))
 @router.get("/", response_class=HTMLResponse)
 async def read_home(request: Request):
     """Main portfolio page with all sections"""
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse(request, "index.html")
 
 @router.get("/about", response_class=HTMLResponse)
 async def read_about(request: Request):
     """About page"""
-    return templates.TemplateResponse("pages/about.html", {"request": request})
+    return templates.TemplateResponse(request, "pages/about.html")
 
 @router.get("/tech-stack", response_class=HTMLResponse)
 async def read_tech_stack(request: Request):
     """Tech stack page"""
-    return templates.TemplateResponse("pages/tech-stack.html", {"request": request})
+    return templates.TemplateResponse(request, "pages/tech-stack.html")
 
 @router.get("/projects", response_class=HTMLResponse)
 async def read_projects(request: Request):
     """Projects page"""
-    return templates.TemplateResponse("pages/projects.html", {"request": request})
+    return templates.TemplateResponse(request, "pages/projects.html")
 
 @router.get("/contact", response_class=HTMLResponse)
 async def read_contact(request: Request):
     """Contact page"""
-    return templates.TemplateResponse("pages/contact.html", {"request": request})
+    return templates.TemplateResponse(request, "pages/contact.html")
 
 @router.get("/download-cv")
 async def download_cv():

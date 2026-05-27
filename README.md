@@ -1,176 +1,313 @@
-# 🌐 Muhammad Farhan — Portfolio with AI Assistance
+# Muhammad Farhan — Portfolio Site
 
-This is my personal portfolio website built with **FastAPI**, styled using **Tailwind CSS**, and deployed using **Docker** and **GitHub Actions** to **AWS EC2 (Free Tier)**. It showcases my experience, projects, and skill set in a modern, scalable, and DevOps-friendly stack.
+Personal portfolio website built with **FastAPI** + **Jinja2**, featuring an AI-powered chatbot (Google Gemini), a Flask sidecar microservice for analytics, and Docker-based deployment.
 
----
-
-## 🚀 Tech Stack
-
-- **Backend:** FastAPI (async web server)
-- **Templating:** Jinja2 (for HTML rendering)
-- **Frontend:** TailwindCSS (Stitch-generated UI)
-- **DevOps:** Docker, GitHub Actions CI/CD
-- **Cloud:** AWS EC2 (Free Tier)
-- **Optional Additions:** PostgreSQL (for contact form or blogs), Flask microservice (for showcasing architecture)
-
-### 🧠 Additional Capabilities
-
-1. **API Design Patterns:**
-
-   - RESTful endpoints
-   - Request/Response models
-   - Error handling strategies
-
-2. **AI Integration:**
-
-   - Prompt engineering
-   - Model selection and fallbacks
-   - Rate limiting and quota management
-
-3. **Session Management:**
-
-   - Stateful vs stateless
-   - Memory vs database storage
-   - Security considerations
-
-4. **Error Handling:**
-
-   - Graceful degradation
-   - User-friendly error messages
-   - Logging and monitoring
-
-5. **Security:**
-
-   - API key management
-   - Input validation
-   - CORS configuration
+Live at: [muhammadfarhan.work](https://muhammadfarhan.work)
 
 ---
 
-## 📁 Project Structure
+## Tech Stack
 
-```bash
+| Layer       | Technology                        |
+|-------------|-----------------------------------|
+| Backend     | FastAPI (async, Python 3.11)      |
+| Templating  | Jinja2                            |
+| Frontend    | TailwindCSS                       |
+| AI Chatbot  | Google Gemini API                 |
+| Microservice| Flask (analytics & logging)       |
+| DevOps      | Docker, Docker Compose            |
+| CI/CD       | GitHub Actions                    |
+| Deployment  | AWS EC2 / Contabo VPS             |
+
+---
+
+## Project Structure
+
+```
 portfolio-site/
 ├── app/
-│   ├── main.py
+│   ├── main.py                  # FastAPI entry point
 │   ├── routers/
-│   │   └── site.py                  # FastAPI routes
+│   │   ├── site.py              # HTML page routes
+│   │   └── chatbot.py           # Gemini AI chatbot endpoints
 │   ├── templates/
-│   │   ├── base.html               # Base template with common structure
-│   │   ├── index.html              # Main portfolio page (extends base)
-│   │   ├── components/             # Reusable components
-│   │   │   ├── header.html         # Navigation header
-│   │   │   └── footer.html         # Footer with social links
-│   │   ├── sections/               # Individual content sections
-│   │   │   ├── hero.html           # Hero section with typewriter
-│   │   │   ├── about.html          # About section
-│   │   │   ├── tech-stack.html     # Tech stack with filtering
-│   │   │   ├── projects.html       # Projects grid
-│   │   │   └── contact.html        # Contact methods
-│   │   └── pages/                  # Individual page templates
-│   │       ├── about.html          # Dedicated about page
-│   │       ├── tech-stack.html     # Dedicated tech stack page
-│   │       ├── projects.html       # Dedicated projects page
-│   │       └── contact.html        # Dedicated contact page
-│   └── static/                     # Static assets (CSS, JS, images)
-├── Dockerfile
-├── .github/workflows/deploy.yml
-├── requirements.txt
-├── .env
-└── README.md
+│   │   ├── base.html            # Base layout (all pages extend this)
+│   │   ├── index.html           # Main portfolio page
+│   │   ├── components/          # header.html, footer.html
+│   │   ├── sections/            # hero, about, projects, tech-stack, contact
+│   │   └── pages/               # Standalone page templates
+│   └── static/                  # CSS, JS, images, CV PDF
+│       └── cv/
+│           └── Muhammad_Farhan_CV.pdf   # Place CV here for /download-cv
+├── flask_service/
+│   ├── app.py                   # Flask app (analytics & logging sidecar)
+│   ├── message_logger.py        # POST /log-message endpoint
+│   ├── analytics.py             # Analytics blueprint
+│   ├── healthcheck.py           # GET /health endpoint
+│   ├── Dockerfile
+│   └── requirements.txt
+├── Dockerfile                   # FastAPI image
+├── docker-compose.yml           # Orchestrates both services
+├── requirements.txt             # FastAPI dependencies
+├── .env.example                 # Environment variable template
+└── .github/workflows/deploy.yml # CI/CD pipeline
 ```
 
 ---
 
-## 🧩 Template Inheritance
+## Prerequisites
 
-### Base Template (`base.html`)
-
-- Contains the complete HTML structure
-- Includes all CSS, JavaScript, and meta tags
-- Defines blocks for content injection:
-  - `{% block title %}` - Page title
-  - `{% block content %}` - Main content area
-  - `{% block extra_head %}` - Additional head content
-  - `{% block extra_scripts %}` - Additional scripts
-
-### Main Index (`index.html`)
-
-- Extends `base.html`
-- Includes all sections for the main portfolio page
-- Uses `{% include %}` to include section templates
-
-### Individual Pages (`pages/`)
-
-- Each page extends `base.html`
-- Includes only the relevant section
-- Has unique titles and meta information
+- [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/) installed
+- A Google Gemini API key (free) — get one at https://aistudio.google.com/app/apikey
 
 ---
 
-## 🧭 FastAPI Routes
+## Local Setup (Docker — Recommended)
 
-The router (`app/routers/site.py`) supports:
+### 1. Clone the repository
 
-- `/` - Main portfolio page with all sections
-- `/about` - Dedicated about page
-- `/tech-stack` - Dedicated tech stack page
-- `/projects` - Dedicated projects page
-- `/contact` - Dedicated contact page
-- `/download-cv` - CV download endpoint
+```bash
+git clone https://github.com/farhanalii/portfolio-site.git
+cd portfolio-site
+```
+
+### 2. Create the environment file
+
+```bash
+cp .env.example .env
+```
+
+Open `.env` and set your Gemini API key:
+
+```env
+GEMINI_API_KEY=your-actual-gemini-api-key-here
+```
+
+> The site still works without a valid API key — the chatbot will show an error message instead of crashing.
+
+### 3. Start the services
+
+```bash
+docker compose up -d --build
+```
+
+### 4. Open in browser
+
+- **Portfolio site:** http://localhost:8000
+- **AI Chatbot:** http://localhost:8000/chatbot
+- **Flask service:** http://localhost:5001
+
+### Useful commands
+
+```bash
+# View logs from all containers
+docker compose logs -f
+
+# View logs from a specific service
+docker compose logs -f fastapi
+docker compose logs -f flask
+
+# Stop all services
+docker compose down
+
+# Rebuild and restart a single service
+docker compose up -d --build fastapi
+
+# Check running containers
+docker compose ps
+```
 
 ---
 
-## ✅ Benefits of This Structure
+## Local Setup (Without Docker)
 
-1. **Modularity**: Each section is in its own file, making maintenance easier
-2. **Reusability**: Sections can be included in multiple pages
-3. **SEO**: Individual pages have unique titles and URLs
-4. **Performance**: Pages load only the content they need
-5. **Maintainability**: Changes to components affect all pages automatically
-6. **FastAPI Standards**: Follows FastAPI best practices for template organization
+If you prefer to run without Docker:
+
+### FastAPI service
+
+```bash
+# Create and activate a virtual environment
+python3 -m venv venv
+source venv/bin/activate        # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Copy and configure .env
+cp .env.example .env
+# Edit .env to add your GEMINI_API_KEY
+
+# Start the server
+uvicorn app.main:app --reload --port 8000
+```
+
+### Flask service (optional — needed for analytics/logging)
+
+```bash
+cd flask_service
+pip install -r requirements.txt
+python app.py
+```
 
 ---
 
-## ⚙️ Usage Examples
+## Environment Variables
 
-### Adding a New Section
+| Variable        | Required | Description                                              |
+|-----------------|----------|----------------------------------------------------------|
+| `GEMINI_API_KEY`| Yes      | Google Gemini API key. Get free key at https://aistudio.google.com/app/apikey |
+
+---
+
+## Routes
+
+| URL                         | Description                          |
+|-----------------------------|--------------------------------------|
+| `GET /`                     | Main portfolio page                  |
+| `GET /about`                | About page                           |
+| `GET /projects`             | Projects page                        |
+| `GET /tech-stack`           | Tech stack page                      |
+| `GET /contact`              | Contact page                         |
+| `GET /chatbot`              | AI chatbot interface                 |
+| `GET /download-cv`          | Download CV PDF                      |
+| `POST /api/chatbot/chat`    | Chat API (`{message, session_id}`)   |
+| `POST /api/chatbot/analyze-job` | Job match analysis API           |
+| `GET /health` (port 5001)   | Flask healthcheck                    |
+| `POST /log-message` (5001)  | Flask message logger                 |
+
+---
+
+## CV Download
+
+Place your CV PDF at:
+
+```
+app/static/cv/Muhammad_Farhan_CV.pdf
+```
+
+The `/download-cv` route serves this file. If it does not exist, the route returns a JSON error.
+
+---
+
+## Deployment (Contabo / Any VPS)
+
+### 1. Server setup
+
+SSH into your server and install Docker:
+
+```bash
+# Update packages
+sudo apt update && sudo apt upgrade -y
+
+# Install Docker
+curl -fsSL https://get.docker.com | sh
+sudo usermod -aG docker $USER
+newgrp docker
+
+# Install Docker Compose plugin
+sudo apt install docker-compose-plugin -y
+```
+
+### 2. Clone and configure
+
+```bash
+git clone https://github.com/farhanalii/portfolio-site.git
+cd portfolio-site
+cp .env.example .env
+nano .env   # add your GEMINI_API_KEY
+```
+
+### 3. Start services
+
+```bash
+docker compose up -d --build
+```
+
+### 4. Nginx reverse proxy (optional — for port 80/443)
+
+Install Nginx and configure it to proxy port 80 to `localhost:8000`:
+
+```nginx
+server {
+    listen 80;
+    server_name yourdomain.com;
+
+    location / {
+        proxy_pass http://127.0.0.1:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+```
+
+### 5. Update GitHub Actions (CI/CD)
+
+In your GitHub repository, go to **Settings → Secrets and variables → Actions** and set:
+
+| Secret            | Value                                  |
+|-------------------|----------------------------------------|
+| `SSH_PRIVATE_KEY` | Private key for SSH access to server  |
+| `EC2_HOST`        | Server IP address or hostname          |
+| `EC2_USER`        | SSH username (e.g., `root` or `ubuntu`)|
+
+After setup, every push to `main` will automatically deploy to your server.
+
+---
+
+## Troubleshooting
+
+### "network my-project not found"
+
+This was a bug in the original `docker-compose.yml` that required a pre-created external network. It has been fixed — the network is now created automatically by Docker Compose.
+
+If you still see this on an older version, run:
+
+```bash
+docker network create my-project
+docker compose up -d --build
+```
+
+### "no .env file or directory"
+
+The `docker-compose.yml` expects a `.env` file in the project root. Create it:
+
+```bash
+cp .env.example .env
+# Then edit .env and fill in your GEMINI_API_KEY
+```
+
+### Chatbot returns "not properly configured"
+
+The `GEMINI_API_KEY` in `.env` is missing or invalid. The rest of the site works normally. Get a free key at https://aistudio.google.com/app/apikey and update `.env`, then restart: `docker compose restart fastapi`.
+
+### Port already in use
+
+If port 8000 or 5001 is occupied:
+
+```bash
+# Find what's using the port
+lsof -i :8000
+
+# Or change the port in docker-compose.yml
+# e.g., "8080:8000" to use port 8080 externally
+```
+
+---
+
+## Adding New Content
+
+### Add a new section to the portfolio
 
 1. Create `app/templates/sections/new-section.html`
-2. Include it in `index.html` or individual pages
-3. Add route in `site.py` if needed
+2. Include it in `app/templates/index.html` with `{% include 'sections/new-section.html' %}`
 
-### Creating a New Page
+### Add a new standalone page
 
-1. Create `app/templates/pages/new-page.html`
-2. Extend `base.html`
-3. Include relevant sections
-4. Add route in `site.py`
-
-### Modifying Components
-
-- Changes to `components/header.html` affect all pages
-- Changes to `components/footer.html` affect all pages
-- Base styles in `base.html` are shared across all pages
+1. Create `app/templates/pages/new-page.html` (extend `base.html`)
+2. Add a route in `app/routers/site.py`
 
 ---
 
-## 🔗 Navigation
+## License
 
-The navigation uses proper URLs for better SEO and user experience:
-
-- `/about` instead of `#about`
-- `/tech-stack` instead of `#tech`
-- `/projects` instead of `#projects`
-- `/contact` instead of `#contact`
-
----
-
-# 🤖 Farhan's AI Assistant - AI Assistant for Muhammad Farhan's Portfolio
-
-Farhan's AI Assistant is an intelligent AI chatbot that helps recruiters and visitors learn about Muhammad Farhan's experience, skills, projects, and availability. It can also analyze job descriptions to provide match assessments.
-
----
-
-Thank you for visiting this portfolio repository!
-
+Personal portfolio — not licensed for redistribution.

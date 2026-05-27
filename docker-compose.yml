@@ -1,7 +1,5 @@
 # docker-compose.yml
 
-version: '3.8'
-
 services:
 
   fastapi:
@@ -30,5 +28,4 @@ services:
 
 networks:
   my-project:
-    external: true
-    # driver: bridge
+    driver: bridge

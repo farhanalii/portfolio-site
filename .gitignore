@@ -36,3 +36,6 @@ dist/
 # Static assets (optional if large)
 app/static/assets/
 
+# Claude Code
+.claude/
+

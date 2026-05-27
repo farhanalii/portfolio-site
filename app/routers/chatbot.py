@@ -82,8 +82,8 @@ PERSONAL INFO:
 - Title: Senior Backend Engineer / Senior Python Developer
 - Location: Manchester, United Kingdom (Available globally - Remote/Hybrid)
 - Email: farhan.ali.se@gmail.com
-- Phone: +44 7448321229
-- WhatsApp: https://wa.me/+447448321229
+- Phone: +44 7467 966765
+- WhatsApp: https://wa.me/+447467966765
 - Telegram: @farhanalise
 - Email: farhan.ali.se@gmail.com
 - GitHub: https://github.com/farhanalii
@@ -167,7 +167,7 @@ LINKS:
 - CV Download: https://muhammadfarhan.work/download-cv
 - GitHub: https://github.com/farhanalii
 - LinkedIn: https://linkedin.com/in/farhanalise
-- WhatsApp: https://wa.me/+447448321229
+- WhatsApp: https://wa.me/+447467966765
 - Email: farhan.ali.se@gmail.com
 - Telegram: @farhanalise
 """
@@ -213,11 +213,11 @@ async def chatbot_page(request: Request):
             body {
                 font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
                 background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-                min-height: 100vh;
+                min-height: 100dvh;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                padding: 20px;
+                padding: 16px;
                 position: relative;
                 overflow: hidden;
             }
@@ -240,13 +240,13 @@ async def chatbot_page(request: Request):
                 background: rgba(255, 255, 255, 0.95);
                 backdrop-filter: blur(20px);
                 border-radius: var(--border-radius-xl);
-                box-shadow: 
+                box-shadow:
                     0 25px 50px rgba(0, 0, 0, 0.25),
                     0 0 0 1px rgba(255, 255, 255, 0.1),
                     inset 0 1px 0 rgba(255, 255, 255, 0.2);
                 width: 100%;
-                max-width: 1200px;
-                height: 800px;
+                max-width: 900px;
+                height: min(820px, calc(100dvh - 32px));
                 display: flex;
                 flex-direction: column;
                 overflow: hidden;
@@ -257,77 +257,95 @@ async def chatbot_page(request: Request):
             /* Mobile responsiveness */
             @media (max-width: 768px) {
                 body {
-                    padding: 10px;
+                    padding: 0;
+                    align-items: stretch;
                 }
-                
+
                 .chatbot-container {
-                    height: 100vh;
+                    height: 100dvh;
                     max-width: 100%;
-                    border-radius: var(--border-radius-lg);
+                    border-radius: 0;
                     margin: 0;
                 }
-                
+
                 .chatbot-header {
-                    padding: 15px;
+                    padding: 14px 16px;
                 }
-                
+
                 .chatbot-header h1 {
-                    font-size: 1.5rem;
+                    font-size: 1.4rem;
                 }
-                
+
                 .chatbot-header p {
-                    font-size: 0.9rem;
+                    font-size: 0.85rem;
                 }
-                
+
+                .chat-messages {
+                    padding: 14px;
+                    gap: 12px;
+                }
+
+                .message {
+                    max-width: 90%;
+                    font-size: 0.9rem;
+                    padding: 12px 16px;
+                }
+
                 .chat-input-container {
-                    padding: 15px;
+                    padding: 12px 14px 14px;
                 }
-                
+
                 .chat-input {
-                    min-height: 50px;
-                    max-height: 150px;
+                    min-height: 46px;
+                    max-height: 130px;
                     font-size: 0.9rem;
+                    padding: 12px 14px;
                 }
-                
+
                 .send-button {
-                    padding: 12px 20px;
+                    padding: 11px 18px;
                     font-size: 0.9rem;
-                    min-width: 80px;
+                    min-width: 72px;
                 }
-                
+
                 .chat-input-wrapper {
                     gap: 8px;
                 }
             }
-            
+
             @media (max-width: 480px) {
-                .chatbot-container {
-                    height: 100vh;
-                    border-radius: 0;
-                }
-                
                 .chatbot-header {
-                    padding: 12px;
+                    padding: 12px 14px;
                 }
-                
+
                 .chatbot-header h1 {
-                    font-size: 1.3rem;
+                    font-size: 1.2rem;
                 }
-                
-                .chat-input-container {
+
+                .chatbot-avatar {
+                    width: 40px;
+                    height: 40px;
+                    font-size: 1.2rem;
+                    left: 14px;
+                    top: 14px;
+                }
+
+                .chat-messages {
                     padding: 12px;
                 }
-                
+
+                .chat-input-container {
+                    padding: 10px 12px 12px;
+                }
+
                 .chat-input {
-                    min-height: 45px;
-                    max-height: 120px;
                     font-size: 0.85rem;
                 }
-                
+
                 .send-button {
-                    padding: 10px 16px;
+                    padding: 10px 14px;
                     font-size: 0.85rem;
-                    min-width: 70px;
+                    min-width: 64px;
                 }
             }
             
@@ -648,17 +666,6 @@ async def chatbot_page(request: Request):
                 }
             }
             
-            @media (max-width: 768px) {
-                .chatbot-container {
-                    height: 100vh;
-                    max-width: none;
-                    border-radius: 0;
-                }
-                
-                .message {
-                    max-width: 90%;
-                }
-            }
         </style>
     </head>
     <body>

@@ -164,7 +164,7 @@ class FarhanBotWidget {
                 background: rgba(255, 255, 255, 0.95);
                 backdrop-filter: blur(20px);
                 border-radius: 20px;
-                box-shadow: 
+                box-shadow:
                     0 25px 50px rgba(0, 0, 0, 0.25),
                     0 0 0 1px rgba(255, 255, 255, 0.1),
                     inset 0 1px 0 rgba(255, 255, 255, 0.2);
@@ -172,7 +172,6 @@ class FarhanBotWidget {
                 flex-direction: column;
                 border: 2px solid rgba(0, 212, 255, 0.3);
                 overflow: hidden;
-                position: relative;
             }
             
             .farhanbot-chat::before {
@@ -486,16 +485,51 @@ class FarhanBotWidget {
                 transform: translateY(-1px);
             }
             
-            @media (max-width: 768px) {
-                .farhanbot-chat {
-                    width: calc(100vw - 40px);
-                    height: 60vh;
-                    bottom: 80px;
-                    right: 20px;
+            @media (max-width: 600px) {
+                #farhanbot-widget {
+                    bottom: 12px;
+                    right: 12px;
                 }
-                
+
+                .farhanbot-chat {
+                    position: fixed !important;
+                    bottom: 76px;
+                    right: 12px;
+                    left: 12px;
+                    width: auto;
+                    height: 70vh;
+                    max-height: 560px;
+                    border-radius: 16px;
+                }
+
+                .farhanbot-messages {
+                    padding: 14px;
+                    gap: 10px;
+                    min-height: unset;
+                }
+
                 .farhanbot-message {
-                    max-width: 90%;
+                    max-width: 92%;
+                    font-size: 13px;
+                    padding: 9px 12px;
+                }
+
+                .farhanbot-input-container {
+                    padding: 10px 12px 12px;
+                }
+
+                .farhanbot-input {
+                    font-size: 13px;
+                    padding: 9px 10px;
+                }
+
+                .farhanbot-toggle {
+                    padding: 11px 14px;
+                    font-size: 13px;
+                }
+
+                .farhanbot-label {
+                    display: none;
                 }
             }
         `;
